@@ -1,0 +1,126 @@
+<include file="App/Home/View/Public/header.html"/>
+<style>
+.coin_num td input{
+border: 1px solid #3299ff;
+color: white;
+border-radius: 3px;
+width: 80px;
+height: 30px;
+margin: 5px;
+cursor: pointer;
+background-color: #3299ff;
+}
+.coin_num td input:hover{
+border: 1px solid #3299ff;
+border-radius: 3px;
+width: 80px;
+height: 30px;
+margin: 5px;
+cursor: pointer;
+color:#FFF;
+background-color:#3299ff;
+}
+
+.coinarea .coin_list tbody tr td {
+    text-align: center;
+}
+.coinarea .coin_list tbody tr td a {
+    display: inline-table;
+}
+</style>
+    <!--top end-->
+    <link rel="shortcut icon" href="http://www.jubi.com/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/jb_font-awesome.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">                                         
+</head>
+<body>
+<div id="main">
+	<div class="main_box">
+      <!--币币交易开始-->
+      <div id="tags_coin" class="coinarea left" style="position:relative;">
+		<!--<ul id="tags" class="for_coin">
+			<li class="selectTag"><a onmouseover="selectTag('tagContent0',this)">对CNY交易区</a></li>
+			<li><a onmouseover="selectTag('tagContent3',this)">对TRMB交易区</a></li>
+            </ul>
+		-->
+		<div class="bgcolor" style="display:none;"></div>
+		<div style="" id="tagContent">
+		<!-- 对CNY交易区 结束-->
+		<div class="tagContent selectTag" id="tagContent0">
+
+		<table class="coin_list coinarea" border="0" cellpadding="0" cellspacing="0">
+			<thead>
+                <tr>
+					<th class="header">序号</th>
+					<th class="header">币种</th>
+                    <th class="header">名称</th>
+					<th class="header">投票币种</th>
+                    <th class="header">赞成票</th>
+                    <th class="header">反对票</th>
+					<th class="header">总得分</th>
+                    <th class="header">团队信息</th>
+                    <th class="header">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+                <volist name='lists' id='vo' empty='$empty'>
+                    <tr class="coin_num">
+                    	<td >{$vo.id}</td>
+                        <td>{$vo.cur}</td>
+                        <td>{$vo.cur_name}</td>
+                        <td>{$vo.currency_id|getCurrencynameByCurrency}</td>
+                        <td>{$vo['sup_num']}</td>
+                        <td>{$vo['opp_num']}</td>
+                        <td>{$vo['sup_num']+$vo['opp_num']}</td>
+                        <td><a style="color:blue;" href="{$vo['team_url']}" target="_blank">{$vo['team_name']}</a></td>
+                        <td>
+                        	<a style="color:green;" href="javascript:;" onclick="vote('{$vo.id}',1,'{$vo.vote_money}','{$vo.currency_id|getCurrencynameByCurrency}');">赞成</a>
+                        	
+                        	<a style="color:red;" href="javascript:;" onclick="vote('{$vo.id}',0,'{$vo.vote_money}','{$vo.currency_id|getCurrencynameByCurrency}');">反对</a>
+                        </td>
+                    </tr>
+                </volist>
+			</tbody>
+		</table>
+		
+		</div>
+            <div style="width: 1200px; clear: both; margin: 0px auto;">
+                <div class="page" style="min-width: 250px !important;margin-left: 500px;">
+                    {$page}
+                </div>
+            </div>
+	</div>
+    </div>
+	  <!--币币交易结束-->
+<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+	</div>
+    <script>
+    function vote(id,type,num,name){
+       layer.confirm('投票需要扣除'+num+'个'+name+',您确认投票吗？', {
+          btn: ['确定','取消'], //按钮
+          title: '投票提示'
+        }, function(){
+            $.post("{:U('user_vote')}",{id:id,type:type},function(data){
+                if (data.status==1) {
+                    layer.msg(data.info,function(){
+                        window.location.reload();
+                    });
+                }else{
+                    layer.msg(data.info);
+                }
+                        
+            })
+        }, function(){
+          layer.msg('已取消');
+        });
+    }
+    
+</script>
+<!--footer start-->
+<include file="App/Home/View/Public/footer.html"/>
+<!--footer end-->
+
+	
+    

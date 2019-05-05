@@ -1,0 +1,45 @@
+<include file="Public:header"/>
+<body >
+
+<div>
+    <header>
+        <div class="gwc_bt">
+            <div class="gwcbt_fh"><a href="javascript:history.back()" class="gwcdd_fh"></a></div>
+            <div class="gwcbt_mc">团队信息</div>
+        </div>
+        <div style="height: .74rem;clear: both;"></div>
+    </header>
+    <div class="tdxx">
+        <div class="">
+            <dl>
+                <dd class="tdxx_menu">
+                    <ul>
+                        <li style="width: 25%">用户名</li>
+                        <li style="width: 25%">手机号</li>
+                        <li>会员类型</li>
+                        <li style="width: 15%">次数</li>
+                        <li style="width: 15%">星星</li>
+                    </ul>
+                </dd>
+                <volist name="list" id="vo">
+                    <dd>
+                        <ul>
+                            <li  style="width: 25%">{$vo.username}</li>
+                            <li style="width: 25%">{$vo.phone}</li>
+                            <li><if condition="$vo['is_pay_deposit'] eq 1">
+                                任务执行者
+                                <else />
+                                非任务执行者
+                            </if></li>
+                            <li style="width: 15%">{$vo.fg_num}</li>
+                            <li style="width: 15%">{$vo.stars}</li>
+                        </ul>
+                    </dd>
+                </volist>
+            </dl>
+        </div>
+    </div>
+
+</div>
+<include file="Public:footer"/>
+

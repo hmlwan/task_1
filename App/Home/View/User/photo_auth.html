@@ -1,0 +1,69 @@
+<include file="App/Home/View/Public/header.html"/>
+<style>
+.coin_footer{background-color:#f8f8f8;}
+.box p{line-height:30px;}
+.photo-ul li{display:inline-block;width:33%;}
+.photo-ul li p img {width:250px;height:250px;}
+.button{width:100px;height:30px;line-height:30px;background-color: #3299ff;cursor:pointer;font-size:14px;}
+</style>
+<div id="main">
+	<div class="main_box">
+		<include file="App/Home/View/Public/left.html"/>
+        <div class="raise right clearfix">
+			<h2 style="text-align:center;color:red;">KYC2认证</h2>
+			<div style="border-top:1px solid #ccc;border-bottom:1px solid #ccc" class="box">
+				<p style="color:red;padding-left:30px;font-size:14px;">1. 照片文件大小不能超过4M！文件格式须为jpg或者png！</p>
+				<p style="color:red;padding-left:30px;font-size:14px;">2. 请确保照片无水印，无污渍，身份信息清晰，头像完整，非文字反向照片！照片请勿进行PS处理</p>
+				<p style="color:red;padding-left:30px;font-size:14px;">3. 手持身份证照片：需要您本人一只手持您的身份证，另一只手持一张有您手写的账号ID的白纸。确保身份证和白纸在您的胸前，不遮挡您的脸部，并且身份证和白纸上的信息清晰可见！
+以下图片仅作为示例，请提交您本人的身份材料照片。照片勿进行PS处理！</p>
+				<p style="padding-left:30px;font-size:14px;">注意事项3：</p>
+			</div>
+			<form action="/Home/User/photo_auth" method="post" enctype="multipart/form-data">
+			<div>
+				<ul class="photo-ul">
+					<li>
+						<p style="line-height:30px;font-size:14px;color:red;">请上传身份证正面照片</p>
+						<p>照片要求:身份证信息清晰可见</p>
+						<p>
+							<img src="/Public/Home/images/zheng.jpg"/>
+						</p>
+						<p>
+							<input type="file" name="photo_zheng"/>
+						</p>
+					</li>
+					<li>
+						<p style="line-height:30px;font-size:14px;color:red;">请上传身份证反面照片</p>
+						<p>照片要求:身份证信息清晰可见</p>
+						<p>
+							<img src="/Public/Home/images/fan.jpg"/>
+						</p>
+						<p>
+							<input type="file" name="photo_fan"/>
+						</p>
+					</li>
+					<li>
+						<p style="line-height:30px;font-size:14px;color:red;">请上传身份证手持照片</p>
+						<p>照片要求:身份证信息清晰可见</p>
+						<p>
+							<img src="/Public/Home/images/shouchi.jpg"/>
+						</p>
+						<p>
+							<input type="file" name="photo_hand"/>
+						</p>
+					</li>
+				</ul>
+			</div>
+			<div style="margin-top:20px;">
+				<input type="submit" class="button" value="点击提交"/>
+			</div>
+			</form>
+        </div>
+        <div class="clear"></div>
+    </div>
+	<script>
+	
+	</script>
+    <script>
+$(".menu9").addClass("uc-current");
+</script>
+<include file="App/Home/View/Public/footer.html"/>

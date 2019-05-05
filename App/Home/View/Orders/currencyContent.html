@@ -1,0 +1,69 @@
+<include file="App/Home/View/Public/header.html"/>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/kline.css">
+<script src="__PUBLIC__/Home/js/jquery-1.js"></script>
+<script src="__PUBLIC__/Home/js/kline.js"></script>
+<script src="__PUBLIC__/Home/js/highstock.js"></script>
+<!--<script src="__PUBLIC__/Home/js/coinindex.js"></script>-->
+
+
+<script>
+$(function() {
+	$.get("/Home/Orders/getOrdersKline",{"currency":$("#currency_id").val(),"time":"kline_1h"},function(orders){
+        kline($("#currency_mark").html()+"2"+$("#currency_trade_mark").html(),orders.kline_1h);
+
+	});
+	
+	$("#chart-control > button").click(function(){
+		$(this).addClass("btn-success").siblings().removeClass("btn-success");
+			 var time = $(this).attr('data-time');
+			 $.get("/Home/Orders/getOrdersKline",{"currency":$("#currency_id").val(),"time":time},function(orders){
+			 kline($("#currency_mark").html()+"2"+$("#currency_trade_mark").html(),orders[time]);
+		});
+	});
+});
+</script>
+<script src="__PUBLIC__/Home/js/kline.js"></script>
+<style>
+	.my_coin ul li{ font-size:12px; width:145px; height:24px; overflow:hidden;}
+</style>
+<div id="main" style="background:#fbfaf8; padding-top:0;">
+  <div class="total_top" style="margin-bottom: 20px;">
+    <div class="price">
+      <img style=" float:left; width:50px; height:50px; padding-right:10px;" src="{$currency.currency_logo}" />
+      <div class="left coin_coin">{$currency.currency_name|default="虚拟币"} 对{$currency_trade.currency_name|default="人民币"} <br>
+        <span id="currency_mark">{$currency.currency_mark|default="XNB"}</span> /<span id="currency_trade_mark"> {$currency_trade.currency_mark|default="CNY"}</span></div>
+      <ul class="right now_price">
+        <li>最新价<br>
+          <span class="money" id="new_price">{$currency_message.new_price|default="0.000"}</span></li>
+        <li>买一价 / 卖一价<br>
+          <span id="24h_sell">{$currency_message.buy_one_price|default="0.000"}</span><span> / </span><span id="24h_buy">{$currency_message.sell_one_price|default="0.000"}</span></li>
+        <li>最高价 / 最低价<br>
+          <span id="24h_max">{$currency_message.todaymosthign.price|default="0.000"}</span><span> / <span><span id="24h_min">{$currency_message.todaymostlow.price|default="0.000"}</span></span></span></li>
+        <li>24H成交量<br>
+          <span id="24h_count">{$currency_message.24H_done_num|default="0.000"}</span></li>
+      </ul>
+      <div class="clear"></div>
+    </div>
+  </div>
+  
+  <p style="width: 1000px; margin:0 auto;color: red; font-size: 14px; margin-bottom: 10px;"> {$config.name|default="币时代"}友情提示：请控制风险，不要投入超过您风险承受能力的资金，不要投资您所不了解的数字货币，拒绝传销组织，警惕虚假宣传。 <span class="kstyle-btn"> <span id="k-pro" style="margin-left: -4px;"><!--<a  target="_blank" style="color: #666;text-decoration: none">专业版K线图</a>--></span> </span> </p><div class="main_box">
+    <!--普通-->
+	<style>
+	.b_ys{ font-size:16px; line-height:50px; margin-left:50px; text-decoration:none;}
+	.b_ys:hover{ color:#f60;text-decoration:none;}
+	</style>
+	<div style="1000px; margin-left:auto; margin-right:auto; height:50px; background-color:#FFF; border:1px solid #e2e2e2;">
+	<a  class="b_ys" href="{:U('Orders/index',array('currency'=>$currency['currency_mark']))}">交易{$currency.currency_name|default="虚拟币"}</a>
+	<a  class="b_ys" href="{:U('Orders/currencyContent',array('currency'=>$currency['currency_mark']))}">了解{$currency.currency_name|default="虚拟币"}</a>
+	</div>
+    
+	  
+      </div>
+  <div class="main_box" style="background-color:#FFFFFF;"> 
+   	{$currency.currency_content|default="此货币暂无详情"}
+ </div>
+  <div class="clear"></div>
+</div>
+<format id="price_float" data="3"></format>
+<!--footer start--> 
+<include file="App/Home/View/Public/footer.html"/> 

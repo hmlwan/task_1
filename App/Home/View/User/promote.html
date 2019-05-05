@@ -1,0 +1,34 @@
+<span class="rightTitle">邀请好友</span>
+
+<p>
+    <span>推荐侗红实业共享创业网（www.donghong100.cn）给其他人，可以获取被推荐人交易手续费做为佣金，躺着也挣钱！</span>
+    <span class="orangeColor">注：佣金时时累计，结算为每月月初统一结算。</span>
+</p>
+
+<ul class="myfriend_cumulative">
+    <li class="myfriend_cumulative_left">
+        <span>累计邀请佣金折合：</span>
+        <span class="redColor">{$money}元</span>
+        <a class="getPromoteMoneyCount">查看明细</a>
+    </li>
+    <li class="myfriend_cumulative_right">
+        <span>累计邀请人数：</span>
+        <span class="redColor">{$count}人</span>
+        <a class="getPromotePersonCount">查看明细</a>
+    </li>
+</ul>
+
+<div class="cumulative_methodPanel">
+
+    <div class="cumulative_method1">
+        <p class="method1Title">邀请方法: 复制您的专属邀请地址给您的好友</p>
+        <p class="method1HrefTitle">您的专属邀请地址:</p>
+        <span class="hrefValue" id="url" name="url">http://{$_SERVER['SERVER_NAME']}{:U('Reg/reg',array('Member_id'=>session('USER_KEY_ID')))}</span>
+        <a id="copy" data-clipboard-action="copy" data-clipboard-target="#url">复制</a>
+    </div>
+
+    
+
+</div>
+
+

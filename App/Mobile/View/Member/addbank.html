@@ -1,0 +1,66 @@
+<include file="Public:header"/>
+<body>
+<div>
+    <header>
+        <div class="gwc_bt">
+            <div class="gwcbt_fh"><a href="javascript:history.back()" class="gwcdd_fh"></a></div>
+            <div class="gwcbt_mc">银行卡信息</div>
+        </div>
+        <div style="height: .74rem;clear: both;"></div>
+    </header>
+    <div class="yhkxx xgmm">
+        <div>
+            <label for="">银行</label>
+            <input type="text" name="bankname" value="{$info.bankname}" <if condition="$info['bankname']">readonly</if>   placeholder="请输入银行"/>
+        </div>
+        <div>
+            <label for="">用户名</label>
+            <input type="text" name="cardname" value="{$info.cardname}"  placeholder="请输入用户名" />
+        </div>
+        <div>
+            <label for="">卡号</label>
+            <input type="text" name="cardnum" value="{$info.cardnum}" placeholder="请输入卡号" />
+        </div>
+        <input type="hidden" name="id" value="{$info.id}">
+        <div class="confirm_btn" onclick="sub()">确&nbsp;认</div>
+    </div>
+</div>
+<script>
+    function sub(){
+
+        var bankname = $("input[name='bankname']").val();
+        var cardname = $("input[name='cardname']").val();
+        var cardnum = $("input[name='cardnum']").val();
+        var id = $("input[name='id']").val();
+
+        if(bankname == ""||bankname == null){
+            layer.msg('请输入银行名称');
+            return false;
+        }
+        if(cardname == ""||cardname == null){
+            layer.msg('请输入用户名');
+            return false;
+        }
+        if(cardnum == ""||cardnum == null){
+            layer.msg('请输入卡号');
+            return false;
+        }
+        $.post("{:U('Member/addbank')}",{
+            bankname:bankname,
+            cardname:cardname,
+            cardnum:cardnum,
+            id:id,
+        },function(data){
+            if(data.status==1){
+                layer.msg(data.info,{icon:1});
+                window.location="/Mobile/Member/banklist";
+            }else{
+                layer.msg(data.info);
+                return false;
+            }
+        })
+    };
+
+</script>
+<include file="Public:footer"/>
+

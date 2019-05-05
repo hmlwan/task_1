@@ -1,0 +1,76 @@
+<include file="Public:header"/>
+<body>
+<div  class="d_line">
+    <header>
+        <div class="gwc_bt">
+            <div class="gwcbt_fh"><a href="javascript:history.back()" class="gwcdd_fh"></a></div>
+            <div class="gwcbt_mc">收款详情</div>
+        </div>
+        <div style="height: .96rem;clear: both;"></div>
+    </header>
+    <div class="qdxq">
+        <div class="qrcode">
+            <p>
+                <switch name="info['status']">
+                    <case value="0">匹配中</case>
+                    <case value="1">成功</case>
+                    <case value="2">等待收款</case>
+                    <case value="3">收款失败</case>
+                </switch>
+            </p>
+            <img src="{$info.img}" alt="暂无凭证">
+        </div>
+        <div class="qdxq_item">
+            <span class="qdxq_left">任务标题</span>
+            <span class="qdxq_right">
+                <if condition="$info['task_id'] gt 0">
+                    {$info.task_title}
+                <else />
+                    系统匹配
+                </if>
+            </span>
+        </div>
+        <div class="qdxq_item">
+            <span class="qdxq_left">交易类型</span>
+            <span class="qdxq_right">收款</span>
+        </div>
+
+        <div class="qdxq_item">
+            <span class="qdxq_left">匹配者</span>
+            <span class="qdxq_right">{$info.fk_name}</span>
+        </div>
+        <div class="qdxq_item">
+            <span class="qdxq_left">交易金额</span>
+            <span class="qdxq_right">{$info.reward}</span>
+        </div>
+        <div class="qdxq_item">
+            <span class="qdxq_left">佣金</span>
+            <span class="qdxq_right">{$info.commision}</span>
+        </div>
+        <div class="qdxq_item">
+            <span class="qdxq_left">创建时间</span>
+            <span class="qdxq_right">{$info.create_time|date="Y-m-d H:i:s",###}</span>
+        </div>
+        <if condition="$info['status'] eq 2 ">
+            <div class="sk_btn">
+                <span class="sk_btn_confirm" onclick="sub({$info.id},1)">确&nbsp;认</span>
+                <span class="sk_btn_concel" onclick="sub({$info.id},3)">拒&nbsp;绝</span>
+            </div>
+        </if>
+    </div>
+</div>
+<script>
+
+    function sub(id,status) {
+        $.post("{:U('Trade/confirm_sk')}",
+            {'id':id,status:status},function(d){
+                if(d.status == 1){
+                    layer.msg(d.info,{icon:1});
+                }else{
+                    layer.msg(d.info);
+                }
+            });
+    }
+
+</script>
+<include file="Public:footer"/>

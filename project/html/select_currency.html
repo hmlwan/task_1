@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择币种</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/wallet.css">
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+//                    docEl.style.fontSize = 100*(clientWidth/980) + 'px';
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+<header class="subHeader wallet_header" id="select_cur">
+    <a href="javascript:history.back()"></a>选择币种<span>取消</span>
+</header>
+<div class="select_cur">
+    <dl>
+        <dd>
+            <div>
+                <i></i>
+                <h2>YL</h2>
+                <span>1500.000&nbsp;
+                    <em></em>
+                </span>
+            </div>
+        </dd>
+        <dd>
+            <div>
+                <i></i>
+                <h2>YL</h2>
+                <span>1500.000&nbsp;
+                    <em class="active"></em>
+                </span>
+            </div>
+        </dd>
+    </dl>
+</div>
+
+
+</body>
+</html>

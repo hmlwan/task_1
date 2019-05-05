@@ -1,0 +1,74 @@
+<include file="App/Home/View/Public/header.html"/>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/kline.css">
+<script src="__PUBLIC__/Home/js/jquery-1.js"></script>
+<script src="__PUBLIC__/Home/js/highstock.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/js/tab2.js"></script>
+<style>
+td{
+border-bottom:1px solid #f1f1f1;
+}
+</style>
+<div id="main">
+	<div class="main_box">
+		<include file="App/Home/View/Public/left.html"/>
+		<div class="raise right clearfix">
+            <div class="ybc_list">
+           <!--  <h2>集市交易 &nbsp;&nbsp;&nbsp;<a href="{:U('Trade/myDeal')}" class=" my_coin_trade">成交记录</a></h2> -->
+	<ul id="pass_change1">
+        <li class=""><a onclick="selectTag('tagContent0',this)" href="{:U('Trade/jishitrade')}">市场</a> </li>
+        <li class=""><a onclick="selectTag('tagContent2',this)" href="{:U('Trade/shichangtrade')}">市场交易</a> </li>
+        <li class=""><a onclick="selectTag('tagContent1',this)" href="{:U('Trade/chengjiao')}">成交记录</a></li>
+        <li class="selectTag titleStyle"><a onclick="selectTag('tagContent1',this)" href="{:U('Trade/jiangli')}">集市奖励</a></li>
+        <div class="clear"></div>
+    </ul>
+    
+          </div>
+          
+           <!--  筛选条件开始-->
+          <form method='post' action="{:U('Trade/chengjiao')}">
+	          <h2 style="float:left;">我的奖励
+	          </h2>
+          </form>
+          <!-- 筛选条件结束 -->
+          <!-- 记录开始 -->
+         
+      <table width="100%" class="raise_list" >
+            <tbody class=''>
+              <tr>
+                            <th>奖励币种</th>
+                            <th>奖励金额</th>
+                            <th>内容</th>
+                            <th>时间</th>
+              </tr>
+              
+              <notempty  name='list'>
+              	<foreach name='list' item='v'>
+                <tr>
+                            
+                            <td>人民币</td>
+                            <td>{$v.money}</td>
+                            <td>{$v.note}</td>
+                            <td>{$v['time']|date='Y-m-d H:i:s',###}</td>	                     
+				</tr>
+                </foreach>
+               
+              </notempty>
+              
+            </tbody>
+          </table>
+	        <div class="page" style=" min-width:200px !important; float:center;">
+	                    {$page}
+	        </div>
+      
+      </div>
+      <!--  记录结束-->
+    </div>
+      <div class="clear"></div>
+  </div>
+<script>
+$(".menu100").addClass("uc-current");
+</script>  
+<!--footer start-->
+<include file="App/Home/View/Public/footer.html"/>
+<!--footer end-->
+

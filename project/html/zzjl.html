@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>转账纪录</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/wallet.css">
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+//                    docEl.style.fontSize = 100*(clientWidth/980) + 'px';
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body id="zzjl_page">
+<header class="subHeader wallet_header">
+    <a href="javascript:history.back()"></a>转账纪录
+</header>
+
+<div id="zzjl" class="bottom_height">
+    <dl>
+        <dd>
+            <div class="jl_con">
+                <i class="zc"></i>
+                <div class="jl_top"><h2>YLHR27RG9X9WA7RF7V5IR6</h2><span>-7335.000</span></div>
+                <div class="jl_bottom"><h2>2018/12/25</h2><span>已转出</span></div>
+            </div>
+        </dd>
+        <dd>
+            <div class="jl_con">
+                <i class="zr"></i>
+                <div class="jl_top"><h2>YLHR27RG9X9WA7RF7V5IR6</h2><span>+73355.888</span></div>
+                <div class="jl_bottom"><h2>2018/12/25</h2><span>已转入</span></div>
+            </div>
+        </dd>
+        <dd>
+            <div class="jl_con">
+                <i class="zr"></i>
+                <div class="jl_top"><h2>YLHR27RG9X9WA7RF7V5IR6</h2><span>+73355.888</span></div>
+                <div class="jl_bottom"><h2>2018/12/25</h2><span>已转入</span></div>
+            </div>
+        </dd>
+        <dd>
+            <div class="jl_con">
+                <i class="zr"></i>
+                <div class="jl_top"><h2>YLHR27RG9X9WA7RF7V5IR6</h2><span>+73355.888</span></div>
+                <div class="jl_bottom"><h2>2018/12/25</h2><span>已转入</span></div>
+            </div>
+        </dd>
+        <dd>
+            <div class="jl_con">
+                <i class="zr"></i>
+                <div class="jl_top"><h2>YLHR27RG9X9WA7RF7V5IR6</h2><span>+73355.888</span></div>
+                <div class="jl_bottom"><h2>2018/12/25</h2><span>已转入</span></div>
+            </div>
+        </dd>
+        <dd>
+            <div class="jl_con">
+                <i class="zr"></i>
+                <div class="jl_top"><h2>YLHR27RG9X9WA7RF7V5IR6</h2><span>+73355.888</span></div>
+                <div class="jl_bottom"><h2>2018/12/25</h2><span>已转入</span></div>
+            </div>
+        </dd>
+        <dd>
+            <div class="jl_con">
+                <i class="zr"></i>
+                <div class="jl_top"><h2>YLHR27RG9X9WA7RF7V5IR6</h2><span>+73355.888</span></div>
+                <div class="jl_bottom"><h2>2018/12/25</h2><span>已转入</span></div>
+            </div>
+        </dd>
+        <dd>
+            <div class="jl_con">
+                <i class="zc"></i>
+                <div class="jl_top"><h2>YLHR27RG9X9WA7RF7V5IR6</h2><span>+73355.888</span></div>
+                <div class="jl_bottom"><h2>2018/12/25</h2><span>已转入</span></div>
+            </div>
+        </dd>
+    </dl>
+</div>
+<div id="zz_op">
+    <div>
+        <a href="" class="sk">收款</a>
+        <a href="" class="zz">转账</a>
+    </div>
+</div>
+</body>
+</html>

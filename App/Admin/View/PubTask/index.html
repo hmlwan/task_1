@@ -1,0 +1,85 @@
+<include file="App/Admin/View/Public/left.html"/>
+<!--/sidebar-->
+
+<div class="main-wrap">
+
+    <div class="crumb-wrap">
+        <div class="crumb-list"><i class="icon-font"></i><a href="{:U('Index/index')}">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">任务列表</span></div>
+    </div>
+    <div class="search-wrap">
+
+    </div>
+    <div class="result-wrap">
+
+        <div class="result-title">
+            <div class="result-list">
+                <a href="{:U('PubTask/add')}#6#0"><i class="icon-font"></i>新增发布任务</a>
+            </div>
+        </div>
+        <div class="result-content">
+            <table class="result-tab" width="100%">
+                <tr>
+
+                    <th>ID</th>
+                    <th>发布任务标题</th>
+                    <th>简介</th>
+                    <th>任务logo</th>
+                    <th>酬金</th>
+                    <th>排序</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+                <volist name='info' id='vo'>
+                    <tr>
+                        <td>{$vo['id']}</td>
+                        <td>{$vo['title']}</td>
+                        <td>{$vo['introduce']}</td>
+                        <td>
+                            <img src="{$vo['logo_img']}" style="height: 80px;width: 80px" alt="">
+                        </td>
+                        <td>{$vo['reward']}</td>
+                        <td>{$vo['sort']}</td>
+                        <td><if condition="$vo['status'] eq 1">
+                                开启
+                            </if>
+                            <if condition="$vo['status'] eq 0">
+                                关闭
+                            </if>
+                        </td>
+                        <td>
+                            <a class="link-update" href="{:U('PubTask/save#6#0',array('id'=>$vo['id']))}#13#0">修改|</a>
+                            <a href="javascript:void(0)" class="link-del" onclick="cexiao({$vo.id})">删除</a>
+                        </td>
+                    </tr>
+                </volist>
+
+            </table>
+            <div class="list-page"> <ul>{$page}</ul></div>
+        </div>
+
+    </div>
+</div>
+<!--/main-->
+</div>
+</body>
+</html>
+<script>
+    function cexiao(_this){
+        layer.confirm('确定删除吗？', {
+            btn: ['确定','取消'], //按钮
+            title: '撤销删除'
+        }, function(){
+            $.post('{:U('PubTask/del')}',{id:_this},function(data){
+                if(data['status'] == 1){
+                    layer.msg(data['info']);
+                    setTimeout(function(){location.reload();},1000);
+                }else{
+                    layer.msg(data['info']);
+                }
+            })
+        }, function(){
+            layer.msg('已取消');
+        });
+
+    }
+</script>

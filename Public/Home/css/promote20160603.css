@@ -1,0 +1,223 @@
+body {
+  background-color: #f5f5f5;
+  color: #333;
+}
+ul {
+  list-style-type: none;
+}
+.redColor {
+  color: #ff7878;
+}
+.orangeColor {
+  color: #ff8400;
+}
+.grayColor {
+  color: #888888;
+}
+.blInput {
+  padding: 5px;
+  height: 25px;
+  border-radius: 4px;
+  border: 1px solid #eeeeee;
+  box-shadow: none;
+  width: 300px;
+}
+.btn_big {
+  height: 41px;
+  width: 345px;
+}
+.blBtn {
+  background: #3299ff;
+  border: 1px solid #3299ff;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0px !important;
+  border-radius: 4px;
+}
+.blBtn:hover {
+  background: #3299E1;
+}
+a {
+  color: #1688d0;
+  cursor: pointer;
+}
+.promotePanel {
+  margin-left: 80px;
+  margin-right: 80px;
+}
+.promotePanel .promotePanel_header {
+  text-align: center;
+  font-size: 12px;
+  background-color: #fffaf4!important;
+  color: #FF7878;
+  height: 30px;
+  line-height: 30px;
+}
+.promotePanel .promotePanel_body {
+  position: relative;
+  min-height: 620px;
+  margin-top: 20px;
+}
+.promotePanel .promotePanel_body > div {
+  display: inline-block;
+}
+.promotePanel .promotePanel_body .body_left {
+  position: absolute;
+  height: 100%;
+  background-color: white;
+}
+.promotePanel .promotePanel_body .body_left ul {
+  margin: auto;
+  width: 210px;
+  padding: 0;
+}
+.promotePanel .promotePanel_body .body_left ul li {
+  height: 50px;
+  line-height: 50px;
+  cursor: pointer;
+  padding-left: 30px;
+}
+.promotePanel .promotePanel_body .body_left ul li:first-child {
+  font-size: 20px;
+}
+.promotePanel .promotePanel_body .body_left ul li:hover {
+  color: #ff7878;
+}
+.promotePanel .promotePanel_body .body_left ul li.active {
+  background-color: #3299ff;
+  color: white;
+}
+.body_right {
+  float: right;
+  width: 80%;
+  background-color: white;
+}
+.body_right > button {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.body_right .rightTitle {
+  font-size: 20px;
+}
+.body_right > p {
+  display: block;
+}
+.body_right > p .orangeColor {
+  display: block;
+  margin-top: 10px;
+}
+.body_right > p .grayColor {
+  display: block;
+  font-size: 12px;
+  margin-top: 20px;
+}
+.body_right .myfriend_cumulative {
+  display: block;
+  padding: 20px;
+  border: 1px solid #ffe5bf;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.body_right .myfriend_cumulative > li {
+  display: inline-block;
+  width: 48%;
+}
+.body_right .myfriend_cumulative .promoteMoneyList {
+  display: block;
+  margin-top: 10px;
+  width: 100%;
+  margin-bottom: -10px;
+}
+.body_right .myfriend_cumulative .promoteMoneyList > p {
+  width: 20%;
+  display: inline-block;
+}
+.body_right .cumulative_methodPanel {
+  margin-left: 20px;
+  display: block;
+  margin-right: 20px;
+  border: 1px solid #eeeeee;
+  position: relative;
+}
+.body_right .cumulative_methodPanel .cumulative_method1 {
+  margin-bottom: 20px;
+}
+.body_right .cumulative_methodPanel .cumulative_method1:before {
+  content: '';
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  display: inline-block;
+  background-color: #eeeeee;
+  left: 0px;
+  top: 95px;
+}
+.body_right .cumulative_methodPanel .cumulative_method1 > p {
+  font-size: 12px;
+}
+.body_right .cumulative_methodPanel .cumulative_method1 .method1Title {
+  color: #888;
+}
+.body_right .cumulative_methodPanel .cumulative_method1 .method1HrefTitle {
+  display: inline-block;
+  margin-top: 0px;
+  font-size: 14px;
+}
+.body_right .cumulative_methodPanel .cumulative_method1 .hrefValue {
+  color: #ff7878;
+}
+.body_right .cumulative_methodPanel .cumulative_method2 {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.body_right .cumulative_methodPanel .cumulative_method2 > p {
+  font-size: 12px;
+}
+.body_right .cumulative_methodPanel .cumulative_method2 .method2Title {
+  color: #888;
+}
+.body_right .cumulative_methodPanel .cumulative_method2 .method2HrefTitle {
+  display: inline-block;
+  margin-top: 0px;
+  font-size: 14px;
+}
+.body_right .cumulative_methodPanel .cumulative_method2 .method2HrefTitle > img {
+  width: 150px;
+  height: 150px;
+}
+.body_right .cumulative_methodPanel .cumulative_method2 .hrefValue {
+  color: #ff7878;
+}
+.body_right .cumulativeTablePanel {
+  display: block;
+  min-height: 200px;
+  margin-right: 20px;
+}
+.body_right .cumulativeTablePanel > table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+.body_right .cumulativeTablePanel > table colgroup col {
+  width: 25%;
+}
+.body_right .cumulativeTablePanel > table thead {
+  background-color: #f5f5f5;
+  height: 30px;
+  line-height: 30px;
+  font-size: 12px;
+}
+.body_right .cumulativeTablePanel > table thead tr th {
+  font-weight: normal;
+}
+.body_right .cumulativeTablePanel > table tbody {
+  text-align: center;
+}
+.body_right > * {
+  padding-left: 20px;
+  padding-top: 20px;
+  display: inline-block;
+  font-size: 14px;
+}

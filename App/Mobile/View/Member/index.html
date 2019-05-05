@@ -1,0 +1,118 @@
+<include file="Public:header"/>
+<body>
+<div style="background-color:#f8f8f8 ">
+    <header>
+        <div class="gwc_bt">
+            <div class="gwcbt_fh"><a href="javascript:history.back()" class="gwcdd_fh"></a></div>
+            <div class="gwcbt_mc">个人中心</div>
+        </div>
+        <div style="height: .74rem;clear: both;"></div>
+    </header>
+
+    <div class="mem_bgk">
+       <div class="memtop_left">
+           <img src=" <if condition="$list['head']">{$list.head} <else />__IMG__/task/gwc_spimg.jpg</if>" alt="">
+       </div>
+       <div class="memtop_middle">
+           <p class="memtop_name">{$list.username}</p>
+           <p>加入时间：{$list.reg_time|date="Y-m-d",###}
+               <if condition="$list['is_give_deposit'] eq 0">
+                   (未交押金)
+                   <elseif condition="$list['is_give_deposit'] eq 1" />
+                   (任务执行者)
+                   <elseif condition="$list['is_give_deposit'] eq 2" />
+                   (押金审核中)
+                   <elseif condition="$list['is_give_deposit'] eq 3" />
+                   (押金审核失败)
+               </if>
+           </p>
+           <p>
+               <for start="1" end="6" >
+                    <if condition="$list['stars'] egt $i">
+                        <img src="__IMG__/task/stared.png" alt="">
+                     <else />
+                        <img src="__IMG__/task/star.png" alt="">
+                    </if>
+               </for>
+           </p>
+       </div>
+    </div>
+
+<div class="srje">
+    <h2>收入金额</h2>
+    <div class="srje_left">
+        <p>佣金  <a href="{:U('Trade/my_commision')}"><i></i></a></p>
+        <p class="srje_money"><if condition="$commission_sum">{$commission_sum}<else />0.00</if> <em>元</em></p>
+    </div>
+    <div class="srje_riht">
+        <p>支出 <a href="{:U('Trade/qd_record')}"><i></i></a></p>
+        <p class="srje_money"><if condition="$money_sum">{$money_sum}<else />0.00</if> <em>元</em></p>
+    </div>
+</div>
+
+<div class="mem_center">
+    <div class="menu_info right_icon">
+        <div><a href="{:U('Member/myinfo')}"><img src="__IMG__/task/wdxx.png" alt="">我的信息 <em></em></a> </div>
+        <div><a href="{:U('Trade/qd_record')}"><img src="__IMG__/task/wdqd.png" alt="">抢单记录 <em></em></a> </div>
+        <div><a href="{:U('Trade/sk_record')}"><img src="__IMG__/task/skjl.png" alt="">收款记录 <em></em></a> </div>
+        <div><a href="{:U('Trade/my_commision')}"><img src="__IMG__/task/wdyj.png" alt="">我的佣金 <em></em></a> </div>
+        <div><a href="{:U('Promote/my_promote')}"><img src="__IMG__/task/tdxx.png" alt="">团队信息 <em></em></a> </div>
+        <div><a href="{:U('Promote/index')}"><img src="__IMG__/task/wytg.png" alt="">我要推广 <em></em></a> </div>
+        <div><a href="{:U('Trade/withdraw')}"><img src="__IMG__/task/wytx.png" alt="">我要提现 <em></em></a> </div>
+        <div><a href="{:U('Login/loginout')}"><img src="__IMG__/task/tcdl.png" alt="">退出登录 <em></em></a> </div>
+    </div>
+</div>
+
+<div style="height: .9rem;"></div>
+    <div class="footer_main">
+        <ul>
+            <li class="footer_sy">
+                <a href="{:U('Index/index')}">
+                    首页
+                </a>
+
+            </li>
+            <li class="footer_fl">
+                <a href="{:U('Task/index')}">
+                    任务
+                </a>
+            </li>
+            <li class="footer_tg">
+                <a href="{:U('Promote/index')}">
+                    推广
+                </a>
+            </li>
+            <li class="footer_hyzx">
+                <a href="javascript:;">
+                    个人中心
+                </a>
+
+                <i class="footer_active"></i>
+            </li>
+        </ul>
+    </div>
+</div>
+<script>
+    var mem_status = {$mem_status};
+    if(mem_status == 1){
+        layer.msg("请去完善个人信息");
+        window.setTimeout(function(){
+            window.location="{:U('FullInfo/full_info')}";
+        },1000);
+    }else if(mem_status == 2){
+        layer.alert('去成为任务执行者', {
+            skin: 'layui-layer-molv' //样式类名
+            ,closeBtn: 0
+        }, function(){
+            window.location="{:U('FullInfo/pay_deposit')}";
+        });
+    }else if(mem_status == 3){
+        layer.msg("失败，请重新上传凭证");
+        window.setTimeout(function(){
+            window.location="{:U('FullInfo/pay_deposit')}";
+        },1000);
+    }
+
+</script>
+<include file="Public:footer"/>
+

@@ -1,0 +1,151 @@
+<include file="Public:header"/>
+<body>
+<div>
+    <header>
+        <div class="gwc_bt">
+            <div class="gwcbt_fh"></div>
+            <div class="gwcbt_mc">任务汇</div>
+        </div>
+        <div style="height: .74rem;clear: both;"></div>
+    </header>
+    <div class="main_page">
+        <img src="__IMG__/task/login_bgk.png" alt="">
+    </div>
+    <input type="hidden" name="member_id" value="{$member_id}">
+    <input type="hidden" name="username" value="{$username}">
+    <input type="hidden" name="head" value="{$head}">
+    <input type="hidden" name="type" value="{$type}">
+    <!--zhezhao-->
+    <div class="is_zhezhao"></div>
+    <div class="qd_tips" style="display:none;">
+        <div>
+            <h2>匹配用户结果</h2>
+            <div class="qd_user">
+                <img class="mem_head" src="__IMG__/task/gwc_spimg.jpg" alt="">
+                <p><span class="mem_username">雪中行者</span><br>
+                   <span class="mem_phone">151****5825</span>
+                </p>
+            </div>
+            <div class="qd_tips_btn">
+                <span class="qd_tips_confirm" data-op_type="">确定</span>
+            </div>
+        </div>
+    </div>
+    <div class="wyqd">
+        <volist name="list" id="vo">
+            <div class="wyqd_item index_page">
+                <div class="jltext">
+                    <a href="javascript:;">
+                        <img src="{$vo.logo_img}" alt="">
+                        <div class="jltext_top">
+                            <span class="jl_title">{$vo.title}</span>
+                            <span class="jl_time">{$vo.reward}</span>
+                        </div>
+                        <div class="jltext_top" style=" font-size:.24rem ;color: #dadada;">
+                            <span  class="jl_title">{$vo.create_time|date="Y-m-d",###}</span>
+                            <span  class="jl_time qd" onclick="qiandan({$vo.id},1)">抢单</span>
+                            <span  class="jl_time fk" onclick="qiandan({$vo.id},2)">收款</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </volist>
+    </div>
+</div>
+
+<div style="height: .9rem;"></div>
+<div class="footer_main">
+    <ul>
+        <li class="footer_sy">
+            <a href="javascript:void(0);">
+                首页
+            </a>
+
+            <i class="footer_active"></i>
+        </li>
+        <li class="footer_fl">
+            <a href="{:U('Task/index')}">
+                任务
+            </a>
+        </li>
+        <li class="footer_tg">
+            <a href="{:U('Promote/index')}">
+                推广
+            </a>
+        </li>
+        <li class="footer_hyzx">
+            <a href="{:U('Member/index')}">
+                个人中心
+            </a>
+        </li>
+    </ul>
+</div>
+
+<script>
+    function qiandan(id,type){
+        $.post("{:U('Index/qiandan')}",{task_id:id,type:type},function(data){
+            console.log(data);
+            /*匹配成功*/
+            if(data['status'] == 1){
+                $(".qd_user").find('.mem_head').attr('src',data['data']['head']);
+                $(".qd_user").find('.mem_username').html(data['data']['username']);
+                $(".qd_user").find('.mem_phone').html(data['data']['phone']);
+                $(".qd_user").find('.qd_tips_confirm').attr("data-op_type",data['data']['op_type']);
+                $(".qd_tips").show();
+                $(".is_zhezhao").attr('class',"is_zhezhao zhezhao");
+
+            }else if(data['status'] == 2){  /*未匹配成功*/
+                layer.msg("正在匹配中，请等待...");
+            }else if(data['status'] ==3){  /*先登录*/
+                layer.msg("请先去登录...");
+                window.location="{:U('Login/index')}";
+            }
+            else{
+                layer.msg(data['info']);
+            }
+        })
+    }
+    /*取消按钮*/
+    $(".qd_tips_confirm").find('.qd_tips_concel').click(function () {
+        $(".qd_tips").hide();
+        $(".is_zhezhao").attr('class',"is_zhezhao");
+        var op_type = $(this).data('op_type');
+        if(op_type == 1){
+            layer.msg("请及时上传付款凭证。。",{icon:1});
+            window.location="{:U('Trade/qd_record')}";
+        }else if(op_type == 2){
+            layer.msg("请及时确认收款。。",{icon:1});
+            window.location="{:U('Trade/sk_record')}";
+        }
+    });
+    var member_id = $("input[name='member_id']").val();
+    /*匹配付款/执行者*/
+    if(member_id > 0){
+        var phone = $("input[name='phone']").val();
+        var username = $("input[name='username']").val();
+        var head = $("input[name='head']").val();
+        var type = $("input[name='type']").val();
+
+        if(type == 1){ /*匹配到收款者*/
+            $(".qd_user").find('.mem_head').attr('src',head);
+            $(".qd_user").find('.mem_username').html(username);
+            $(".qd_user").find('.mem_phone').html(phone);
+            $(".qd_user").find('.qd_tips_confirm').attr("data-op_type",2);
+            $(".qd_tips").show();
+            $(".is_zhezhao").attr('class',"is_zhezhao zhezhao");
+            $(".qd_tips").find('h2').text("已匹配到收款者");
+        }else if(type == 2){  /*匹配到抢单者*/
+            $(".qd_user").find('.mem_head').attr('src',head);
+            $(".qd_user").find('.mem_username').html(username);
+            $(".qd_user").find('.mem_phone').html(phone);
+            $(".qd_user").find('.qd_tips_confirm').attr("data-op_type",2);
+            $(".qd_tips").show();
+            $(".is_zhezhao").attr('class',"is_zhezhao zhezhao");
+            $(".qd_tips").find('h2').text("已匹配到执行者");
+        }
+    }
+</script>
+
+
+<include file="Public:footer"/>
+

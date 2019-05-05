@@ -1,0 +1,22 @@
+<include file="Public:header"/>
+<body>
+
+<div class="jbzl">
+    <header>
+        <div class="gwc_bt">
+            <div class="gwcbt_fh"><a href="javascript:history.back()" class="gwcdd_fh"></a></div>
+            <div class="gwcbt_mc">基本资料</div>
+        </div>
+        <div style="height: .74rem;clear: both;"></div>
+    </header>
+    <div class="jbzl_page">
+        <p>个人资料</p>
+        <div><label for="">头像</label><span><img src="<if condition="$info['head']">{$info.head}<else />__IMG__/task/gwc_spimg.jpg</if>" alt=""></span></div>
+        <div><label for="">用户名</label><span>{$info.username}</span></div>
+        <div><label for="">手机号码</label><span>{$info.phone}</span></div>
+    </div>
+</div>
+
+</body>
+<include file="Public:footer"/>
+

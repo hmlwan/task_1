@@ -1,0 +1,28 @@
+<include file="Public:header"/>
+<div>
+    <header>
+        <div class="gwc_bt">
+            <div class="gwcbt_fh"><a href="javascript:history.back()" class="gwcdd_fh"></a></div>
+            <div class="gwcbt_mc">我要推广</div>
+        </div>
+        <div style="height: .74rem;clear: both;"></div>
+    </header>
+    <div class="wytg">
+        <div class="wytg_cont">
+            <img src="{:U('Promote/qrcodeimg')}" alt="">
+        </div>
+
+    </div>
+    <div class="wytg_bottom">
+        分享链接
+    </div>
+</div>
+<script>
+    /*分享图片*/
+    $(".wytg_bottom").click(function () {
+        layer.msg('请手动截图或长按界面保存图片', {icon: 1});
+
+    });
+</script>
+<include file="Public:footer"/>
+

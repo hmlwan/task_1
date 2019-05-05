@@ -1,0 +1,66 @@
+<style>
+.rightwidth{ width:340px;}
+</style>
+<!--footer start-->
+
+
+	<div class="coin_footerbar" style="
+    background: #263e44;">
+		<div class="coin_footer_nav clearfix">
+			<div class="coin_nav coin_copy left">
+				<p><a href="{:U('Index/index')}"><img style=" width:190px;height:76px;" src="{$config.logo}"></a></p>
+			</div>
+			<div class="coin_nav left">
+				<!--<h2>{$config.name|default="虚拟币"}团队</h2>-->
+				<h2>快速链接</h2>
+				<ul>
+					<!--<li><a href="{:U('Index/index')}">{$config.name|default="虚拟币"}</a></li>-->
+				<volist name="team" id="vo">
+					<li><a href="{:U('Art/details',array('team_id'=>$vo['article_id']))}" target="_blank" class="left">{$vo.title}</a></li>
+                </volist>
+				</ul>
+			</div>
+			<div class="coin_nav left">
+				<h2>网站地图</h2>
+				<ul>
+                <volist name="help" id="vo">
+					<li><a href="{:U('Help/index',array('id'=>$vo['id']))}" target="_blank" class="left">{$vo.name}</a></li>
+                </volist>
+				</ul>
+			</div>
+			<div class="coin_nav coin_nav02 left">
+				<h2 class="clearfix"><span class="left">联系我们</a><!--<a href="#" id="coin_weixin" class="coin_wei left"></a>--></h2>
+				<ul>
+					
+					<li>交易时间：{$config.qq1|default="暂无"}</li>
+					<li><a href="mailto:{$config['email']}">充值提现时间：{$config.email|default="暂无"}</a></li>
+					<li><a href="mailto:{$config['business_email']}">客服QQ：{$config.qq|default="暂无"}</a></li>
+					<li>官方QQ群：{$config.qq3|default="暂无"}</li>
+				</ul>
+			</div>
+			
+				
+			</div>
+		</div>
+<div class="footer_aq">
+	<p>{$config.copyright|default="Copyright 2018-2019 数据库 All Rights Reserved."}</p>
+	<p>{$config.record|default="暂无"}</span> 
+	
+</div>
+<div id="weixin" style="position:absolute; bottom:88px; left:50%; margin-left:170px; display:block;"><!--<img src="{$config.logo}">--></div>
+<script>
+	$('#coin_weixin').mouseover(function(){
+		$('#weixin').show();
+	}).mouseout(function(){
+		$('#weixin').hide();
+	});
+</script>
+<!--footer end-->
+<script type="text/javascript" src="__PUBLIC__/Home/js/gotop.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/js/link.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/js/slides.js"></script>
+
+
+</div>
+</body>
+</html>

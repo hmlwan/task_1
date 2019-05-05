@@ -1,0 +1,27 @@
+<include file="Public:header"/>
+<body  style="background-color: #f8f8f8">
+<div>
+    <header>
+        <div class="gwc_bt">
+            <div class="gwcbt_fh"><a href="javascript:history.back()" class="gwcdd_fh"></a></div>
+            <div class="gwcbt_mc">银行卡信息</div>
+        </div>
+        <div style="height: .74rem;clear: both;"></div>
+    </header>
+    <div class="yhk">
+        <p class="yhk_title"><span>银行卡信息</span> <a href="{:U('Member/addbank')}"><i></i></a></p>
+        <volist name="list" id="vo">
+            <a href="{:U('Member/addbank',array('id'=>$vo['id']))}">
+                <div class="yhk_item">
+                    <div>
+                        <p>{$vo.bankname}&nbsp;&nbsp;&nbsp; <span>{$vo.cardname}&nbsp;</span></p>
+                        <p class="cardnum">{$vo.cardnum}</p>
+                    </div>
+                </div>
+            </a>
+        </volist>
+    </div>
+</div>
+
+<include file="Public:footer"/>
+

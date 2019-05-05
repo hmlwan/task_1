@@ -1,0 +1,56 @@
+<include file="App/Admin/View/Public/left.html"/>
+<!--/sidebar-->
+<div class="main-wrap">
+    <div class="crumb-wrap">
+        <div class="crumb-list"><i class="icon-font"></i><a href="{:U('Index/index')}">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">会员账户信息</span></div>
+    </div>
+    <div class="result-wrap">
+
+        <form action="{:U('Member/show')}" method="post"  enctype="multipart/form-data">
+            <div class="config-items">
+                <div class="result-content">
+                    <table width="100%" class="insert-tab">
+					<input type="hidden" value="{$member_id}" name="member_id" />
+                        <tbody>
+                        <tr>
+                            <th>头像上传：</th>
+                            <td><input type="file" name="head"  style="width:200px;" />
+                                <img src="{$list['head']}" style="width:50px;height:auto" />
+                                <input type="hidden" name="headold" value="{$list['head']}" />
+                            </td>
+                        </tr>
+						<tr>
+                             <th>支付宝收款码上传：</th>
+            				 <td><input type="file" name="alipay_logo"  style="width:200px;" />
+									<img src="{$list['alipay_logo']}" style="width:50px;height:auto" />
+									<input type="hidden" name="alipay_logoold" value="{$list['alipay_logo']}" />
+							</td>
+                        </tr>
+                        <tr>
+                            <th>微信收款码上传：</th>
+                            <td><input type="file" name="wechat_logo"  style="width:200px;" />
+                                <img src="{$list['wechat_logo']}" style="width:50px;height:auto" />
+                                <input type="hidden" name="wechat_logoold" value="{$list['wechat_logo']}" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th> 星星数：</th>
+                            <td><input name="stars" id="stars" value="{$list['stars']}" type="text"></td>
+                        </tr>
+                        <th></th>
+                        <td>
+                            <input type="submit" value="提交" class="btn btn-primary btn6 mr10">
+                            <a href="{:U('Member/index')}"><input type="button" value="返回"  class="btn btn6"></a>
+                        </td>
+                        </tr>
+                        </tbody></table>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--/main-->
+</div>
+</body>
+</html>

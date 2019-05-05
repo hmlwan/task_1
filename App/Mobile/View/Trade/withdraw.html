@@ -1,0 +1,83 @@
+<include file="Public:header"/>
+<body>
+<div class="">
+    <header>
+        <div class="gwc_bt">
+            <div class="gwcbt_fh"><a href="javascript:history.back()" class="gwcdd_fh"></a></div>
+            <div class="gwcbt_mc">我要提现</div>
+        </div>
+        <div style="height: .74rem;clear: both;"></div>
+    </header>
+    <div class="wytk">
+        <p class="wytk_title"><span></span> <a href="{:U('Trade/withdraw_record')}">提现记录</a></p>
+        <form action="">
+            <input type="hidden" name="tk_type" value="1">
+            <input type="hidden" name="tk_fs" value="2">
+            <div class="tk_type change_gou">
+                <label for="">提款类型</label>
+                <span><i class="active" data-tk_type="1"></i>押金</span>
+                <span><i data-tk_type="2"></i>佣金</span>
+            </div>
+            <div class="tk_je">
+                <label for="">提款金额</label><span>可提<em class="show_amount">{$info.deposit}</em></span>
+                <input type="text" name="tk_money" placeholder="输入金额" />
+            </div>
+            <div class="tk_type change_gou">
+                <label for="">付款方式</label>
+                <span><i class="active" data-tk_fs="1"></i>支付宝</span>
+                <span><i data-tk_fs="2"></i>微信</span>
+            </div>
+            <div class="confirm_btn btn_update" onclick="sub()">确&nbsp;认</div>
+        </form>
+    </div>
+</div>
+<script>
+    var commision = '{$info.commision}';
+    var deposit = '{$info.deposit}';
+    $(".change_gou").find('i').click(function () {
+          $(this).attr('class','active');
+          $(this).parent('span').siblings('span').find('i').attr('class','');
+          var tk_type = $(this).data('tk_type');
+          if(tk_type == 1){
+            $(".show_amount").text(deposit);
+            $("input[name='tk_type']").val(1);
+          }else if(tk_type == 2){
+              $(".show_amount").text(commision);
+              $("input[name='tk_type']").val(2);
+          }
+        var tk_fs = $(this).data('tk_fs');
+        if(tk_fs == 1){
+            $("input[name='tk_fs']").val(1);
+        }else if(tk_fs == 2){
+            $("input[name='tk_fs']").val(2);
+        }
+    });
+    function sub() {
+        var tk_type = $("input[name='tk_type']").val();
+        var tk_money =  parseInt($("input[name='tk_money']").val());
+        var tk_fs =  $("input[name='tk_fs']").val();
+        var show_amount =  parseInt($(".show_amount").text());
+        if( tk_money <0){
+            layer.msg('提现金额必须大于0~');
+            return false
+        }
+        if( tk_money >show_amount){
+            layer.msg('提现金额超过可提金额~');
+            return false
+        }
+
+        $.post("{:U('Trade/withdraw_op')}",
+            {'tk_type':tk_type,tk_money:tk_money,tk_fs:tk_fs},function(d){
+                if(d.status == 1){
+                    layer.msg(d.info,{icon:1});
+                    window.setTimeout(function(){
+                        window.location="{:U('Member/index')}";
+                    },1000);
+                }else{
+                    layer.msg(d.info);
+                }
+            });
+    }
+</script>
+<include file="Public:footer"/>
+

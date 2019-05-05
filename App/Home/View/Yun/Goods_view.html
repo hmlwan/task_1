@@ -1,0 +1,251 @@
+<link href="__PUBLIC__/Home/jquery-ui-1.css" rel="stylesheet" type="text/css" media="screen, projection">
+<!-- <link media="screen, projection" type="text/css" rel="stylesheet" href="__PUBLIC__/Home/show.css">
+<link media="screen, projection" type="text/css" rel="stylesheet" href="__PUBLIC__/Home/global.css">
+<link media="screen, projection" type="text/css" rel="stylesheet" href="__PUBLIC__/Home/1200.css">
+ --><include file="App/Home/View/Public/header.html"/>
+
+<div id="main">
+  
+<!--  内容开始-->
+<div class="marketArea clear" style="min-height: 500px;
+    margin: 2px auto 0;
+    width: 987px;">
+<div class="part2">
+<div class="cp-qxy">
+<h2>{$goods.title}</h2>
+<div class="cp-qxym">
+<div class="cp-qxym-l">
+
+<img src="{$goods.pic}" id="LPicPath">
+<table border="0" cellpadding="0" cellspacing="0" class="formTable2" style=" margin-top:30px; border-top:2px #666 solid;border-right:1px solid #e3e3e3; width:420px;" id="TableFl">
+<tbody><tr><td class="blank" colspan="2"><span class="l_f">上期获得者</span></td></tr>
+<tr><td>
+<img src="/Public/Home/images/login_exp04.png" style="width:100px; height:107px;">
+</td><td style="width:70%;">
+<eq name="goods.qishu" value="1">
+恭喜【******】获得了本商品
+<br>
+获奖时间：******
+<br>
+获奖编号：******
+<br>
+<else/>
+恭喜【{:yun_hide_user($win['email'])}】获得了本商品
+<br>
+获奖时间：{$win_time}
+<br>
+获奖编号：{$win['add_time']}{$win.id}
+<br>
+</eq>
+<span class="l_f">本产品累计开奖：{$goods['qishu']-1}次</span>
+</td></tr>
+</tbody></table>
+</div>
+<div class="cp-qxym-r">
+<div class="d-buy">价值：<b>￥{:floatval($goods['display_money'])}</b></div>
+<div class="progress_container_b"><div class="progress_container2_b" style=" width:{$count/$goods['total_num']*100}%"></div></div>
+<div class="d-jd"><b style="color:Blue;">{$count}</b> <b style="color:#666;">{$goods.total_num}</b> <b>{$goods['total_num']-$count}</b></div>
+<div class="d-jd"><span>已参加人数</span><span>总需人数</span><span>剩余人数</span></div>
+<div class="clear"></div>
+<div class="d-buy">云购单价：<b>{:floatval($goods['money'])}{$goods.currency_name}/人次</b> &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; 每期限购：<b>{$goods.limit_num}次</b></div>
+
+<div  name="from1"  >
+<input name='cid' value='{$goods.currency_id}' type='hidden'/>
+<div class="d-buy2">
+<label>我要云购：</label><b class="jj-1" onclick="SetBuyCount(1);SetBuyCountBiLi();">-</b><input name="TBuyCount" type="text" id="TBuyCount" class="jj-text" value="1" onblur="SetInputInt(this);SetBuyCountBiLi();"><b class="jj-1" onclick="SetBuyCount(2);SetBuyCountBiLi();">+</b>人次&nbsp;&nbsp;&nbsp;
+<font style="color:Red;">中奖概率：<span id="SpanBiLi"><php>echo round(1/$goods['total_num']*100,4)</php></span>%</font>
+&nbsp;&nbsp;&nbsp;<neq name='currency.currency_mark' value='RMB'>
+<div style="float:right;width:30%;"  >
+
+<table >
+	<tr >
+       <td><a href="{:U('Orders/index',array('currency'=>$currency['currency_mark']))}"><img src="{$currency.currency_logo}" style="width:20px; height:20px;"></a></td>
+       <td ><a href="{:U('Orders/index',array('currency'=>$goods['currency_mark']))}">{$goods.currency_name|default='虚拟币'}{$vo.currency_name|default=''}</a></td>
+       <td id='display-price'>
+       {$currency.new_price|default='暂无'}<eq name='currency.new_price_status' value='0'>↓<else/>↑</eq>
+       </td>
+     </tr>
+     <tr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='green'>每人次需：<php>$bi_num=round($goods['money']/$currency['new_price'],0);if($bi_num==0){echo 1;}else{echo $bi_num;}</php> {$goods.currency_name}</font></tr>
+</table>
+</div>
+<else/>
+ <tr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='green'>每人次需：<php>echo round($goods['money'],0)</php> {$goods.currency_name}</font></tr>
+</neq>
+<neq name='currency.currency_mark' value='RMB'>
+	<input type="hidden" name='new_price'  id='new_price' value="{$currency.new_price}">
+	<else/>
+	<input type="hidden" name='new_price'  id='new_price' value="1">
+</neq>
+<input type="hidden" id="TMaxCount" value="{$goods.total_num}">
+<input type="hidden" name="id" value="{$goods.id}">
+
+<div class="clear"></div>
+</div>
+<div class="d-buy2">
+<label>交易密码：</label><input name="TPayUpwd" type="password" id="TPayUpwd" class="txt22" style="float:left; margin-top:0px; height:35px; line-height:35px;">
+<div class="clear"></div>
+</div>
+<div class="d-buy2">
+<input type="submit" name="Button1" value="立即云购" id="Button1" class="qg-but1" onclick="yunbuy()">
+&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="button" class="qg-but2" value="历史开奖" onclick="javascript:window.open('{:U('Yun/history','id='.$goods['id'])}')">
+</div>
+</div>
+<div class="Pro_Record">
+<ul class="Record_tit" id="ulRecordTab">
+<li class="Record_titCur" id="LiCol1" onclick="SetPanel(1);">最新云购记录</li>
+<li id="LiCol2" onclick="SetPanel(2);" class="">我的云购记录</li>
+<li id="LiCol3" style="border-right:0px;" onclick="SetPanel(3);" class="none">什么是积分币云购？</li>
+</ul>
+<div class="clear"></div>
+<div id="DivTxt1" class="Newest_Con" style="display: block; position:relative;">
+<div class="Ranklist" style="width:50%;">
+<ul class="y-buy" style="">
+<volist name="buys" id="vo">
+	<li>{:yun_hide_user($vo['email'])} &nbsp; &nbsp; <em>{:yun_timeFormat($vo['add_time'])}</em> &nbsp; <em> 参与云购了</em> <b>{$vo.num}人次</b></li>
+</volist>
+
+</ul>
+</div>
+</div>
+<div id="DivTxt2" style="display: none;" class="Newest_Con">
+<gt name="member.member_id" value="0">
+<div id="DivLoginYes" style="display:block;" >
+<volist name="my_buys" id="vo">
+	<li><em>{:yun_timeFormat($vo['add_time'])}</em> &nbsp; <em> 参与云购了</em> <b>{$vo.num}人次</b> 云购码{$vo['add_time']}{$vo.id} &nbsp; &nbsp; </li>
+</volist>
+</div>
+<else/>
+<div id="DivLoginNo" class="My_RecordReg" style="display:block;">
+<b class="gray01">看不到？是不是没登录或是没注册？ 登录后看看</b>
+<a class="My_Signbut" href="{:U('Login/index')}" data-btn="login">登录</a><a class="My_Regbut"  href="{:U('Reg/reg')}" data-btn="register">注册</a>
+</div>
+
+</gt>
+</div>
+<div id="DivTxt3" style="display: none;" class="Newest_Con">
+<p class="MsgIntro">积分币云购购是指只需指定积分币就有机会买到想要的商品。即每件商品被平分成若干“等份”出售，当一件商品所有“等份”售出后，根据云购规则产生一名幸运者，该幸运者即可获得此商品。</p>
+<p class="MsgIntro1">积分币云购以“快乐云购，惊喜无限”为宗旨，力求打造一个100%公平公正、100%正品保障、寄娱乐与购物一体化的新型购物网站。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="r4">
+<h3><b>商品详细介绍：</b><em></em></h3>
+<div class="r4m">
+		{$goods.content}
+</div>
+
+<script type="text/javascript" src="__PUBLIC__/Home/js/scroll.js"></script> 
+<script type="text/javascript">
+
+$(document).ready(function(){
+	var wait = second =2;
+	var bi_id={$goods.currency_id};
+	var goods_id={$goods.id};
+	if(bi_id==-1){
+		clearInterval(); 
+	}else{
+		setInterval(function(){
+			wait--;
+			if(wait<0){
+				$.post('{:U("Yun/entrust")}',{bi_id:bi_id,goods_id:goods_id},function(d){
+					//alert(d.data);
+					$('#display-price').html(d.data);
+				},'json');
+				
+				wait=second;
+			}
+		},1000);	
+	}
+	
+})
+</script>
+<script>
+	
+	function $$(a) {
+		return document.getElementById(a);
+	}
+	function SetBuyCount(SetCols) {
+		if ($$("TBuyCount").value == "")
+			$$("TBuyCount").value = "0";
+		var NowBuy = parseInt($$("TBuyCount").value);
+		if (SetCols == 1) {
+			if (NowBuy <= 1) {
+				$$("TBuyCount").value = "1";
+				alert("最小起订数为1。")
+				return false;
+			}
+			$$("TBuyCount").value = NowBuy - 1;
+		} else {
+			$$("TBuyCount").value = NowBuy + 1;
+		}
+
+	}
+
+	function SetInputDouble(Vid, VLenth) {
+		Vid.value = Vid.value.replace(/[^\d.]/g, '');
+		if (Vid.value != "") {
+			if (Vid.value.indexOf(".") == -1)
+				Vid.value = (parseFloat(Vid.value).toFixed(0)).toString();
+			else
+				Vid.value = (parseFloat(Vid.value).toFixed(VLenth)).toString();
+		}
+	}
+	function SetInputInt(Vid) {
+		Vid.value = Vid.value.replace(/[^\d.]/g, '');
+		if (Vid.value != "")
+			Vid.value = (parseFloat(Vid.value).toFixed(0)).toString();
+	}
+
+	function SetBuyCountBiLi() {
+		var VBiLi = 0;
+		if ($$("TBuyCount").value != "")
+			VBiLi = parseFloat($$("TBuyCount").value)
+					/ parseFloat($$("TMaxCount").value);
+		VBiLi = (VBiLi * 100).toFixed(2);
+		$$("SpanBiLi").innerHTML = VBiLi;
+	}
+	$(function() {
+		$("div.Ranklist").myScroll({
+			speed : 20,
+			rowHeight : 35
+		});
+		$("#Button1").click(function(){
+			//alert(1);return;
+			if($("#TPayUpwd").val()==""){
+				alert('请输入交易密码！');
+				return false;
+			}
+			$('#form1').submit();
+		});
+	});
+	function SetPanel(ids) {
+		for ( var i = 1; i <= 3; i++) {
+			$$("LiCol" + i).className = "none";
+			$$("DivTxt" + i).style.display = "none";
+		}
+		$$("LiCol" + ids).className = "Record_titCur";
+		$$("DivTxt" + ids).style.display = "block";
+	};
+	function yunbuy(){
+		//alert($("#TPayUpwd").val());
+		var goods_id={$goods.id} ;     
+		var bi_id={$goods.currency_id};
+		var new_price=$("#new_price").val();
+		var buy_num=$("#TBuyCount").val();
+		var TPayUpwd =$("#TPayUpwd").val();
+		$.post("{:U('Yun/buy')}",
+				{id:goods_id,cid:bi_id,TBuyCount:buy_num,TPayUpwd:TPayUpwd,new_price:new_price},
+				function(d){
+			    alert(d.info);
+			    setTimeout(location.reload(),3000);
+				})
+		
+	}
+
+</script>
+
+<!--footer start--> 
+<include file="App/Home/View/Public/footer.html"/>

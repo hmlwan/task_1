@@ -1,0 +1,431 @@
+[ 2019-04-23T19:59:43+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `blue_config` [ RunTime:0.0450s ]
+SQL: SELECT * FROM `blue_config`  [ RunTime:0.0020s ]
+
+[ 2019-04-23T19:59:44+08:00 ] 127.0.0.1 /admin/Login/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `blue_config` [ RunTime:0.0210s ]
+SQL: SELECT * FROM `blue_config`  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027003s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027003s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.011001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.012001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.015001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.015001s ]
+
+[ 2019-04-23T20:31:35+08:00 ] 127.0.0.1 /admin/Login/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `blue_config` [ RunTime:0.0310s ]
+SQL: SELECT * FROM `blue_config`  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.025003s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025003s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2019-04-23T20:31:43+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `blue_config` [ RunTime:0.0140s ]
+SQL: SELECT * FROM `blue_config`  [ RunTime:0.0010s ]
+
+[ 2019-04-23T20:31:44+08:00 ] 127.0.0.1 /admin/Login/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `blue_config` [ RunTime:0.0330s ]
+SQL: SELECT * FROM `blue_config`  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2019-04-23T20:31:52+08:00 ] 127.0.0.1 /admin/Login/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `blue_config` [ RunTime:0.0340s ]
+SQL: SELECT * FROM `blue_config`  [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2019-04-23T20:32:03+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2019-04-23T20:40:28+08:00 ] 127.0.0.1 /admin/Login/checkLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000999s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] preg_match(): Delimiter must not be alphanumeric or backslash D:\WWW\task_1\App\Common\Common\function.php 第 614 行.
+NOTIC: [2] preg_match(): Delimiter must not be alphanumeric or backslash D:\WWW\task_1\App\Common\Common\function.php 第 614 行.
+SQL: SHOW COLUMNS FROM `blue_config` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `blue_config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `blue_admin` [ RunTime:0.0480s ]
+SQL: SELECT * FROM `blue_admin` WHERE ( username='admin' ) LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2019-04-23T20:40:29+08:00 ] 127.0.0.1 /admin/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `blue_config` [ RunTime:0.0240s ]
+SQL: SELECT * FROM `blue_config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `blue_admin` [ RunTime:0.0160s ]
+SQL: SELECT * FROM `blue_admin` WHERE ( admin_id='1' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `key`,`value` FROM `blue_config`  [ RunTime:0.0010s ]
+SQL: SELECT `Nav` FROM `blue_admin` WHERE ( admin_id='1' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `blue_nav` [ RunTime:0.0250s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=1 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=4 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=7 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=8 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=15 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=12 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=16 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=28 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=30 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=18 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=41 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=17 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=50 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=51 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=52 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=53 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=54 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=57 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=58 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=59 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=60 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=69 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=83 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=19 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=20 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=21 ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: list D:\WWW\task_1\App\Runtime\Cache\Admin\9df924d9a2d217daa77a359c5bee0c33.php 第 165 行.
+NOTIC: [8] Undefined variable: empty D:\WWW\task_1\App\Runtime\Cache\Admin\9df924d9a2d217daa77a359c5bee0c33.php 第 182 行.
+NOTIC: [8] Undefined index: xnb D:\WWW\task_1\App\Runtime\Cache\Admin\9df924d9a2d217daa77a359c5bee0c33.php 第 211 行.
+NOTIC: [8] Undefined index: xnb D:\WWW\task_1\App\Runtime\Cache\Admin\9df924d9a2d217daa77a359c5bee0c33.php 第 213 行.
+NOTIC: [8] Use of undefined constant mysqlnd - assumed 'mysqlnd' D:\WWW\task_1\App\Runtime\Cache\Admin\9df924d9a2d217daa77a359c5bee0c33.php 第 245 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.058994s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.058994s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2019-04-23T20:40:34+08:00 ] 127.0.0.1 /admin/Member/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of Admin\Controller\MemberController::show() should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') D:\WWW\task_1\App\Admin\Controller\MemberController.class.php 第 12 行.
+SQL: SHOW COLUMNS FROM `blue_config` [ RunTime:0.0420s ]
+SQL: SELECT * FROM `blue_config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `blue_admin` [ RunTime:0.0200s ]
+SQL: SELECT * FROM `blue_admin` WHERE ( admin_id='1' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `key`,`value` FROM `blue_config`  [ RunTime:0.0010s ]
+SQL: SELECT `Nav` FROM `blue_admin` WHERE ( admin_id='1' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `blue_nav` [ RunTime:0.0180s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=1 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=4 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=7 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=8 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=15 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=12 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=16 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=28 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=30 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=18 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=41 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=17 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=50 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=51 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=52 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=53 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=54 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=57 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=58 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=59 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=60 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=69 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=83 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=19 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=20 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=21 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `blue_member` [ RunTime:0.0230s ]
+NOTIC: [8] Undefined variable: where D:\WWW\task_1\App\Admin\Controller\MemberController.class.php 第 33 行.
+SQL: SELECT COUNT(*) AS tp_count FROM blue_member m LEFT JOIN blue_member_info as i on i.member_id=m.member_id  LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [8] Undefined variable: where D:\WWW\task_1\App\Admin\Controller\MemberController.class.php 第 45 行.
+SQL: SELECT m.*,i.stars,i.commision FROM blue_member m LEFT JOIN blue_member_info as i on i.member_id=m.member_id  ORDER BY m.member_id desc  LIMIT 0,20   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `blue_member_fg` [ RunTime:0.0220s ]
+SQL: SELECT SUM(fg_num) AS tp_sum FROM `blue_member_fg` WHERE (  member_id ) AND `type` = 1 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT SUM(fg_num) AS tp_sum FROM `blue_member_fg` WHERE (  member_id ) AND `type` = 2 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT SUM(fg_num) AS tp_sum FROM `blue_member_fg` WHERE (  member_id ) AND `type` = 1 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT SUM(fg_num) AS tp_sum FROM `blue_member_fg` WHERE (  member_id ) AND `type` = 2 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT SUM(fg_num) AS tp_sum FROM `blue_member_fg` WHERE (  member_id ) AND `type` = 1 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT SUM(fg_num) AS tp_sum FROM `blue_member_fg` WHERE (  member_id ) AND `type` = 2 LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000999s ]
+NOTIC: [8] Undefined index: username D:\WWW\task_1\App\Runtime\Cache\Admin\24a7b615857159f3d4f882795b651d68.php 第 143 行.
+NOTIC: [8] Undefined index: member_id D:\WWW\task_1\App\Runtime\Cache\Admin\24a7b615857159f3d4f882795b651d68.php 第 145 行.
+NOTIC: [8] Undefined index: is_priority D:\WWW\task_1\App\Runtime\Cache\Admin\24a7b615857159f3d4f882795b651d68.php 第 183 行.
+NOTIC: [8] Undefined index: is_priority D:\WWW\task_1\App\Runtime\Cache\Admin\24a7b615857159f3d4f882795b651d68.php 第 184 行.
+NOTIC: [8] Undefined index: is_priority D:\WWW\task_1\App\Runtime\Cache\Admin\24a7b615857159f3d4f882795b651d68.php 第 183 行.
+NOTIC: [8] Undefined index: is_priority D:\WWW\task_1\App\Runtime\Cache\Admin\24a7b615857159f3d4f882795b651d68.php 第 184 行.
+NOTIC: [8] Undefined index: is_priority D:\WWW\task_1\App\Runtime\Cache\Admin\24a7b615857159f3d4f882795b651d68.php 第 183 行.
+NOTIC: [8] Undefined index: is_priority D:\WWW\task_1\App\Runtime\Cache\Admin\24a7b615857159f3d4f882795b651d68.php 第 184 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.048995s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.048995s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2019-04-23T20:40:39+08:00 ] 127.0.0.1 /admin/Member/show/member_id/3.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of Admin\Controller\MemberController::show() should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') D:\WWW\task_1\App\Admin\Controller\MemberController.class.php 第 12 行.
+NOTIC: [2] preg_match(): Delimiter must not be alphanumeric or backslash D:\WWW\task_1\App\Common\Common\function.php 第 614 行.
+SQL: SHOW COLUMNS FROM `blue_config` [ RunTime:0.0350s ]
+SQL: SELECT * FROM `blue_config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `blue_admin` [ RunTime:0.0160s ]
+SQL: SELECT * FROM `blue_admin` WHERE ( admin_id='1' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `key`,`value` FROM `blue_config`  [ RunTime:0.0010s ]
+SQL: SELECT `Nav` FROM `blue_admin` WHERE ( admin_id='1' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `blue_nav` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=1 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=4 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=7 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=8 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=15 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=12 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=16 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=28 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=30 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=18 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=41 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=17 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=50 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=51 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=52 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=53 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=54 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=57 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=58 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=59 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=60 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=69 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=83 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=19 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=20 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=21 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `blue_member` [ RunTime:0.0070s ]
+SQL: SELECT m.*,mi.* FROM blue_member m LEFT JOIN blue_member_info mi ON mi.member_id=m.member_id  WHERE m.member_id = '3' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019998s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019998s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2019-04-23T20:40:56+08:00 ] 127.0.0.1 /admin/Member/addMember.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of Admin\Controller\MemberController::show() should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') D:\WWW\task_1\App\Admin\Controller\MemberController.class.php 第 12 行.
+SQL: SHOW COLUMNS FROM `blue_config` [ RunTime:0.0180s ]
+SQL: SELECT * FROM `blue_config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `blue_admin` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `blue_admin` WHERE ( admin_id='1' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `key`,`value` FROM `blue_config`  [ RunTime:0.0000s ]
+SQL: SELECT `Nav` FROM `blue_admin` WHERE ( admin_id='1' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `blue_nav` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=1 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=4 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=7 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=8 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=15 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=12 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=16 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=28 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=30 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=18 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=41 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=17 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=50 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=51 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=52 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=53 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=54 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=57 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=58 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=59 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=60 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=69 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=83 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=19 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=20 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=21 ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022998s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022998s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2019-04-23T20:43:31+08:00 ] 127.0.0.1 /admin/Trade/promote_reward_record
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `blue_config` [ RunTime:0.0290s ]
+SQL: SELECT * FROM `blue_config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `blue_admin` [ RunTime:0.0220s ]
+SQL: SELECT * FROM `blue_admin` WHERE ( admin_id='1' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `key`,`value` FROM `blue_config`  [ RunTime:0.0010s ]
+SQL: SELECT `Nav` FROM `blue_admin` WHERE ( admin_id='1' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `blue_nav` [ RunTime:0.0140s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=1 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=4 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=7 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=8 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=15 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=12 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=16 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=28 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=30 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=18 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=41 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=17 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=50 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=51 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=52 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=53 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=54 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=57 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=58 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=59 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=60 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=69 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=83 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=19 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=20 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_nav` WHERE ( nav_id=21 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `blue_finance` [ RunTime:0.0320s ]
+SQL: SELECT COUNT(*) AS tp_count FROM blue_finance a LEFT JOIN blue_member as m on a.member_id = m.member_id  LEFT JOIN blue_member as m1 on a.sub_member_id = m1.member_id  LEFT JOIN blue_finance_type as f on f.id = a.type   LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT a.*,m.username,m1.username as sub_name,f.name as finance_type_name FROM blue_finance a LEFT JOIN blue_member as m on a.member_id = m.member_id  LEFT JOIN blue_member as m1 on a.sub_member_id = m1.member_id  LEFT JOIN blue_finance_type as f on f.id = a.type   ORDER BY  a.add_time desc LIMIT 0,25   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: username D:\WWW\task_1\App\Runtime\Cache\Admin\f06d3730e9c6cf84e976c2c39e0776b4.php 第 147 行.
+NOTIC: [8] Undefined variable: info D:\WWW\task_1\App\Runtime\Cache\Admin\f06d3730e9c6cf84e976c2c39e0776b4.php 第 166 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+

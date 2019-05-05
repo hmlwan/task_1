@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新建地址</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/wallet.css">
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+//                    docEl.style.fontSize = 100*(clientWidth/980) + 'px';
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body id="wallet_su_bgk">
+<header class="subHeader wallet_header">
+    新建地址 <span>完成</span>
+</header>
+<div class="success_img">
+    <i></i>
+    <p>地址新建成功！</p>
+</div>
+<div class="account_add">
+    <p>您的账户地址为</p>
+    <div class="account_con"><span>ylsdsdslllldsdsdoocsylsdsdslllldsdsdoocsdsds</span><i></i></div>
+    <p>地址二维码</p>
+    <img src="../img/qrcode.png" alt="">
+    <div class="account_tips">地址经绑定在你的云链口袋，可以直接使用该地址接受云链转账</div>
+</div>
+
+</body>
+</html>

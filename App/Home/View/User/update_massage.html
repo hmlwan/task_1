@@ -1,0 +1,110 @@
+
+<include file="App/Home/View/Public/header.html"/>
+<!--top end-->
+<style>
+    .uploadify-button {text-align:center;}
+</style>
+<script>
+    $(document).ready(function(){
+        start=document.cookie.indexOf("motip=")
+        if (start!=-1){
+            start=start + 6
+            end=start + 1
+            motip = unescape(document.cookie.substring(start,end))
+            if(motip == 1)
+                $('#phone_top_div').show();
+        }
+    });
+    function hidephone(){
+        $('#phone_top_div').hide();
+        var d=new Date()
+        d.setTime(d.getTime() + 7200)
+        document.cookie="motip=2;expires="+d.toUTCString()
+    }
+</script>
+
+<div id="main">
+    <div class="main_box">
+
+        <include file="App/Home/View/Public/left.html"/>
+        <div class="raise right clearfix">
+            <h2 style="border-bottom:1px solid #e1e1df;">修改账户信息</h2>
+            <form method="post" id="signupForm" action="{:U('User/updateMassage')}" jump-url="{:U('User/updateMassage')}" >
+                <ul class="apply">
+                    <li style="margin-bottom:0px;"><label class="youxiang">用户ID： </label>{$list['member_id']}</li>
+                    <li style="margin-bottom:10px;"><label for="email" class="youxiang">邮箱：</label>{$list['email']}</li>
+                    
+                    </li>
+                    <li style="margin-bottom:10px;"><label for="realname" class="youxiang">真实姓名：</label>{$list['name']|mb_substr=0,1,"utf-8"}*<span class="note">（如需修改姓名，请联系客服人员）</span></li>
+                    <li style="margin-bottom:15px;"><label for="idcard" class="youxiang">身份证号：</label>{$list['idcard']|substr=0,3}****{$list['idcard']|substr=15,3}<span class="note">（如需修改证件号，请联系客服人员）</span></li>
+                    <li style="margin-bottom:10px;"><label for="mo" class="youxiang"><span class="redstar"></span>手机号：</label>
+                        {$list['phone']|substr=0,3}****{$list['phone']|substr=9,2}<span class="note" id="momsg"><!--<a class="voices" href="/user_phone/update">修改手机号码</a>--></span><div class="clear"></div>
+                    </li>
+                    </li>
+                    <input type="hidden" name="member_id" value="{$list['member_id']}"/>
+                    <li><label class="youxiang">&nbsp;</label><input type="submit" class="queding" value="确定"></li>
+                </ul>
+            </form>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<link href="__PUBLIC__/js/uploadify/uploadify.css">
+<script type="text/javascript" src="__PUBLIC__/js/uploadify/jquery.uploadify.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+
+        $("#file_upload1").uploadify({
+            //指定swf文件
+            'swf': '/Public/js/uploadify/uploadify.swf',
+            //后台处理的页面
+            'uploader': "{:U('User/addPicForAjax')}",
+            //按钮显示的文字
+            'buttonText': '点击上传',
+            //显示的高度和宽度，默认 height 30；width 120
+            'height': 30,
+            'width': 330,
+            //上传文件的类型  默认为所有文件    'All Files'  ;  '*.*'
+            //在浏览窗口底部的文件类型下拉菜单中显示的文本
+            'fileTypeDesc': 'Image Files',
+            //允许上传的文件后缀
+            'fileTypeExts': '*.gif; *.jpg; *.png',
+            //发送给后台的其他参数通过formData指定
+            //'formData': { 'someKey': 'someValue', 'someOtherKey': 1 },
+            //上传文件页面中，你想要用来作为文件队列的元素的id, 默认为false  自动生成,  不带#
+            'queueID': 'fileQueue1',
+            //选择文件后自动上传
+            'auto': true,
+            //设置为true将允许多文件上传
+            'multi': false,
+            'onUploadSuccess':function(file,data,response){
+                var r=jQuery.parseJSON(data);
+                $("#pic1").val(r['info']);
+                //$("#uploadedpic").empty();
+                $("#logo").attr("src",r['info']);
+                $("#head_hidden").attr("value",r['info']);
+                //$(".uploadedpic").append("<img src='"+r['info']+"' class='mt10'>");
+            }
+        });
+    });
+</script>
+
+<script>
+    $("#signupForm").validate({
+        rules: {
+        },
+        messages: {
+        },
+        submitHandler:function(form){
+            ajax_submit_form(form)
+            return false;
+        },
+        invalidHandler: function() {  //不通过回调
+            return false;
+        }
+    });
+</script>
+<script>
+    $(".menu7").addClass("uc-current");
+</script>
+<include file="App/Home/View/Public/footer.html"/>

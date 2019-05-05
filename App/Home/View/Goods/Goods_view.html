@@ -1,0 +1,145 @@
+<include file="App/Home/View/Public/header.html"/>
+<link rel="stylesheet" href="__PUBLIC__/Home/market/css/alert.css">
+<link rel="stylesheet" href="__PUBLIC__/Home/market/css/style1.css">
+<link rel="stylesheet" href="__PUBLIC__/Home/market/css/style.css">
+
+<div id="main">
+<!--  内容开始-->
+<div class="marketArea clear" style="min-height: 500px;margin: 2px auto 0;width: 987px;">
+
+    <!-- 商品详情页开始 -->
+    <div class="DBBcontent">
+        <!-- 页面位置开始 -->
+        <div class="DBBplace">
+            <span>当前位置：</span>
+            <span><a href="{:U('Index/index')}">首页</a></span> >
+            <span><a href="{:U('Goods/index')}">商城</a></span> >
+            <span>{$goods.title} </span>
+        </div>
+        <!-- 页面位置结束 -->
+        <!-- 商品展示开始 -->
+        <div class="DBBshowContent">
+            <div class="DBBshowPic">
+                <img src="{$goods.pic}" alt="{$goods.title}">
+            </div>
+            <div class="DBBproperty">
+                <h2>{$goods.title}</h2>
+                <ul>
+                    <li><b>会  员  价：</b><span style="font-size: 18px;font-weight: bold;padding: 0 5px 0 0;color: #cc0000;">￥{$goods.money_new}{$goods.currency_name}</span></li>
+                    <li><b>市  场  价：</b>
+                        <del style="color: #999999;">￥{$goods.money}{$goods.currency_name}</del>
+                    </li>
+                    <li><b>剩余 库  存：</b><span style="font-weight: 700;">{$goods.shengyu_kucun}件</span></li>
+                    <li><b>累计售出：</b><span style="font-weight: 700;">{$goods.sell_num|default=0}件</span></li>
+                    <li><b>上架时间：</b><span>{:date('Y-m-d H:i:s',$goods["add_time"])}</span></li>
+                </ul>
+                <button onclick='show()'></button>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!-- 商品展示结束 -->
+        <!-- 排行榜开始 -->
+        <div class="DBBmain">
+            <div class="DBBmainLeft">
+                <h4>热销榜</h4>
+                 <volist name='hot' id='vo'>
+	                <dl>
+	                    <dt>
+	                        <a href="{:U('Goods/detail','id='.$vo['id'])}">
+				              <img src="{$vo.pic}" alt="{$vo.title}" height="60px" width="60px"> 
+				            </a>
+	                    </dt>
+	                    <dd>
+	                        <p> <a href="{:U('Goods/detail','id='.$vo['id'])}" title="{$vo.title}">{$vo.title}</a> </p>
+	                        <span>￥{:floatval($vo['money_new'])}{$vo.currency_name}</span> 
+	                    </dd>
+	                    <div class="clear"></div>
+	                </dl>
+                </volist>
+            </div>        
+            <!-- 产品介绍开始 -->
+            <div class="DBBmainRight">
+                <div class="DBBattributes-list"></div>
+                <h3 class="DBBtechanPdcontent">
+                    <strong>产品介绍</strong>
+                    <span>Product Ovierview</span>
+                </h3>
+                <ul>
+                  <li><span>{$goods.content}</span></li>
+                  <li><span>地址：{$goods.address|default="--"}</span></li>
+                  <li><span>电话：{$goods.tel|default="--"}</span></li>
+                </ul>
+            </div>
+            <!-- 产品介绍结束 -->
+            <div class="clear"></div>
+        </div>
+        <!-- 排行榜结束 -->
+        </div>
+            <!-- 商品详情页结束 -->
+            <div class="DBBalert" style="display:none;">
+        <!-- <div class="DBBalertTitle">
+            <span>购买商品</span>
+            <a class="DBBclosed" href="javascript:closeDevolve();"></a>
+        </div> -->
+        <div class="DBBdialog_body">
+            <ul>
+                <li><b>金额：</b><span>￥{$goods.money_new}{$goods.currency_name}</span></li>
+                <li><b>购买数量：</b><input id="buy-num" type="text"></li>
+                <li><b>手机号码：</b><input id="buy-tel" type="text"></li>
+                <li><b>收货地址：</b><input id="buy-address" type="text"></li>
+                <li><b>备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：</b><input  id="buy-note" type="text"></li>
+            </ul>
+            <div class="DBBcenter">
+                <a class="DBBbuttonLoanRed" href="javascript:void(0);" onclick="buy({$goods.id})">确认购买</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--footer start--> 
+<include file="App/Home/View/Public/footer.html"/>
+    
+<script type="text/javascript">
+	function show(){
+		
+		layer.open({
+			  type: 1, //page层
+			  area: ['400px', '300px'],
+			  title: '买入',
+			  shade: 0.6, //遮罩透明度
+			  moveType: 1, //拖拽风格，0是默认，1是传统拖动
+			  shift: 1, //0-6的动画形式，-1不开启
+			  content:$('.DBBalert')
+				  
+			  });
+	};
+	 function closeDevolve(){
+		$('.DBBalert').hide();
+	} ;
+	 function buy(Id){
+			//var goodsid=Id;
+			//alert(1);
+			var num=$("#buy-num").val();
+			var tel=$("#buy-tel").val();
+			var note=$("#buy-note").val();
+			var address=$("#buy-address").val();	
+			//alert(goodsid);alert(num);alert(tel);alert(note);alert(address);
+			$.ajax({
+				//alert(1);
+				type:'post',
+				url:"{:U('Goods/goods_buy')}",
+				data:{id:Id,num:$("#buy-num").val(),tel:$("#buy-tel").val(),address:$("#buy-address").val(),note:$("#buy-note").val()},
+				success:function(data){
+					if(data.status==1){
+						alert(data.info);
+						location.reload();
+					}else{
+						alert(data.info);
+					}
+			
+				}
+			});
+			
+	}
+
+</script>

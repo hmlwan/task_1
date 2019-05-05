@@ -1,0 +1,89 @@
+<include file="App/Admin/View/Public/left.html"/>
+<!--/sidebar-->
+
+<div class="main-wrap">
+
+    <div class="crumb-wrap">
+        <div class="crumb-list"><i class="icon-font"></i><a href="{:U('Index/index')}">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">理财币种列表</span></div>
+    </div>
+    <div class="search-wrap">
+
+    </div>
+    <div class="result-wrap">
+
+        <div class="result-content">
+            <table class="result-tab" width="100%">
+                <tr>
+
+                    <th>任务ID</th>
+                    <th>任务名称</th>
+                    <th>用户名</th>
+                    <th>内容</th>
+                    <th>时间</th>
+                    <th>提交状态</th>
+                    <th>审核状态</th>
+                    <th>审核者</th>
+                    <th>操作</th>
+                </tr>
+                <volist name='info' id='vo'>
+                    <tr>
+                        <td>{$vo['task_id']}</td>
+                        <td>{$vo['pub_name']}</td>
+                        <td><a href="{:U('Member/show',array('member_id'=>$vo['member_id']))}">{$vo['username']}</a></td>
+                        <td>{$vo['content']}</td>
+                        <td>{$vo['create_time']|date="Y-m-d H:i:s",###}</td>
+                        <td>
+                            <switch name="vo['status']">
+                                <case value="0"><span style="color: #FF0000">未报名</span></case>
+                                <case value="1">已报名</case>
+                                <case value="2">已提交</case>
+                                <case value="3">取消报名</case>
+                            </switch>
+                        </td>
+                        <td>
+                            <switch name="vo['is_check']">
+                                <case value="0"><span style="color: #FF0000">未审核</span></case>
+                                <case value="1"><span style="color:green">审核成功</span></case>
+                                <case value="2"><span style="color: #00aeff">审核失败</span></case>
+                            </switch>
+                        </td>
+                        <td>{$vo['op_username']}</td>
+                        <td>
+                            <if condition="$vo['status'] eq 2">
+                                <a class="link-update" href="{:U('PubTask/op_check',array('id'=>$vo['id']))}#13#2">审核</a>
+                            </if>
+                            <a href="javascript:void(0)" class="link-del" onclick="cexiao({$vo.id})">删除</a>
+                        </td>
+                    </tr>
+                </volist>
+
+            </table>
+            <div class="list-page"> <ul>{$page}</ul></div>
+        </div>
+
+    </div>
+</div>
+<!--/main-->
+</div>
+</body>
+</html>
+<script>
+    function cexiao(_this){
+        layer.confirm('确定删除吗？', {
+            btn: ['确定','取消'], //按钮
+            title: '撤销删除'
+        }, function(){
+            $.post('{:U('PubTask/typedel')}',{id:_this},function(data){
+                if(data['status'] == 1){
+                    layer.msg(data['info']);
+                    setTimeout(function(){location.reload();},1000);
+                }else{
+                    layer.msg(data['info']);
+                }
+            })
+        }, function(){
+            layer.msg('已取消');
+        });
+
+    }
+</script>

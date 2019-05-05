@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>转账</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/wallet.css">
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+//                    docEl.style.fontSize = 100*(clientWidth/980) + 'px';
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body  id="wallet_zz">
+<header class="subHeader wallet_header">
+    <a href="javascript:history.back()"></a>转账
+</header>
+<div class="zz_form">
+    <form action="">
+        <label for="zz_currency"><em></em><span>我的地址</span></label>
+        <div class="zz_address">
+            <input type="text" id="zz_currency" placeholder="输入或长按粘贴"><a href=""><span class="rarrow"></span></a>
+        </div>
+        <label for="zz_address"><em></em><span>对方地址</span></label>
+        <div class="zz_address">
+            <input type="text" id="zz_address" placeholder="输入或长按粘贴"><span class="clear"></span><a href=""><span class="add_list"></span></a>
+        </div>
+        <label for="zz_money"><em></em><span>金额</span></label><span class="left_nums">YL可用<em>752226.0000</em></span>
+        <div>
+            <input type="text" id="zz_money" placeholder="0.000">
+            <span class="zc_all">全部转出</span>
+        </div>
+        <p class="clearfix"><i></i>服务费（0YL)</p>
+        <p><i class="active"></i>转账说明 <em></em></p>
+        <input type="submit" class="btn" value="确认">
+    </form>
+</div>
+<div class="zz_desc">
+    <div> 转账说明 <i class="close"></i></div>
+    <ul>
+        <li><i></i><span>转账成功后将0确认直接入账对方账户</span></li>
+        <li><i></i><span>转账成功后将不可逆转</span></li>
+        <li><i></i><span>转账具有匿名性，不可查对方地址拥有者</span></li>
+    </ul>
+</div>
+
+
+</body>
+</html>

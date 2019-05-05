@@ -1,0 +1,104 @@
+<include file="App/Home/View/Public/header.html"/>
+<style type="text/css">
+.tip {
+background: none repeat scroll 0 0 #FFF8D9;
+border: 1px solid #FEBE8F;
+color: #B94A48;
+font: 12px/24px "microsoft yahei";
+height: auto;
+overflow: hidden;
+padding: 10px 15px;
+width: 738px;
+}
+.Tentitle span{background:none repeat scroll 0 0 #ffffff; border-left:1px solid #c3c1c1; border-right:1px solid #c3c1c1; border-top:2px solid #329ddc; color:#329ddc; padding:6px 10px 5px;}
+.selecttabboxNew .cur a.otherBoxTitle {
+    background: none repeat scroll 0 0 #ffffff;
+    border-left: 1px solid #c3c1c1;
+    border-right: 1px solid #c3c1c1;
+    border-top: 1px solid #329ddc;
+    color: #329ddc;
+    float: left;
+    outline: medium none;
+    padding: 6px 10px 5px;
+    text-decoration: none;
+    width: 190px;
+}
+</style>
+<div class="marketAreas clear">
+<include file="App/Home/View/Public/left.html"/>
+	<div  class="rightArea">
+		<div style="margin-bottom:19px;" class="buysellTitle">
+	              <div >
+					<ul class="selecttabboxNew" style="height: 34px;">
+						<li class="cur" style="width:110px"><a href="" class="otherBoxTitle"  style="width:90px">我的订单</a></li>
+
+					</ul>
+			      </div>	
+	    </div>	
+	    <div style="text-align:right;width:100%;">
+	        <form action="{:U('Goods/my_goods')}" method="post">
+		        		筛选：<select name='gu_status'>
+				        	<option value="-5" <eq name='pass_status' value="-5">selected</eq> >全部</option>
+				        	<option value="-1" <eq name='pass_status' value="-1">selected</eq> >审核未通过</option>
+				        	<option value="0" <eq name='pass_status' value="0">selected</eq> >未审核</option>
+				        	<option value="1" <eq name='pass_status' value="1">selected</eq> >审核通过</option>
+		        	     </select>
+		        	     <input type='submit'/>
+	        </form>
+        </div>
+    	<div class="entrustTen lasttenorder clear">
+				<div class="Tenbody">
+					<table>
+						<tbody>
+						<tr>
+							<th>商品名称</th>
+							<th>数量</th>
+						    <th>消耗</th>
+							<th>手机号码</th>
+							<th>收货地址</th>
+							<th>下单日期</th>
+							<th>状态</th>
+						</tr>
+						<volist name="list" id="vo">
+						<tr class='set-font'>
+						
+						    <td><font color=''>{$vo.title}</font></td>
+							<td><font color=''>{$vo.num}</font></td>
+						    <td><font color=''>{$vo.money}{$vo.currency_name}</font></td>
+							<td><font color=''>{$vo.tel}</font></td>
+							<td><font color=''>{$vo.address}</font></td>
+							<td><font color=''>{$vo.add_time|date="Y-m-d H:i:s",###}</font></td>
+							<td><font color=''>{$vo.status_gu}</font></td>
+						</tr>
+						</volist>
+						
+						
+	                </tbody></table>
+				</div>
+				
+				
+			</div>
+    	
+	</div>
+	<div id="DivPages" class="pages">{$page}</div>
+</div>
+<script>
+$(document).ready(function(){
+	if({$pass_status}==0){
+		$('font').attr('color','blue');
+	}
+	if({$pass_status}==-1){
+		$('font').attr('color','red');
+	}
+	if({$pass_status}==1){
+		$('font').attr('color','green');
+	}
+	
+})
+</script>
+<script>
+$(".menu18").addClass("uc-current");
+</script>   
+<!--footer start-->
+<include file="App/Home/View/Public/footer.html"/>
+<!--footer end-->

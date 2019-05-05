@@ -1,0 +1,1098 @@
+body{
+    font-size: .8rem;
+    position: relative;
+}
+header {
+    line-height: 3.125rem;
+    height: 3.125rem;
+    text-align: center;
+    color: #fff;
+    font-size: 1.125rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 999;
+
+}
+.subHeader	a {
+    position: absolute;
+    left: 1.25rem;
+    top: 50%;
+    margin-top: -.6rem;
+    width: 1.4rem;
+    height: 1.4rem;
+}
+.wallet_header a{
+    background: url(../img/left.png) no-repeat;
+    background-size: 56%;
+}
+/*钱包首页*/
+.yun_title{
+    background: linear-gradient(to right, #ff8d3f ,#ff8b3e);
+    position: relative;
+}
+.yun_title span{
+    height: 3rem;
+    line-height: 3rem;
+    padding-left: 1rem;
+    font-size: .8rem;
+    color: #fffcfb;
+}
+.record{
+    position: absolute;
+    right: 1rem;
+    top: .8rem;
+    display: inline-block;
+    height: 3rem;
+    width: 1.5rem;
+    background: url('../img/record.png') no-repeat;
+    background-size: 100%;
+}
+.wallet_type{
+    /*height: 6rem;*/
+    float: left;
+    border-bottom: #f8f8f8 solid .4rem;
+}
+.wallet_type ul{
+    float: left;
+    width: 90%;
+    padding: 0 1rem;
+}
+
+.wallet_type li{
+    float: left;
+    padding: 1rem 1.9rem;
+}
+.wallet_type li span{
+    display: block;
+    color: #4e4e4e;
+    padding-top: .8rem;
+}
+.wallet_type img{
+    width: 2rem;
+    height: 2rem;
+}
+.my_wallet{
+    float: left;
+    width: 100%;
+    border-bottom: #f8f8f8 solid .8rem;
+}
+.my_wallet .my_title{
+    height: 2rem;
+    padding: 1.5rem 1rem 0 ;
+}
+.my_title h3{
+    float: left;
+    font-size: .9rem;
+    color: #000;
+    height: 1.5rem;
+    line-height: 1.5rem;
+}
+.my_title a{
+    float: right;
+    display: inline-block;
+    height: 1.5rem;
+    border: #ffb272 .06rem solid;
+    border-radius: .2rem;
+    line-height: 1.5rem;
+    font-size: .9rem;
+    color: #ffb272;
+    padding:  0 .3rem;
+}
+.my_wallet dl{}
+.my_wallet dl dd{
+    float: left;
+    padding: .6rem 2rem .6rem 1rem;
+    border-top: #eaeaea .04rem solid;
+}
+.my_wallet dd em{
+    float: left;
+    width: 3rem;
+    height: 2rem;
+    border-radius: .2rem;
+    background:#fb983b url("../img/qb.png") no-repeat right;
+}
+.my_wallet dd div{
+    float: right;
+    padding-left: 1rem;
+    width: 13rem;
+
+}
+.my_wallet dd h2{
+    font-size: .8rem;
+    color: #000;
+}
+.my_wallet dd p{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    padding-top: .2rem;
+    color: #bfbfbf;
+    font-size: .8rem;
+}
+.clearfix{
+    display: block;
+    content: '';
+    clear: both;
+}
+.load_end{
+    margin-bottom: 3.5rem ;
+}
+.load_end div{
+    height: 3rem;
+    line-height: 3rem;
+    border-bottom: #f8f8f8  .8rem solid;
+    text-align: center;
+    position: relative;
+}
+.load_end div i {
+    float: left;
+    height: 1.5rem;
+    width: 1.5rem;
+    background: url("../img/wallet.png") no-repeat center;
+    background-size:100% ;
+    position: absolute;
+    top: .8rem;
+}
+.load_end div span{
+    font-size: 1rem;
+    color: #b9b9b9;
+    padding-left: 2rem;
+}
+/*普通号/靓号创建*/
+
+.wallet_header{
+    color: #212121;
+    font-size: 1rem;
+    font-family: 黑体;
+    position: relative;
+    background-color: #fff;
+}
+.b_header{
+    color: #52606d;
+}
+
+.pt_title{
+    position: relative;
+    background-color: #076bb7;
+    width: 100%;
+}
+.pt_title ul{
+    padding: .5rem 0 .5rem 1.2rem ;
+}
+.pt_title li{
+    font-size: .74rem;
+    color: #fff;
+    font-family:黑体 ;
+    padding-top: .3rem;
+}
+.pt_title li i{
+    display: inline-block;
+    width: .5rem;
+    height: .5rem;
+    background: url("../img/circle.png") no-repeat;
+    background-size: 100%;
+    margin-right: .4rem
+}
+.wallet_form{
+    padding: .4rem 1rem;
+}
+.wallet_form  div{
+    border-bottom: #c3c4c9 .04rem solid;
+}
+.wallet_form  div input{
+    padding-top: 2.5rem;
+    padding-bottom: .5rem;
+    font-size: .8rem;
+    color:#c3c4c9;
+    width: 100%;
+    text-indent:.5rem;
+}
+.address:after{
+    display: block;
+    content: '';
+    clear: both;
+}
+.address{
+    position: relative;
+}
+.wallet_form .address input{
+    width: 72%;
+    float: left;
+
+}
+.wallet_form  .address span{
+    font-size: .8rem;
+    height: 1.4rem;
+    line-height: 1.4rem;
+    background-color: #36bac9;
+    border-radius:.2rem ;
+    color: #fdfdfd;
+    padding: .2rem .6rem;
+    position:absolute;
+    bottom: .6rem;
+    right: 0;
+}
+
+.wallet_form .select{
+    padding:  1.5rem 0 1.5rem;
+    position: relative;
+}
+.wallet_form i{
+    background: url("../img/select.png") no-repeat left -1.94rem;
+    position: absolute;
+    width: 1.2rem;
+    height: 1.2rem;
+
+}
+.wallet_form i.active{
+    background: url("../img/select.png") no-repeat left -.7rem;
+}
+.wallet_form .select span{
+    color:#969a9d;
+    font-size: .8rem;
+    position: absolute;
+    left: 1.4rem;
+}
+.wallet_form .select em{
+    color:#2ebfbd;
+}
+.btn{
+    background-color: #36bac9;
+    width:100%;
+    height: 2.4rem;
+    border-radius: .3rem;
+    color:#fff;
+}
+.wallet_form .bottom_title{
+    width: 100%;
+    text-align: center;
+    padding-top: 1.5rem;
+}
+.wallet_form .bottom_title a{
+    color: #38bdc9;
+    font-size: .8rem;
+}
+.loading{
+    background: url("../img/cjz.png") no-repeat;
+    background-size: 100%;
+    width: 6rem;
+    height: 5rem;
+    position: absolute;
+    top:45%;
+    left: 35%;
+}
+.wallet_form .errno{
+    color: #7ed5d4;
+    font-size: .8rem;
+    padding-top: .5rem;
+    height: .8rem;
+}
+
+/*创建成功*/
+#wallet_su_bgk{
+    background-color: #262a33;
+    height: 5rem;
+    position: relative;
+}
+#wallet_su_bgk header{
+    background-color: #262a33;
+    color:#fff
+}
+
+.wallet_header span{
+    position: absolute;
+    right: 1.25rem;
+    font-size: .8rem;
+}
+.success_img{
+    text-align: center;
+    margin-top: 2rem;
+}
+.success_img i{
+    display: inline-block;
+    background: url("../img/d.png") no-repeat;
+    background-size: 100%;
+    height: 3rem;
+    width: 3rem;
+    margin-bottom: .8rem;
+}
+.success_img p{
+    color: #e0b71e;
+    font-size: .7rem;
+
+}
+.account_add{
+    padding-left: 1rem;
+    padding-top: 1.5rem;
+}
+.account_add p{
+    color: #707072;
+    font-size: .7rem; ;
+    padding-top: 1rem;
+
+}
+.account_add .account_con{
+    height: 1.3rem;
+    line-height: 1.3rem;
+}
+.account_add span{
+    color:#e0b71e;
+    width: 90%;
+    float: left;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
+.account_add i{
+    display: inline-block;
+    background: url("../img/fz.png") no-repeat;
+    height: 1.3rem;
+    width: 1.2rem;
+
+}
+.account_add img{
+    margin-top: .5rem;
+    width: 7rem;
+    height: 7rem;
+}
+
+.account_add .account_tips{
+    margin-top: 1rem;
+    color: #e0b71e;
+    font-size: .8rem;
+}
+
+.create_img i{
+    background: url("../img/cjdz.png") no-repeat;
+    height: 3.5rem;
+    width: 3.5rem;
+    background-size: 70%;
+}
+.create_img p{
+    font-size: 1rem;
+    color: #4d5c75;
+}
+
+.create_con{
+    padding: .5rem 1rem 1rem ;
+}
+
+.create_con p{
+    color: #676767;
+    font-size: .8rem;
+    padding-top: 1.2rem;
+}
+.create_con a{
+    width: 100%;
+    display: block;
+    background-color: #f0f1f3;
+    height: 2.4rem;
+    line-height: 2.4rem;
+    border-radius: .3rem;
+    color:#fff;
+    text-align: center;
+    margin: .5rem 0;
+}
+
+.create_con .lh_btn{
+    background-color: #36bac9;
+    margin-top: 1rem
+}
+
+/*转账*/
+#wallet_zz .wallet_header{
+    border-bottom: #f8f8f8 .5rem solid;
+
+}
+
+.zz_form {
+    padding:0 1.25rem;
+}
+
+.zz_form label {
+    color: #212121;
+    font-size: .9rem;
+    font-family: 黑体;
+    padding: .5rem 0;
+    display: inline-block;
+}
+.zz_form label em {
+    border-radius: 2rem;
+    height: 1rem;
+    width: .15rem;
+    float: left;
+    background-color: #ff783c;
+    margin-right: .5rem;
+
+}
+.zz_form form{
+    padding-top: 1.5rem;
+
+}
+.zz_form div{
+    width: 100%;
+    background-color: #f6f6f6;
+}
+.zz_form div input{
+    width: 100%;
+    background-color: #f6f6f6;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    font-size: .8rem;
+    color:#ff783c;
+    text-indent: 1rem;
+
+}
+#zz_address{
+    width: 80%;
+}
+.zz_address{
+    position: relative;
+}
+
+.zz_form .zz_address span{
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-top: .5rem;
+    position: absolute;
+}
+.zz_form div .clear{
+    background: url("../img/wx.png") no-repeat;
+}
+.zz_form div .add_list{
+    background: url("../img/zzaddress.png") no-repeat;
+    right: .5rem;
+}
+.zz_form .zz_address .rarrow{
+    width: 1rem;
+    height: 1rem;
+    margin-top: .8rem;
+    right: .5rem;
+    background: url("../img/rarrow.png") no-repeat;
+    background-size: 100%;
+}
+.zz_form .left_nums{
+    display: block;
+    float: right;
+    color: #bababa;
+    font-size: .7rem;
+    margin-top: .8rem;
+}
+
+.zz_form .left_nums em{
+    color:#ff783c ;
+}
+.zz_form div .zc_all{
+    color:#ff783c;
+    font-size: .7rem;
+    margin-top: .5rem;
+    float: right;
+
+}
+.zz_form p{
+    color:#373737;
+    font-size: .7rem;
+    padding-top: .8rem;
+}
+.zz_form .btn{
+    background-color: #ff783c;
+    margin-top: 1.5rem;
+}
+.zz_form p i{
+    background: url('../img/zzcheck.png') no-repeat;
+    height: 1rem;
+    width: 1rem;
+    float: left;
+}
+
+.zz_form p .active{
+    background: url('../img/zzcheck.png') no-repeat -1.055rem 0;
+}
+
+.zz_form p em{
+    background: url('../img/zzcheck.png') no-repeat -2.055rem 0;;
+    height: 1rem;
+    width: 1rem;
+    float: right;
+    margin-right: 72%;
+}
+/*转账说明*/
+.zz_desc{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    border-top:.2rem solid #f6f6f6;
+}
+.zz_desc div{
+    height: 2rem;
+    line-height:2rem ;
+    font-size: .8rem;
+    text-align: center;
+    border-bottom:.0625rem solid #f6f6f6;
+}
+.zz_desc div .close{
+    background: url(../img/x.png) no-repeat;
+    position: absolute;
+    height: 1rem;
+    width: 1rem;
+    top:.5rem;
+    right:1rem
+}
+.zz_desc ul{
+    padding: 2em 0 0  1.5rem;
+}
+
+.zz_desc li{
+    color:#b8b8b8;
+    font-size: .8rem;
+    padding-bottom: 1.5rem;
+}
+.zz_desc li i{
+    display: inline-block;
+    height: .5rem;
+    width: .5rem;
+    border-radius: 50%;
+    background:linear-gradient(to bottom,#ff782e,#f8773e,#fc773c);
+    margin-right: .4rem;
+}
+
+/*选择币种*/
+#select_cur{
+    color:#232323;
+    border-bottom: #f8f8f8 .5rem solid;
+
+}
+.select_cur dd{
+    float: left;
+    width: 100%;
+    border-bottom:#f8f8f8 .08rem solid;
+}
+.select_cur div{
+    padding: 1rem;
+    height: 1rem;
+}
+.select_cur div h2{
+    float: left;
+    font-size: .8rem;
+    color:#040404;
+    padding-left: .5rem;
+}
+
+.select_cur div span{
+    color:#b8b8b8;
+    float: right;
+}
+.select_cur div em{
+    float: right;
+    height: 1rem;
+    width: 1rem;
+    background: url(../img/zzcheck.png) no-repeat;
+
+}
+.select_cur div em.active{
+    background: url(../img/zzcheck.png) no-repeat -1rem 0;
+}
+.select_cur div i{
+    float: left;
+    height: 1rem;
+    width: 1.5rem;
+    background: url(../img/zzcurrency.png) no-repeat;
+}
+/*交易详情*/
+#jyxq{
+    background-color:#f8f8f8 ;
+}
+.sk_detail{
+    background-color: #fff;
+    text-align: center;
+    width: 100%;
+    padding: 2rem 0;
+}
+.sk_detail .sk_bgk i{
+    background:url(../img/xz.png) no-repeat ;
+    height: 1.2rem;
+    width: 1.2rem;
+    display: inline-block;
+    vertical-align: middle;
+
+}
+.sk_detail .sk_bgk span{
+    font-size: .8rem;
+    color: #ff783c;
+    display: inline-block;
+    padding-left: .5rem;
+}
+.sk_detail .sk_num{
+    color:#212121;
+    font-size: 1rem;
+    padding-top: 1rem;
+}
+.sk_detail .sk_num span{
+    color:#b9b9b9;
+    font-size: .75rem;
+    padding-left: .2rem;
+}
+.sk_con{
+    border-top:#f8f8f8 .5rem solid;
+    width: 100%;
+    float: left;
+    background-color: #fff;
+}
+.sk_con div{
+    padding: 1rem;
+    float: left;
+    width: 90%;
+}
+.sk_con h2{
+    float: left;
+    color:#212121;
+    font-size: .8rem;
+    height: .8rem;
+}
+.sk_con span{
+    float:right;
+    color:#b9b9b9;
+    font-size: .75rem;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
+.sk_bottom{
+    width: 100%;
+    height: 10rem;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background: #0a4f00 url("../img/cjb.png") no-repeat;
+}
+.sk_bottom i{
+    position: absolute;
+    bottom: .5rem;
+    width:7.5rem;
+    height: 2rem;
+    background: url("../img/cj.png") no-repeat;
+    left: 35%;
+}
+/*中奖*/
+#cj_result{
+    background: url("../img/cjjm.png") no-repeat;
+    position: fixed;
+    top:4%;
+    left: 10%;
+    width: 100%;
+    height: 22rem;
+}
+#cj_result div{
+    position: absolute;
+    top:58%;
+    left: 10%;
+    width: 12rem;
+    text-align: center;
+    font-weight: bold;
+
+}
+#cj_result h2{
+    font-size:1rem;
+    color: #fff;
+    letter-spacing: 1rem;
+    margin-top: .8rem;
+}
+#cj_result .title{
+    font-weight: bold;
+    color:#ff5237;
+    font-size: 1rem;
+    margin-top: .8rem;
+}
+#cj_result .con{
+    color: #ff8800;
+    font-size: .8rem;
+    margin-top: .5rem;
+}
+#cj_result .con .cur_num{
+    color:#ff5237
+}
+#cj_result .qr_receive{
+    color:#ff5237;
+    font-size: .8rem;
+    margin-top: .7rem;
+    display: inline-block;
+}
+/*转账纪录*/
+#zzjl_page{
+    background-color: #f8f8f8;
+}
+#zzjl_page header{
+    color:#212121;
+    background-color: #fff;
+}
+
+#zzjl dd{
+    border-top: #eaeaea .04rem solid;
+    float: left;
+    width: 100%;
+    background-color: #fff;
+}
+#zzjl .jl_con{
+    padding: 1rem .8rem;
+    float: left;
+    height: 2rem;
+    width: 90%;
+}
+
+#zzjl .jl_top h2,#zzjl .jl_top span{
+    color: #212121;
+    font-size: .76rem;
+    padding-left: .5rem;
+}
+#zzjl .jl_bottom h2,#zzjl .jl_bottom span{
+    color: #b9b9b9;
+    font-size: .7rem;
+    padding-left: .5rem;
+    padding-top: .5rem;
+}
+#zzjl .jl_con h2{
+    float: left;
+}
+#zzjl .jl_con span{
+    float: right;
+}
+#zzjl dd i{
+    height: 1.5rem;
+    width: 1.5rem;
+    float: left;
+    margin-top: .5rem;
+}
+#zzjl dd .zc{
+    background: url('../img/zzzc.png') no-repeat;
+}
+#zzjl dd .zr{
+    background: url('../img/zzzr.png') no-repeat;
+}
+#zz_op{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+}
+#zz_op div{
+    padding: .5rem 2.5rem;
+    float: left;
+    width: 80%;
+}
+#zz_op a{
+    color: #fff;
+    font-size: .8rem;
+    padding: .65rem 2.5rem;
+    border-radius: .3rem;
+}
+#zz_op .sk{
+    float: left;
+    background-color: #ff7633;
+}
+#zz_op .zz{
+    float: right;
+    background-color: #4c4a5f;
+}
+/*常用地址*/
+#select_add{
+    background-color: #f8f8f8;
+}
+#select_add header{
+    border-bottom: #f8f8f8 solid .4rem;
+}
+.bottom_height{
+    overflow: hidden;
+    margin-bottom: 4rem;
+}
+.select_add dd{
+    background-color: #fff;
+    width: 100%;
+    float: left;
+    border-bottom:#f8f8f8 .08rem solid;
+}
+.select_add div{
+    padding: .8rem;
+    float: left;
+    width: 92%;
+}
+.select_add i{
+    float: left;
+    height: 1rem;
+    width: 1rem;
+    background: url('../img/zzcheck.png') no-repeat;
+    margin: .5rem .5rem 0 0;
+}
+.select_add i.active{
+    background: url(../img/zzcheck.png) no-repeat -1rem 0;
+}
+.select_add p{
+    font-size: .8rem;
+    color: #212121;
+    float: left;
+    width: 60%;
+    padding-left: 1rem;
+}
+.select_add p span:last-child{
+    font-size: .7rem;
+    color: #b9b9b9;
+    padding-top: .4rem;
+    display: block;
+}
+.select_add em{
+    float: right;
+    height: 1.2rem;
+    width: 1.5rem;
+    margin-top: .5rem;
+    background: url('../img/add_dz.png') no-repeat;
+}
+.select_add .first_name{
+    float: left;
+    height: 2rem;
+    width: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    color:#fff;
+    font-size: .8rem;
+    background-color: #fe8548;
+    border-radius: 50%;
+}
+.tjdz{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 3rem;
+    width: 100%;
+    text-align: center;
+    line-height:3rem ;
+    background-color: #fff;
+}
+.tjdz a{
+    font-size: .8rem;
+    color:#fe8548;
+}
+.tjdz i{
+    padding-right: .2rem;
+}
+.empty_dz{
+    position: absolute;
+    left: 7.5rem;
+    top:9rem;
+}
+.empty_dz i{
+    background: url("../img/empty_dz.png") no-repeat;
+    width: 100%;
+    height: 5rem;
+    display: inline-block;
+}
+.empty_dz p{
+    color: #eaeaea;
+    font-size: .8rem;
+}
+/*添加常用地址*/
+.add_dz{
+    width: 100%;
+}
+.add_dz form{
+    padding-left: 1rem;
+
+}
+.add_dz div{
+    width: 100%;
+    float: left;
+    padding-top:1.5rem ;
+    padding-bottom: 1rem;
+    border-bottom:#ebebeb .0625rem solid;
+    color: #212121;
+
+}
+.add_dz label{
+    float: left;
+    font-size: .9rem;
+}
+.add_dz input{
+    width: 70%;
+    float: left;
+    padding-left: 1rem;
+    font-size: .8rem;
+}
+.add_dz i{
+    float: right;
+    background:#fff url("../img/wx.png") no-repeat;
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: 1rem;
+}
+
+.add_dz form .btn{
+    margin-top:2rem ;
+    background-color: #fe8548;
+    width: 80%;
+    margin-left: 1.5rem;
+}
+/*地址详情*/
+#dzxq{
+    background-color: #ff9347;
+}
+#dzxq .wallet_header{
+    color: #fff;
+    background-color: #ff9347;
+}
+#dzxq .wallet_header a{
+    background: url(../img/backw.png) no-repeat;
+    background-size:50%;
+}
+
+#dz_name {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+#dz_name .swiper-wrapper{
+    padding-left: .5rem;
+    width: 100%;
+}
+#dz_name .swiper-slide{
+    padding: .5rem 0;
+    text-align: center;
+    color:#fff;
+    font-size: .75rem;
+    height: .75rem;
+    line-height: .75rem;
+}
+#dz_name .swiper-wrapper .active{
+    background-color: #fff;
+    color:#ff9347;
+    border-radius: 1rem;
+}
+#dz_cont {
+    width: 100%;
+    overflow: hidden;
+}
+.cont_top{
+    overflow: hidden;
+    margin-left: 1rem;
+}
+#dz_cont .cont_top div{
+    text-align: center;
+    background-color: #fff;
+    border-radius: .4rem;
+    width: 95%;
+    float: left;
+    height: 21rem;
+}
+.cont_top i {
+    width: 1rem;
+    height: 21rem;
+    background-color: #fff;
+}
+.a {
+    float: left;
+    margin-right: 1rem;
+    border-radius: 0 .4rem .4rem 0 ;
+}
+ .b {
+    float: right;
+    margin-left: 1rem;
+    border-radius: .4rem 0 0 .4rem ;
+}
+#dz_cont .cont_top div img{
+    width: 8.5rem;
+    height: 8.5rem;
+    padding: 4rem 0 .8rem;
+}
+#dz_cont .cont_top p{
+    font-size: .7rem;
+    color: #a6a6a6;
+}
+#dz_cont .cont_top p:nth-child(3){
+    padding: 1rem 0 1rem;
+}
+#dz_cont .cont_top span{
+    color:#fff;
+    background-color: #ff9347;
+    padding: .8rem 2rem;
+    border-radius: 2rem;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+#dz_cont .cont_bot p{
+    width: 80%;
+    border-radius: .4rem;
+    text-align: center;
+    background-color: #fff;
+    color:#ff9347;
+    /*border:#fff 1rem dotted;*/
+    padding: 1rem;
+    border-top:#ff9347 .06rem dotted;
+    float: left;
+    height: 1rem;
+    line-height: 1rem;
+    margin-left: 1rem;
+}
+.cont_bot i {
+    width: 1rem;
+    height: 3rem;
+    background-color: #fff;
+}
+
+
+
+/*footer*/
+.footer{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    background-color: #fff;
+    border-top:0.0625rem solid #d3e3f8;
+}
+.footer li{
+    float: left;
+    width: 20%;
+    line-height: 1.6;
+    height: 3.4rem;
+    font-size: 0.7466rem;
+    text-align: center;
+    position: relative;
+}
+
+.footer li span{
+    width: 100%;
+    position: absolute;
+    bottom: 3px;
+    left: 0;
+    z-index: 3;
+    color: #bbbabb;
+    background-color: #fff;
+}
+.footer li i{
+    position: relative;
+    display: inline-block;
+    width: 1.8rem;
+    height: 1.8rem;
+    margin-top: 0.4rem;
+    background: url(../img/fixedicon.png) no-repeat ;
+    background-size: 600%;
+}
+.footer li:nth-of-type(1) i{
+    background-position-x:0.02rem ;
+}
+.footer li:nth-of-type(2) i{
+    background-position-x:-2.1rem ;
+}
+.footer li:nth-of-type(3) i{
+    background-position-x:-4.2rem ;
+}
+.footer li:nth-of-type(4) i{
+    background-position-x:-6.4rem ;
+}
+.footer li:nth-of-type(5) i{
+    background-position-x:-8.5rem ;
+}
+
+.footer .active i{background-position-y: -2.5rem;}

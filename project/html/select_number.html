@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建地址</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/wallet.css">
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+//                    docEl.style.fontSize = 100*(clientWidth/980) + 'px';
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+<header class="subHeader wallet_header">
+    <a href=""></a>创建地址
+</header>
+<div class="success_img create_img">
+    <i></i>
+    <p>靓号跟普通地址有什么区别？</p>
+</div>
+<div class="create_con">
+    <p>普通注册需要1云链，靓号注册需要98云链。地址注册分
+        为普通地址和靓号地址，靓号是云链口袋推出的一种增
+        值钱包地址。</p>
+    <p>普通注册会生成24位随机小写字母与数字的组合，靓号
+        可自定义注册3-22位任意组合（前提是该地址未被占用）</p>
+    <p>靓号申请购买成功后将会是一个独立新的地址，首次购
+        买会有一年的使用权，地址到期后，需继续为其付费，
+        98云链一年，即可继续用使用。</p>
+    <p>未来还会开放地址交易、转让、拍卖等服务</p>
+    <a href="" class="lh_btn">靓号注册</a>
+    <a href="">普通注册</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>交易详情</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/wallet.css">
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+//                    docEl.style.fontSize = 100*(clientWidth/980) + 'px';
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body id="jyxq">
+<header class="subHeader wallet_header" id="select_cur">
+    <a href="javascript:history.back()"></a>交易详情
+</header>
+<div class="sk_detail">
+    <p class="sk_bgk"><i></i><span>收款成功</span></p>
+    <p class="sk_num">+725<span>YL</span></p>
+</div>
+
+<div class="sk_con">
+    <div>
+        <h2>交易类型</h2>
+        <span>收入</span>
+    </div>
+</div>
+<div class="sk_con">
+    <div>
+        <h2>对方地址</h2>
+        <span>SDSDSKERENN34FJLSDSDLJFD</span>
+    </div>
+</div>
+<div class="sk_con">
+    <div>
+        <h2>我方地址</h2>
+        <span>SDSDSKERENN34FJLSDSDLJFD</span>
+    </div>
+
+</div>
+<div class="sk_con">
+    <div>
+        <h2>创建时间</h2>
+        <span>2018-07-09 12:23:07</span>
+    </div>
+</div>
+<div class="sk_bottom clearfix">
+    <i id="cj"></i>
+</div>
+<div id="cj_result">
+    <div>
+        <h2>恭喜</h2>
+        <p class="title">中奖了!</p>
+        <p class="con">恭喜您抽中了<em class="cur_num">“50G”</em><em class="cur_name">算力</em></p>
+        <span class="qr_receive">确认领取</span>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<include file="Public:header"/>
+<body>
+<div>
+    <div class="login_bgk">
+        <div class="jump_btn">
+            <a  href="{:U('Login/index')}">登&nbsp;录</a><a  class="jump_active" href="javascript:;">注&nbsp;册</a>
+        </div>
+    </div>
+
+    <div class="form-login" style="margin-bottom: 1rem">
+        <form action="">
+            <div class="nametext"><input type="text" placeholder="推荐人ID" name="pid" value="{$pid}"><i></i></div>
+            <div class="nametext"><input type="text" placeholder="请输入用户名" name="username"><i></i></div>
+            <div class="pwdtext"><input type="password" placeholder="请输入密码" name="password"><i></i></div>
+            <div class="pwdtext"><input type="password" placeholder="再次输入密码" name="repassword"><i></i></div>
+            <div class="phonetext"><input type="text" placeholder="请输入手机号" name="phone"><i></i></div>
+            <div class="yzmtext"><input type="text" placeholder="请输入验证码" name="yzm"><a id="msgt"  href="javascript:void(0);" onclick="get_code()">获取验证码</a></div>
+            <div class="logintext" onclick="sub()">注&nbsp;册</div>
+        </form>
+    </div>
+</div>
+<script>
+
+    function get_code(){
+        var phone = $("input[name='phone']").val();
+        if(phone == ""||phone == null){
+            layer.msg('请输入手机号码');
+            return false;
+        }
+        if(!isPoneAvailable(phone)) {
+            layer.msg('手机号格式错误');
+            return false;
+        }
+        $("#msgt").attr("data-key","off");
+        var i= 60;
+        var timer =setInterval(function(){
+            if($("#msgt").attr("data-key")=='off'){
+                $("#msgt").attr("disabled",true).css("pointer-events","none");
+                $("#msgt").css('background-color','#dadada');
+                i--;
+                $("#msgt").text(i+"s后可重新发送");
+                if(i<=0){
+                    $("#msgt").removeAttr("disabled").text("重新发送验证码");
+                    $("#msgt").attr("data-key","on");
+                    $("#msgt").css("pointer-events","auto");
+                    $("#msgt").css('background-color','#1da9e8');
+                    clearInterval(timer);
+                }
+            }
+        },1000);
+        $.post("{:U('Common/ajaxSandPhone')}",
+            {'phone':phone,type:1},function(d){
+            if(d.status == 1){
+                layer.msg(d.info,{icon:1});
+            }else{
+                layer.msg(d.info);
+            }
+        });
+    }
+    function sub(){
+        var pid = $("input[name='pid']").val();
+        var username = $("input[name='username']").val();
+        var phone = $("input[name='phone']").val();
+        var password = $("input[name='password']").val();
+        var repwd = $("input[name='repassword']").val();
+        var yzm = $("input[name='yzm']").val();
+
+        if(phone == ""||phone == null){
+            layer.msg('请输入手机号码');
+            return false;
+        }
+        if(username == ""||username == null){
+            layer.msg('请输入用户名');
+            return false;
+        }
+        if(!isPoneAvailable(phone)) {
+            layer.msg('手机号格式错误');
+            return false;
+        }
+        if(password == ""||password == null){
+            layer.msg('请输入登陆密码');
+            return false;
+        }
+        var pLen = password.length;
+        if(pLen < 6 || pLen > 20) {
+            layer.msg('密码长度在6-20个字符之间');
+            return false;
+        }
+        if(repwd!= password) {
+            layer.msg('登陆密码不一致，请重新输入');
+            return false;
+        }
+        $.post("{:U('Reg/addReg')}",{
+            pid:pid,
+            phone:phone,
+            username:username,
+            password:password,
+            repwd:repwd,
+            yzm:yzm
+        },function(data){
+            if(data.status==1){
+                layer.msg("注册成功，请去完善个人信息",{icon:1});
+                window.setTimeout(function(){
+                    window.location="{:U('FullInfo/full_info')}";
+                },1000);
+            }else{
+                layer.msg(data.info);
+                return false;
+            }
+        })
+    };
+</script>
+<include file="Public:footer"/>
+

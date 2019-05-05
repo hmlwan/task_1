@@ -1,0 +1,41 @@
+<span class="rightTitle">累计邀请人数</span>
+
+<p>
+    <span>推荐侗红实业共享创业网（www.donghong100.cn）给其他人，可以获取被推荐人交易手续费做为佣金，躺着也挣钱！</span>
+    <span class="orangeColor">注：佣金时时累计，结算为每月月初统一结算。</span>
+</p>
+
+<ul class="myfriend_cumulative">
+    <li class="myfriend_cumulative_left">
+        <span>累计邀请人数：</span>
+        <span class="redColor">{$count}人</span>
+    </li>
+</ul>
+
+<div class="cumulativeTablePanel">
+    <span class="cumulativeTable_title">最近邀请的用户</span>
+
+    <table class="cumulativeTable">
+        
+        <thead>
+            <tr>
+                <th>被邀请人邮箱</th>
+                <th>注册时间</th>
+                <th>有效期</th>
+                <th>KYC1</th>
+                <th>KYC2</th>
+            </tr>
+        </thead>
+        <tbody>
+        	<foreach name='my_invit' item='v'>
+            <tr>
+                <td>{$v.email|substr=0,3}***{$v.email|substr=6}</td>
+                <td>{$v.reg_time|date='Y-m-d',###}</td>
+                <td>{$v.end_time|date='Y-m-d',###}</td>
+                <td><if condition='$v.end_time gt $time' ><if condition='$v.status eq 2'>无效<elseif condition='$v.status eq 1' />有效中<else />未实名认证</if><else />无效</if></td>
+            	<td><if condition="$v.is_auth eq 1">已认证<else/>未认证</if></td>
+            </tr>
+           </foreach>
+        </tbody>
+    </table>
+</div>

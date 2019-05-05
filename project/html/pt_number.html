@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>普通创建</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/wallet.css">
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+//                    docEl.style.fontSize = 100*(clientWidth/980) + 'px';
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+<header class="subHeader wallet_header">
+    <a href=""></a>普通创建
+</header>
+<div class="pt_title">
+    <ul>
+        <li><i></i><span>本次创建的地址将会由随机24位字母+数字组成</span></li>
+        <li><i></i><span>本次创建需要消耗1云链</span></li>
+        <li><i></i><span>钱包标签长度不能多于5位，只能由汉字字母数字组成</span></li>
+    </ul>
+</div>
+<div class="wallet_form">
+    <form action="" >
+        <div><input type="text"></div>
+        <div class="address">
+            <input type="text">
+            <span>刷新地址</span>
+        </div>
+        <p class="errno"></p>
+        <p class="select"><i class="active"></i><span>本次注册需要<em>支付1云链的服务费</em></span></p>
+        <input type="submit" class="btn" value="确认创建">
+        <p class="bottom_title"><a href="">靓号创建</a></p>
+    </form>
+</div>
+<div class="loading" style="display: none">
+
+</div>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>收款地址</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/swiper.min.css">
+    <link rel="stylesheet" href="../css/wallet.css">
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+//                    docEl.style.fontSize = 100*(clientWidth/980) + 'px';
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+</head>
+
+<script src="../js/jquery-1.9.1.min.js"></script>
+<script src="../js/swiper.min.js"></script>
+<body id="dzxq">
+<header class="subHeader wallet_header">
+    <a href=""></a>收款地址
+</header>
+
+<div id="dz_name">
+    <div class="swiper-container" id="dz_cont_1" >
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">张三</div>
+            <div class="swiper-slide">李四</div>
+            <div class="swiper-slide">测试</div>
+            <div class="swiper-slide">赵天虎</div>
+            <div class="swiper-slide">李玉天</div>
+        </div>
+    </div>
+</div>
+
+<div id="dz_cont">
+    <div class="swiper-container" id="dz_cont_2" >
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="cont_top">
+                    <!--<i class="a"></i>-->
+                    <div>
+                        <img src="../img/qrcode.png" alt="">
+                        <p>钱包地址</p>
+                        <p>1</p>
+                        <span>复制地址</span>
+                    </div>
+                    <!--<i class="b"></i>-->
+                </div>
+
+                <div class="cont_bot">
+                    <!--<i class="a"></i>-->
+                    <p>该地址仅支持云链</p>
+                    <!--<i class="b"></i>-->
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="cont_top">
+                    <!--<i class="a"></i>-->
+                    <div>
+                        <img src="../img/qrcode.png" alt="">
+                        <p>钱包地址</p>
+                        <p>2</p>
+                        <span>复制地址</span>
+                    </div>
+                    <!--<i class="b"></i>-->
+                </div>
+
+                <div class="cont_bot">
+                    <!--<i class="a"></i>-->
+                    <p>该地址仅支持云链</p>
+                    <!--<i class="b"></i>-->
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="cont_top">
+                    <!--<i class="a"></i>-->
+                    <div>
+                        <img src="../img/qrcode.png" alt="">
+                        <p>钱包地址</p>
+                        <p>3</p>
+                        <span>复制地址</span>
+                    </div>
+                    <!--<i class="b"></i>-->
+                </div>
+
+                <div class="cont_bot">
+                    <!--<i class="a"></i>-->
+                    <p>该地址仅支持云链</p>
+                    <!--<i class="b"></i>-->
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="cont_top">
+                    <!--<i class="a"></i>-->
+                    <div>
+                        <img src="../img/qrcode.png" alt="">
+                        <p>钱包地址</p>
+                        <p>4</p>
+                        <span>复制地址</span>
+                    </div>
+                    <!--<i class="b"></i>-->
+                </div>
+
+                <div class="cont_bot">
+                    <!--<i class="a"></i>-->
+                    <p>该地址仅支持云链</p>
+                    <!--<i class="b"></i>-->
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="cont_top">
+                    <!--<i class="a"></i>-->
+                    <div>
+                        <img src="../img/qrcode.png" alt="">
+                        <p>钱包地址</p>
+                        <p>4</p>
+                        <span>复制地址</span>
+                    </div>
+                    <!--<i class="b"></i>-->
+                </div>
+
+                <div class="cont_bot">
+                    <!--<i class="a"></i>-->
+                    <p>该地址仅支持云链</p>
+                    <!--<i class="b"></i>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+var thumbsSwiper = new Swiper('#dz_cont_1',{
+
+    watchSlidesVisibility: true,//防止不可点击
+    slidesPerView: 4,
+});
+var gallerySwiper = new Swiper('#dz_cont_2',{
+    loop : true,
+    thumbs: {
+        swiper: thumbsSwiper,
+        slideThumbActiveClass: 'active',
+        watchSlidesVisibility: true,/*避免出现bug*/
+    },
+});
+
+</script>
+
+</body>
+</html>

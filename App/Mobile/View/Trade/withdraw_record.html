@@ -1,0 +1,48 @@
+<include file="Public:header"/>
+<body>
+<div>
+    <header>
+        <div class="gwc_bt">
+            <div class="gwcbt_fh"><a href="javascript:history.back()" class="gwcdd_fh"></a></div>
+            <div class="gwcbt_mc">提现记录</div>
+        </div>
+        <div style="height: .74rem;clear: both;"></div>
+    </header>
+    <div class="tdxx">
+        <div class="">
+            <dl>
+                <dd class="tdxx_menu">
+                    <ul>
+                        <li style="width: 25%">金额</li>
+                        <li style="width: 25%">类型</li>
+                        <li style="width: 20%">状态</li>
+                        <li style="width: 30%">创建时间</li>
+                    </ul>
+                </dd>
+                <volist name="list" id="vo">
+                    <dd>
+                        <ul>
+                            <li style="width: 25%">{$vo.money}</li>
+                            <li style="width: 25%"><if condition="$vo['tx_type'] eq 1">
+                                押金
+                                <else />
+                                佣金
+                            </if></li>
+                            <li style="width: 20%">
+                                <switch name="vo['tx_type']">
+                                    <case value="0">未审核</case>
+                                    <case value="1">审核成功</case>
+                                    <case value="2">审核中</case>
+                                    <case value="3">审核失败</case>
+                                </switch>
+                            </li>
+                            <li style="width: 30%">{$vo.add_time|date="Y-m-d",###}</li>
+                        </ul>
+                    </dd>
+                </volist>
+            </dl>
+        </div>
+    </div>
+</div>
+
+<include file="Public:footer"/>

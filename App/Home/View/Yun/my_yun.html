@@ -1,0 +1,228 @@
+<include file="App/Home/View/Public/header.html"/>
+<style type="text/css">
+.tip {
+background: none repeat scroll 0 0 #FFF8D9;
+border: 1px solid #FEBE8F;
+color: #B94A48;
+font: 12px/24px "microsoft yahei";
+height: auto;
+overflow: hidden;
+padding: 10px 15px;
+width: 738px;
+}
+.Tentitle span{background:none repeat scroll 0 0 #ffffff; border-left:1px solid #c3c1c1; border-right:1px solid #c3c1c1; border-top:2px solid #329ddc; color:#329ddc; padding:6px 10px 5px;}
+.selecttabboxNew .cur a.otherBoxTitle {
+    background: none repeat scroll 0 0 #ffffff;
+    border-left: 1px solid #c3c1c1;
+    border-right: 1px solid #c3c1c1;
+    border-top: 1px solid #329ddc;
+    color: #329ddc;
+    float: left;
+    outline: medium none;
+    padding: 6px 10px 5px;
+    text-decoration: none;
+    width: 190px;
+}
+</style>
+<div class="marketAreas clear">
+<include file="App/Home/View/Public/left.html"/>
+	<div  class="rightArea">
+		<div style="margin-bottom:19px;" class="buysellTitle">
+	              <div >
+					<ul class="selecttabboxNew" style="height: 34px;">
+						<li class="<eq name="type" value="1">cur</eq>" style="width:110px"><a href="{:U('Yun/my_yun?type=1')}" class="otherBoxTitle"  style="width:90px">未开奖</a></li>
+						<li class="<eq name="type" value="2">cur</eq>" style="width:110px"><a href="{:U('Yun/my_yun?type=2')}" class="otherBoxTitle"  style="width:90px">已中奖</a></li>
+						<li class="<eq name="type" value="3">cur</eq>" style="width:110px"><a href="{:U('Yun/my_yun?type=3')}" class="otherBoxTitle"  style="width:90px">未中奖</a></li>
+						<li class="<eq name="type" value="4">cur</eq>" style="width:110px"><a href="{:U('Yun/my_yun?type=4')}" class="otherBoxTitle"  style="width:90px">已兑奖</a></li>
+					</ul>
+			      </div>	
+			      </div>	
+    	<div class="entrustTen lasttenorder clear">
+				<div class="Tenbody">
+					<table>
+						<tbody>
+						<tr>
+							<th>云购码</th>
+							<th>购买商品</th>
+							<th>购买时间</th>
+							<th>开奖情况</th>
+							<th>开奖时间</th>
+							<th>开奖兑奖</th>
+						</tr>
+						<volist name="list" id="vo">
+						<tr>
+							<td>{$vo.add_time}{$vo.id}</td>
+							<td>{$vo.title}</td>
+							<td>{:date('Y-m-d H:i:s',$vo['add_time'])}</td>
+							<td>{$state}</td>
+							<td><neq name="type" value="1">{:date('Y-m-d H:i:s',$vo['open_time'])}</neq></td>
+							<td><eq name="type" value="2"><a href="javascript:void(0)" onclick="win(this);" data-oid="{$vo.id}">兑奖</a></eq></td>
+						</tr>
+						</volist>
+						
+						
+	                </tbody></table>
+				</div>
+				
+			</div>
+    	
+	</div>
+</div>
+<eq name="type" value="2">
+<div  id="myModal5"  style="display: none;" align='left'>
+	<div >
+		<div>
+			
+			<small class="font-bold" style='font-size: 85%;'>
+				<div class="modal-body" style=' position: relative; padding: 15px;'>
+					<div class="row">
+						<form class="form-horizontal m-t" id="signupForm"
+							jump-url="{:U('Yun/my_yun?type=4')}" method="post"
+							action="{:U('Yun/win')}" >
+							<div class="col-md-12" >
+
+								<div class="form-group" >
+									<div class="row">
+										<label class="col-sm-3 control-label" style='padding-top: 7px; margin-bottom: 0; text-align: right;'>手机号码：</label>
+										<div class="col-sm-7" style = "float: right;">
+											<input type="text" name="tel" class="form-control" value=""
+												placeholder="请输入手机号码" style='
+													display: block;												   
+												    padding: 4px 12px;
+												    font-size: 14px;
+												    line-height: 1.42857143;
+												    color: #555;
+												    background-color: #fff;
+												    background-image: none;
+												    border: 1px solid #ccc;
+												    border-radius: 4px;'>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="row">
+										<label class="col-sm-3 control-label" style='padding-top: 7px; margin-bottom: 0; text-align: right;'>地址：</label>
+										<div class="col-sm-7" style = "float: right;">
+											<input type="text" name="address" class="form-control"
+												value="" placeholder="请输入地址" style='
+												    display: block;
+												    padding: 4px 12px;
+												    font-size: 14px;
+												    line-height: 1.42857143;
+												    color: #555;
+												    background-color: #fff;
+												    background-image: none;
+												    border: 1px solid #ccc;
+												    border-radius: 4px;'>
+										</div>
+									</div>
+								</div>
+									<div class="form-group" >
+									<div class="row">
+										<label class="col-sm-3 control-label" style='padding-top: 7px; margin-bottom: 0; text-align: right;'>备注：</label>
+										<div class="col-sm-7" style = "float: right;">
+											<textarea  name="notes" class="form-control" value=""
+												placeholder="请输入备注" style='
+													display: block;												   
+												    padding: 4px 18px;
+												    font-size: 14px;
+												    line-height: 1.42857143;
+												    color: #555;
+												    background-color: #fff;
+												    background-image: none;
+												    border: 1px solid #ccc;
+												    border-radius: 4px;'></textarea>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="row">
+										<label class="col-sm-3 control-label"></label>
+										<div class="col-sm-7" style='text-align:center;'>
+										<input type="hidden" name="id" id="oid" value="0">
+											<input type="submit" value="提交" class="btn btn-primary"
+												class="form-control" style='  color: #fff; background-color: #337ab7; border-color: #2e6da4;  padding: 6px 12px;font-size: 14px;line-height: 1.42857143;border-radius: 4px;'>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+						<script>
+							jQuery.validator
+									.addMethod(
+											"mobile",
+											function(value, element) {
+												var length = value.length;
+												var mobile = /^(((13[0-9]{1})|(15[0-9]{1}))+\d{8})$/
+												return this.optional(element)
+														|| (length == 11 && mobile
+																.test(value));
+											}, "手机号码格式错误");
+							$("#signupForm").validate({
+								rules : {
+									tel : {
+										required : true,
+									},
+									address : {
+										required : true
+									}
+								},
+								messages : {
+									telnum : {
+										required : "手机号码不能为空",
+									},
+									address : {
+										required : "地址不能为空",
+									}
+								},
+								submitHandler : function(form) {
+									ajax_submit_form(form)
+									return false;
+								},
+								invalidHandler : function() { //不通过回调 
+									return false;
+								},
+
+							});
+						</script>
+					</div>
+				</div>
+				
+			</small>
+		</div>
+		<small  style='font-size: 85%;'class="font-bold"> </small>
+	</div>
+	<small class="font-bold"> </small>
+</div>
+<script type="text/javascript">
+	function win(obj){
+		$('#oid').val($(obj).attr('data-oid'));
+	//	$("#myModal5").modal('show');
+		layer.open({
+			  type: 1, //page层
+			  title:'兑奖资料填写',
+			  area: ['500px', '300px'],
+			  shade: 0.6, //遮罩透明度
+			  moveType: 1, //拖拽风格，0是默认，1是传统拖动
+			  shift: 1, //0-6的动画形式，-1不开启
+			  content: $("#myModal5")
+			});  
+	}
+</script>
+</eq>
+<script type="text/javascript">
+	/* $(document).ready(
+			function(e) {
+				
+				$(".bor").eq(1).children("div").addClass("tradeTitlecur")
+						.removeClass("tradeTitle");
+				$(".bor").eq(1).find("span").addClass("acountManage1cur")
+						.removeClass("acountManage1");
+			}); */
+</script>
+<script>
+$(".menu17").addClass("uc-current");
+</script>   
+<!--footer start-->
+<include file="App/Home/View/Public/footer.html"/>
+<!--footer end-->

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加地址</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/wallet.css">
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+//                    docEl.style.fontSize = 100*(clientWidth/980) + 'px';
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body id="wallet_zz">
+<header class="subHeader wallet_header">
+    <a href="javascript:history.back()"></a>添加常用地址
+</header>
+<div class="add_dz">
+    <form action="">
+        <div>
+            <label for="">备注</label>
+            <input type="text"><i class="bz"></i>
+        </div>
+        <div>
+            <label for="">地址</label>
+            <input type="text"><i class="dz"></i>
+        </div>
+        <input type="submit" class="btn" value="保存并使用">
+    </form>
+</div>
+
+</body>
+</html>

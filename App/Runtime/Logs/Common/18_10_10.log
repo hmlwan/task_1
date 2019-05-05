@@ -1,0 +1,18 @@
+[ 2018-10-10T12:27:57+08:00 ] 127.0.0.1 /Safe/modifypwd
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:Safe
+
+[ 2018-10-10T12:28:24+08:00 ] 127.0.0.1 /Safe/modifypwd
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:Safe
+
+[ 2018-10-10T14:05:29+08:00 ] 127.0.0.1 /Public/Admin/iconfont/iconfont/iconfont.woff?t=1458976880
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.014001s ]
+ERR: 无法加载模块:Public
+

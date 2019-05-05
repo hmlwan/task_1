@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>钱包首页</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/wallet.css">
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+//                    docEl.style.fontSize = 100*(clientWidth/980) + 'px';
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+    <div class="yun_title">
+        <span>可用云链币 876.657</span>
+        <a href="javascript:;" class="record"></a>
+    </div>
+    <div class="wallet_type">
+        <ul>
+            <li><a href=""><img src="../img/sys.png" alt=""><span>扫一扫</span></a></li>
+            <li><a href=""><img src="../img/zz.png" alt=""><span>转账</span></a></li>
+            <li><a href=""><img src="../img/sk.png" alt=""><span>收款</span></a></li>
+        </ul>
+    </div>
+    <div class="my_wallet">
+        <div class="my_title">
+            <h3>我的钱包</h3>
+            <a href="" class="create_address">创建地址</a>
+        </div>
+        <dl>
+            <dd>
+                <em></em>
+                <div>
+                    <h2>标签</h2>
+                    <p>YL32Y9AEGJ4I39SFYL32</p>
+                </div>
+            </dd>
+            <dd>
+                <em></em>
+                <div>
+                    <h2>标签</h2>
+                    <p>YL32Y9AEGJ4I39SFYL32</p>
+                </div>
+            </dd>
+            <dd>
+                <em></em>
+                <div>
+                    <h2>标签</h2>
+                    <p>YL32Y9AEGJ4I39SFYL32</p>
+                </div>
+            </dd>
+            <dd>
+                <em></em>
+                <div>
+                    <h2>标签</h2>
+                    <p>YL32Y9AEGJ4I39SFYL32</p>
+                </div>
+            </dd>
+            <dd>
+                <em></em>
+                <div>
+                    <h2>标签</h2>
+                    <p>YL32Y9AEGJ4I39SFYL32</p>
+                </div>
+            </dd>
+
+        </dl>
+    </div>
+    <div class="load_end clearfix">
+        <div><i></i><span>地址已加载完毕</span></div>
+    </div>
+    <footer class="footer">
+        <ul class="clearfix">
+            <li>
+                <i></i><span>购物</span>
+            </li>
+            <li>
+                <i></i><span>任务</span>
+            </li>
+            <li>
+                <i></i><span>推广</span>
+            </li>
+            <li>
+                <i></i><span>抽奖</span>
+            </li>
+            <li class="active">
+                <i></i><span>我的</span>
+            </li>
+        </ul>
+    </footer>
+</body>
+</html>

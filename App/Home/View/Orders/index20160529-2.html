@@ -1,0 +1,657 @@
+<include file="App/Home/View/Public/header.html"/>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/kline.css">
+<script src="__PUBLIC__/Home/js/jquery-1.js"></script>
+<script src="__PUBLIC__/Home/js/kline.js"></script>
+<script src="__PUBLIC__/Home/js/highstock.js"></script>
+<!--<script src="__PUBLIC__/Home/js/coinindex.js"></script>-->
+<style type="text/css">
+.chat_box{padding:5px;font-size:12px; margin-top:5px;font-family:'微软雅黑';}
+.chat_box .chat_uname{color:#3399FF;  font-weight:bold; }
+.chat_box .chat_comment{color:#000000; font-weight:normal;}
+.my_coin ul li{ font-size:12px; width:145px; height:24px; overflow:hidden;}
+</style>
+
+<script type="text/javascript">
+$(function() {
+	$.get(
+      "/Home/Orders/getOrdersKline",
+      {"currency":$("#currency_id").val(),"time":"kline_1h"},
+      function(orders){
+        kline($("#currency_mark").html()+"2"+$("#currency_trade_mark").html(),orders.kline_1h);
+      }
+    );
+	
+	$("#chart-control > button").click(function(){
+		$(this).addClass("btn-success").siblings().removeClass("btn-success");
+			 var time = $(this).attr('data-time');
+			 $.get("/Home/Orders/getOrdersKline",{"currency":$("#currency_id").val(),"time":time},function(orders){
+			 kline($("#currency_mark").html()+"2"+$("#currency_trade_mark").html(),orders[time]);
+		});
+	});
+});
+</script>
+<script src="__PUBLIC__/Home/js/kline.js"></script>
+<div id="main" style="background:#fbfaf8; padding-top:0;">
+  <div class="total_top" style="margin-bottom: 20px;">
+    <div class="price">
+      <img style=" float:left; width:50px; height:50px; padding-right:10px;" src="{$currency.currency_logo}" />
+      <div class="left coin_coin">{$currency.currency_name|default="虚拟币"} 对{$currency_trade.currency_name|default="人民币"} <br>
+        <span id="currency_mark">{$currency.currency_mark|default="XNB"}</span> /<span id="currency_trade_mark"> {$currency_trade.currency_mark|default="CNY"}</span></div>
+      <ul class="right now_price">
+        <li>最新价<br>
+          <span class="money" id="new_price">{$currency_message.new_price|default="0.000"}</span></li>
+        <li>买一价 / 卖一价<br>
+          <span id="24h_sell">{$currency_message.buy_one_price|default="0.000"}</span><span> / </span><span id="24h_buy">{$currency_message.sell_one_price|default="0.000"}</span></li>
+        <li>最高价 / 最低价<br>
+          <span id="24h_max">{$currency_message.todaymosthign.price|default="0.000"}</span><span> / <span><span id="24h_min">{$currency_message.todaymostlow.price|default="0.000"}</span></span></span></li>
+        <li>24H成交量<br>
+          <span id="24h_count">{$currency_message.24H_done_num|default="0.000"}</span></li>
+      </ul>
+      <div class="clear"></div>
+    </div>
+  </div>
+  
+  <p style="width: 1000px; margin:0 auto;color: red; font-size: 14px; margin-bottom: 10px;"> {$config.name|default="蓝链网"}友情提示：请控制风险，不要投入超过您风险承受能力的资金，不要投资您所不了解的数字货币，拒绝传销组织，警惕虚假宣传。 <span class="kstyle-btn"> <span id="k-pro" style="margin-left: -4px;"><!--<a  target="_blank" style="color: #666;text-decoration: none">专业版K线图</a>--></span> </span> </p>
+  <div class="main_box"> 
+    <!--普通-->
+	<style>
+	.b_ys{ font-size:16px; line-height:50px; margin-left:50px; text-decoration:none;}
+	.b_ys:hover{ color:#f60;text-decoration:none;}
+	</style>
+	<div style="1000px; margin-left:auto; margin-right:auto; height:50px; background-color:#FFF; border:1px solid #e2e2e2;">
+	<a  class="b_ys" href="{:U('Orders/index',array('currency'=>$currency['currency_mark']))}">交易{$currency.currency_name|default="虚拟币"}</a>
+	<a  class="b_ys" href="{:U('Orders/currencyContent',array('currency'=>$currency['currency_mark']))}">了解{$currency.currency_name|default="虚拟币"}</a>
+	</div>
+
+    <div class="k_img k-box" id="k-cus-box">
+      <div id="graphbox" style="width:70%;height:455px;margin:0px; float:left;">
+        <div id="container" style="height: 410px; min-width: 460px"></div>
+        <div id="chart-control" data="ybc" class="btn-group centered" style="width: 98%;height: 30px;line-height: 30px; marign:0 auto;text-align:center">
+          <button data-time="kline_5m" class="btn">5分钟线</button>
+          <button data-time="kline_15m" class="btn">15分钟线</button>
+          <button data-time="kline_30m" class="btn">30分钟线</button>
+          <button data-time="kline_1h" class="btn btn-success">1小时线</button>
+          <button data-time="kline_8h" class="btn">8小时线</button>
+          <button data-time="kline_1d" class="btn ">日线</button>
+        </div>
+      </div>
+      <div style="width:28%; height:392px; padding:5px 5px 5px 5px; border:1px solid #ccc;border-left:2px solid #ccc; float:right; overflow-y:scroll;overflow-x:hidden;" id="commentall">
+		
+		<volist name="membercomment" id="vo">
+	  	<p class="chat_box"><span class="chat_uname">{$vo.uname}：</span><span class="chat_comment">{$vo.comment}</span></p>
+		</volist>
+
+	  </div>
+      <div style=" width:28%; height:50px;float:right; position:relative">
+	  	<empty name="member">
+     	<a style="width:80px; height:30px; border:1px solid #ff5200; color:#ff5200; text-align:center; line-height:30px; margin-top:10px; margin-left:15px; float:left;" href="{:U('Login/index')}">登录</a>
+        <a style="width:80px; height:30px; border:1px solid #ff5200; color:#ff5200; text-align:center; line-height:30px; margin-top:10px; margin-left:15px; float:left;" href="{:U('Reg/reg')}">注册</a>
+		<else/>
+		<input onpaste="return false" id="comment" style="width:104%; height:50px; border:1px solid #CCC;float:right;">
+		<input onclick="comment();" style=" width:50px; height:30px; position:absolute; right:10px; top:10px;" type="button" value="发送">
+		</empty>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+     <!--交易币种id-->
+                <input value="{$currency.currency_id}" name="currency_id" type="hidden" id="currency_id">
+                 <!--交易币种id-->
+    <div class="trading left clearfix">
+      <div class="my_coin"> 
+        <!--登录后-->
+        <notempty name="session">
+          <ul>
+            <li style="width: 120px; overflow: hidden; height: 24px; ">我的{$currency.currency_name|default="虚拟币"}资产：</li>
+            <li>可用：<span class="sell" id="from_over">{$user_currency_money['currency']['num']|getFloatToNum=###}</span></li>
+            <li>冻结：<span class="buy" id="from_lock">{$user_currency_money['currency']['forzen_num']|getFloatToNum=###}</span></li>
+            <li>总量：<span style="color:#333;" id="from_total">{$user_currency_money['currency']['num']+$user_currency_money['currency']['forzen_num']|getFloatToNum=###}</span></li>
+            <div class="clear"></div>
+          </ul>
+          <ul>
+            <!-- <li style="width: 200px; overflow: hidden; height: 24px;">我的{$currency_trade.currency_name|default="人民币"}资产：</li> -->
+
+            <li style="width:120px;">我的{$currency_trade.currency_name|default="CNY"}资产：</li>
+            <li>可用：<span class="sell" id="to_over">{$user_currency_money['currency_trade']['num']|getFloatToNum=###}</span></li>
+            <li>冻结：<span class="buy" id="to_lock">{$user_currency_money['currency_trade']['forzen_num']|getFloatToNum=###}</span></li>
+            <li>总量：<span style="color:#333;" id="to_total">{$user_currency_money['currency_trade']['num']+$user_currency_money['currency_trade']['forzen_num']|getFloatToNum=###}</span></li>
+            <div class="clear"></div>
+          </ul>
+          <else/>
+          <p>我的资产：<a href="{:U('Login/index')}">登录</a> | <a href="{:U('Reg/reg')}">注册</a></p>
+        </notempty>
+      </div>
+      <div class="curve pay">
+        <div class="buysell sellform">
+          <div class="buyformarea left">
+            <h2 class="buy">买入{$currency.currency_name|default="虚拟币"} </h2>
+            <ul class="buyform">
+              <li>
+                <label>最佳买价：</label>
+                <h3 id="coinbuy_nice" class="buy left">{$currency_message.sell_one_price|default="0.000"}</h3>
+              </li>
+              <li>
+                <label for="price" class="buys">买入价格：</label>
+                <input value="{$currency_message.sell_one_price|default='0.000'}" style="color:#999" name="buyprice" id="coinpricein" onkeyup="vNum(this,4);zuidakemai();" onclick="if(value==defaultValue){value='';}" onblur="if(value==''){value='0.000';}" type="text">
+
+              </li>
+              <li>
+                <label for="num" class="buys">最大可买：</label>
+                <b id="coinbuy_max"  title="点击将数值写入数量输入框"></b><span class="maxcoin">0</span> </li>
+              <li>
+                <label for="buynum" class="buys">买入数量：</label>
+                <input style="display:none;">
+                <!-- for disable autocomplete on chrome -->
+                <input name="buynum" id="numberin" onkeyup="vNum(this,4);" autocomplete="off" type="text">
+              </li>
+			  <empty name="again">
+              <li>
+                <label for="buyword" class="buys">交易密码：</label>
+                <input style="display:none;">
+                <!-- for disable autocomplete on chrome -->
+                <input class="buyinput" id="pwdtradein" autocomplete="off" type="password" name="buypwd">
+              </li>
+			  </empty>
+              <li style="margin-bottom:0;">
+                <label for="num" class="buys">手续费：</label>
+                <b id="feebuy">0.00</b><span>（{$currency.currency_buy_fee|default="0.00%"}% {$currency.currency_mark|default="--"}）</span></li>
+              <li>
+                <label for="num" class="buys">交易额：</label>
+                <b id="coinin_sumprice">0.00</b>  {$currency_trade.currency_mark|default="CNY"}</li>
+            </ul>
+            <p class="sellform">
+              <input id="trustbtnin" onclick="buy()" class="submit" value="买入" type="button">
+            </p>
+            <p class="sellform" style="margin:15px 0;position: relative">
+              <span id="trustmsgin" class="tishi">数字货币交易具有极高的风险，投资需谨慎！</span>
+            </p>
+          </div>
+          <div class="buyformarea right">
+            <h2 class="sell">卖出{$currency.currency_name|default="虚拟币"} </h2>
+            <ul class="buyform sellform">
+              <li>
+                <label>最佳卖价：</label>
+                <h3 id="coinsale_nice" class="sell left">{$currency_message.buy_one_price|default="0.000"}</h3>
+              </li>
+              <li>
+                <label for="price" class="buys">卖出价格：</label>
+                <input value="{$currency_message.buy_one_price|default='0.000'}" style="color:#999" class="buyinput" id="coinpriceout" onkeyup="vNum2(this,4);" onclick="if(value==defaultValue){value='';}" onblur="if(value==''){value='0.000';}" type="text">
+
+               
+              </li>
+              <li>
+                <label for="num" class="buys">最大可卖：</label>
+                <b id="coinsale_max" onclick="$('#numberout').val(this.innerHTML)" title="点击将数值写入数量输入框">{$sell_num|default=0}</b><span></span> </li>
+              <li>
+                <label for="buynum" class="buys">卖出数量：</label>
+                <input style="display:none;">
+                <!-- for disable autocomplete on chrome -->
+                <input class="buyinput" id="numberout" onkeyup="vNum2(this,4);" autocomplete="off" type="text">
+              </li>
+			  <empty name="again">
+              <li>
+                <label for="buyword" class="buys">交易密码：</label>
+                <input style="display:none;">
+                <!-- for disable autocomplete on chrome -->
+                <input class="buyinput" id="pwdtradeout" autocomplete="off" type="password">
+              </li>
+			  </empty>
+              <li style="margin-bottom:0;">
+                <label for="num" class="buys">手续费：</label>
+                <b id="fee">0.00</b><span>（{$currency.currency_sell_fee|default="0.00"}% {$currency_trade.currency_mark|default="--"}）</span></li>
+
+              <li>
+                <label for="num" class="buys">交易额：</label>
+                <b id="coinout_sumprice">0.00</b>  {$currency_trade.currency_mark|default="CNY"}</li>
+            </ul>
+            <p class="sellform2">
+              <input class="submit" id="trustbtnout" value="卖出" onclick="sell();" type="button">
+            </p>
+            <p class="sellform" style="margin:15px 0;position: relative"><span id="trustmsgout" class="tishi">数字货币交易具有极高的风险，投资需谨慎！</span></p>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <h2>最新成交<a href="{:U('Trade/myDeal')}" class="right my_coin_trade">我的成交</a></h2>
+        <div class="buysell" style="border:1px solid #d2d2d2;">
+          <ul class="record_title">
+            <li>成交时间</li>
+            <li>类型</li>
+            <li>成交价格</li>
+            <li>成交量</li>
+            <li>总计</li>
+          </ul>
+          <div class="record">
+            <table class="latest_list record_list" align="center" border="0" cellpadding="0" cellspacing="0">
+              <tbody id="coinorderlist">
+			  <volist name="trade" id="vo">
+                <tr>
+                  <td class="list_con1">{$vo.trade_time|date=' H:i:s',###}</td>
+                  <td class="list_con1 {$vo.type}"><eq name='vo.type' value='sell'>卖出<else/>买入</eq></td>
+                  <td class="list_con1 {$vo.type}">{$vo.price|default=0.00}</td>
+                  <td class="list_con1">{$vo.num|round=###,4}</td>
+                  <td class="list_con1">{$vo.all|round=###,4}</td>
+                </tr>
+				</volist>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="latest right clearfix">
+      <p class="more_coin"><a href="{:U('Market/index',array('coin'=>$currency['currency_mark']))}" target="_blank">{$currency.currency_name|default="虚拟币"}深度行情</a></p>
+       <notempty name="session">
+      <h2 style="margin-top:20px;">我的委托<a href="{:U('Entrust/manage')}" class="right my_coin_trade">全部委托</a></h2>
+      <div style="border:1px solid #d2d2d2; color:#333;">
+        <ul class="my_title">
+          <li style=" width:40px;">类型</li>
+          <li style=" width:65px; text-align:left; padding-left:25px;">委托价格</li>
+          <li style=" width:100px; text-align:left; padding-left:10px;">委托数量</li>
+          <li style=" width:52px; text-align:left; padding-left:0px;">操作</li>
+        </ul>
+        <div class="my_record">
+          <table class="latest_list weituo" style=" width:291px;" align="center" border="0" cellpadding="0" cellspacing="0">
+            <tbody id="mycointrustlist">
+              <foreach name='user_orders' item='v'>
+               <tr class="list_con2">
+                <td class="{$v['type']} left_sell" style="width:40px;">{$v['type']|fomatOrdersType=###}</td>
+                <td style="width:65px; padding-left:26px;">{$v.price|default=0.00}</td>
+                <td style=" width:100px; text-align:left; padding-left:15px;">{$v['num']-$v['trade_num']}</td>
+                <td style=" width:52px; text-align:left; padding-left:0px;"><a href="javascript:void(0)"  onclick="cexiao({$v.orders_id})">撤销</a></td>
+              </tr>
+              </foreach>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <else/>
+      <div style="border:1px solid #e2e2e2; margin:15px 0; padding:15px; color:#333; background:#fff; line-height:20px; font-size:14px; text-align:left;">
+                <p style="width:278px; word-break:break-all;">交易规则：<br>
+               {$config.VAP_rule}
+                </p>
+        </div>
+      </notempty>
+      <div style="margin-top:0px;">
+        <h2>委托信息</h2>
+      </div>
+      <table cellspacing="0" cellpadding="0" border="0" class="latest_list weituo" align="center" style="border:1px solid #d2d2d2;">
+        <tbody id="coinsalelist">
+          <volist name='sell_record' key='k' id='vo'>
+            <tr class="list_con2">
+              <td class="sell left_sell" style="width:55px;">卖({-$k+11})</td>
+              <td style="width:70px; padding-left:5px; cursor:pointer;" onclick="getsell(this);">{$vo.price|default=0.00}</td>
+              <td style="  width:65px; text-align:left; cursor:pointer;" onclick="sellnum(this);">{$vo.weituoliang|round=###,4}</td>
+              <td style="width:80px; text-align:left; padding-left:0px;">
+			  <!--<span style="width:{$vo.bili}%" class="sellSpan"></span>-->
+                  ￥{$vo.bili|round=###,4}
+			  </td>
+            </tr>
+          </volist>
+        </tbody>
+      </table>
+      <table cellspacing="0" cellpadding="0" border="0" class="latest_list weituo" align="center" style="border:1px solid #d2d2d2;">
+        <thead>
+          <tr style="height:26px;">
+            <th style="height:26px; text-align:center; width:55px;" class="left_sell">卖 / 买</th>
+            <th style="height:26px; width:70px; padding-left:10px;" class="buy">价格</th>
+            <th style="height:26px;">委托量</th>
+            <th style="height:26px;padding-left:0px">折合人民币</th>
+          </tr>
+        </thead>
+        <tbody id="coinbuylist">
+          <volist name='buy_record' key='k' id='vo'>
+            <tr class="list_con2">
+              <td class="buy left_sell" style="width:55px;">买({$k})</td>
+              <td style="width:70px; cursor:pointer;padding-left:10px;" onclick="getbuy(this);">{$vo.price|default=0.00}</td>
+              <td style="cursor:pointer; padding-left:5px;" onclick="buynum(this);">{$vo.weituoliang|round=###,4}</td>
+              <td style="width:88px;"><!--<span style="width:{$vo.bili}%" class="buySpan"></span>-->
+                  ￥{$vo.bili|round=###,4}
+			  </td>
+            </tr>
+          </volist>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+<format id="price_float" data="3"></format>
+<!--footer start--> 
+<include file="App/Home/View/Public/footer.html"/> 
+<!--footer end--> 
+<script>
+function comment(){
+	if($("#comment").val()==""){
+		layer.msg('内容不能为空');
+		return false;
+	}
+	$.ajax({
+		type:"post",
+		url:"{:U('MemberComment/add')}",
+		data:{comment:$("#comment").val(),currency_id:$("#currency_id").val()},
+		async:true,
+		success: function(d){
+			$("#loading").remove();
+			if(d.status!=1){
+			//加一个提示
+			layer.msg(d.info);
+			$("#comment").val("").focus();
+			//setTimeout(window.location.reload());
+			}else{
+			layer.msg(d.info);
+			$("#comment").val("").focus();
+			//刷新页面
+			//setTimeout(window.location.reload());
+			}
+		}
+	});
+}
+
+function sell(){
+	if($("#coinpriceout").val()==""){
+		$("#trustmsgout").text("卖出价格不能为空").fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500);
+		return false;
+	}
+	if($("#numberout").val()==""){
+		$("#trustmsgout").text("卖出数量不能为空").fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500);
+		return false;
+	}
+	if($("#pwdtradeout").val()==""){
+		$("#trustmsgout").text("交易密码不能为空").fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500);
+		return false;
+	}
+	if(($("#coinpriceout").val())*($("#numberout").val())<1){
+		$("#trustmsgout").text("交易额不能低于1元").fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500);
+		return false;
+	}
+//			$("body").append("<div id='loading' style='z-index:19891014; background-color:#000; opacity:0.3; filter:alpha(opacity=30);top: 0;left: 0;width: 100%;height: 100%;position: fixed;_position: absolute;text-align:center;'><img src='/public/home/images/loading.gif' style='margin-top:25%;' /></div>");
+    $('#trustmsgout').before("<span class='flashingAnimation'>下单成功,您可以在委托管理中查看成交情况</span>");
+    window.setTimeout(function(){
+      $('.flashingAnimation').remove();
+    }, 2000);
+			$.ajax({
+				type:"post",
+				url:"{:U('Trade/sell')}",
+				data:{sellprice:$("#coinpriceout").val(),sellnum:$("#numberout").val(),sellpwd:$("#pwdtradeout").val(),currency_id:$("#currency_id").val()},
+				async:true,
+				success: function(d){
+					$("#loading").remove();
+					if(d.status!=1){
+					$("#trustmsgout").text(d.info).fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500);	
+					//加一个提示
+//					layer.msg(d.info);
+//					setTimeout(window.location.reload(),2000);
+					}else{
+                      $.get(
+                              "/Home/Orders/getOrdersKline",
+                              {"currency":$("#currency_id").val(),"time":"kline_1h"},
+                              function(orders){
+                                kline($("#currency_mark").html()+"2"+$("#currency_trade_mark").html(),orders.kline_1h);
+                              }
+                      );
+//					layer.msg(d.info);
+					//刷新页面
+//					setTimeout(window.location.reload(),2000);
+					}
+				}
+			});
+
+}
+
+function buy(){
+	if($("#coinpricein").val()==""){
+		$("#trustmsgin").text("买入价格不能为空").fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500);
+		return false;
+	}
+	if($("#numberin").val()==""){
+		$("#trustmsgin").text("买入数量不能为空").fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500);
+		return false;
+	}
+	if($("#pwdtradein").val()==""){
+		$("#trustmsgin").text("交易密码不能为空").fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500);
+		return false;
+	}
+	if(($("#coinpricein").val())*($("#numberin").val())<1){
+		$("#trustmsgin").text("交易额不能低于1元").fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500);
+		return false;
+	}
+//		$("body").append("<div id='loading' style='z-index:19891014; background-color:#000; opacity:0.3; filter:alpha(opacity=30);top: 0;left: 0;width: 100%;height: 100%;position: fixed;_position: absolute;text-align:center;'><img src='/public/home/images/loading.gif' style='margin-top:25%;' /></div>");
+    $('#trustmsgin').before("<span class='flashingAnimation'>下单成功,您可以在委托管理中查看成交情况</span>");
+    window.setTimeout(function(){
+      $('.flashingAnimation').remove();
+    }, 2000);
+		$.ajax({
+			type:"post",
+			url:"{:U('Trade/buy')}",
+			data:{buyprice:$("#coinpricein").val(),buynum:$("#numberin").val(),buypwd:$("#pwdtradein").val(),currency_id:$("#currency_id").val()},
+			async:true,
+			success: function(d){
+				$("#loading").remove();
+				if(d.status!=1){
+				$("#trustmsgin").text(d.info).fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500);
+
+				//加一个提示
+//				layer.msg(d.info);
+//				setTimeout(window.location.reload(),2000);
+
+				}else{
+                  //重新请求K线图
+                  $.get(
+                          "/Home/Orders/getOrdersKline",
+                          {"currency":$("#currency_id").val(),"time":"kline_1h"},
+                          function(orders){
+                            kline($("#currency_mark").html()+"2"+$("#currency_trade_mark").html(),orders.kline_1h);
+                          }
+                  );
+//                  layer.msg(d.info);
+                  //刷新页面
+//                  setTimeout(window.location.reload(),2000);
+				}
+			}
+		});
+}
+function badFloat(num, size){
+    if(isNaN(num)) return true;
+    num += '';
+    if(-1 == num.indexOf('.')) return false;
+    var f_arr = num.split('.');
+    if(f_arr[1].length > size){
+        return true;
+    }
+    return false;
+}
+//格式化小数
+//@f float 传入小数: 123; 1.1234; 1.000001;
+//@size int 保留位数
+//@add bool 进位: 0舍 1进
+function formatfloat(f, size, add){
+    f = parseFloat(f);
+    if(size == 2) conf = [100,0.01];
+    if(size == 3) conf = [1000,0.001];
+    if(size == 4) conf = [10000,0.0001];
+    if(size == 5) conf = [100000,0.00001];
+    if(size == 6) conf = [1000000,0.000001];
+    if(size == 7) conf = [10000000,0.0000001];
+	if(size == 8) conf = [100000000,0.00000001];
+    var ff = Math.floor(f * conf[0]) / conf[0];
+    if(add && f > ff) ff += conf[1];
+    return isNaN(ff)? 0: ff;
+}
+/**function vNum(o, len){
+
+	if(badFloat(o.value, len))
+		o.value=formatfloat(o.value, len, 0);
+	var fee2 = {$currency.currency_buy_fee} /100;
+	var ci = $("#coinpricein").val()*$("#numberin").val();
+	var ct2 = ci + ci * fee2;
+	
+	$("#feebuy").text(ci*fee2);
+	$("#coinin_sumprice").text(ct2);
+	
+}*/
+
+function vNum(o, len){
+	if($("#coinpricein").val()!="" || $("#coinpricein").val()!="请输入正确价格" && $("#numberin").val()!=""){
+		if(badFloat(o.value, len))
+		o.value=formatfloat(o.value,len,0);
+		var fee2 = {$currency.currency_buy_fee} /100;
+		var ci = $("#coinpricein").val()*$("#numberin").val();
+		var ct2 = ci ;//+ ci * fee2;
+		
+		$("#feebuy").text(Math.round(ci*fee2*10000)/10000);
+		$("#coinin_sumprice").text(Math.round(ct2*10000)/10000);
+	}
+}
+
+function vNum2(o, len){
+	if($("#coinpriceout").val()!="" || $("#coinpriceout").val()!="请输入正确价格" && $("#numberout").val()!=""){
+	if(badFloat(o.value, len))
+		o.value=formatfloat(o.value, len, 0);
+	var nt = $("#coinpriceout").val()*$("#numberout").val();
+	var fee = {$currency.currency_sell_fee} /100;
+	var ct = nt;// - nt * fee;
+	
+	$("#fee").text(Math.round(nt*fee*10000)/10000);
+	$("#coinout_sumprice").text(Math.round(ct*10000)/10000);
+	}
+}
+//5秒自动刷新挂单记录
+function shuaxin(){
+  $.post('/Home/Orders/getOrderMoney',{"currency_id":$("#currency_id").val()},function(currencyData){
+    var setNumber = function(num){
+      num = num.toString();
+      var numList = num.split('.');
+      if(numList.length > 1){
+        if(numList[1].length >= 4){
+          return Number(num).toFixed(4);
+        }else{
+          return Number(num)
+        }
+      }else{
+        return Number(num);
+      }
+    }
+    $('#from_over').text(setNumber(Number(currencyData.currency.num)));
+    $('#from_lock').text(setNumber(Number(currencyData.currency.forzen_num)));
+    $('#from_total').text(setNumber(Number(currencyData.currency.num) + Number(currencyData.currency.forzen_num)));
+    $('#to_over').text(setNumber(Number(currencyData.currency_trade.num)));
+    $('#to_lock').text(setNumber(Number(currencyData.currency_trade.forzen_num)));
+    $('#to_total').text(setNumber(Number(currencyData.currency_trade.num) + Number(currencyData.currency_trade.forzen_num)));
+
+
+  });
+
+
+
+  $.post('/Home/Orders/getOrderOfEntrust',{"currency_id":$("#currency_id").val()},function(dataList){
+    $("#mycointrustlist").empty();
+    var length=parseInt(dataList.length)
+    for(var i=0;i<dataList.length;i++){
+      var data = dataList[i];
+      var typeStr = (data.type == 'sell'? '卖':'买');
+      $("#mycointrustlist").append(
+          "<tr class='list_con2'>"+
+            "<td class='" + data.type+ " left_sell'" + "style='width:40px;'>" + typeStr +  "</td>"+
+            "<td style='width:65px; padding-left:26px;'>" + data.price + "</td>" +
+            "<td style='width:100px; text-align:left; padding-left:15px;'>" + Number(data.num) + "</td>" +
+            "<td style='width:52px; text-align:left; padding-left:0px;'><a href='javascript:void(0)'  onclick='cexiao(" + data.orders_id + ")'>撤销</a></td>"+
+          "</tr>"
+      );
+    }
+  });
+
+
+	$.post('/Home/Orders/getOrders',{"type":'sell',"currency_id":$("#currency_id").val()},function(data){
+		$("#coinsalelist").empty();
+		var length=parseInt(data.length)
+		for(var i=0;i<data.length;i++){
+			$("#coinsalelist").append(
+				"<tr class='list_con2'>" +
+                  "<td class='sell left_sell' style='width:55px;'>卖("+(length-i)+")</td>" +
+                  "<td style='width:70px; cursor:pointer; padding-left:10px;' onclick='getsell(this)'>"+data[i]['price']+"</td>" +
+                  "<td style='cursor:pointer; padding-left:5px; ' onclick='sellnum(this);'>"+data[i]['weituoliang'].toFixed(4)+"</td>" +
+                  "<td style='width:88px;'>￥"+data[i]['bili'].toFixed(4)+"</td>" +
+                "</tr>"
+			);
+		}
+	});
+		$.post('/Home/Orders/getOrders',{"type":'buy',"currency_id":$("#currency_id").val()},function(data){
+		$("#coinbuylist").empty();
+		var length=parseInt(data.length)
+		for(var i=0;i<data.length;i++){
+			$("#coinbuylist").append(
+				"<tr class='list_con2'><td class='buy left_sell' style='width:55px;'>买("+(parseInt(i)+1)+")</td><td style='width:65px;cursor:pointer;padding-left:10px;' onclick='getbuy(this)'>"+data[i]['price']+"</td><td style='cursor:pointer;padding-left:0; width:70px;' onclick='buynum(this);'>"+data[i]['weituoliang'].toFixed(4)+"</td><td style='width:88px;'>￥"+data[i]['bili'].toFixed(4)+"</td></tr>"
+			);
+		}
+	
+	})		
+	$.post("{:U('MemberComment/getComment')}",function(data){
+		$("#commentall").empty();
+		var length=parseInt(data.length)
+		for(var i=0;i<data.length;i++){
+			$("#commentall").append("<p class='chat_box'><span class='chat_uname'>"+data[i]['uname']+"：</span><span class='chat_comment'>"+data[i]['comment']+"</span></p>");
+		}
+	})		
+	$.post("{:U('Orders/tradeAjax')}",{"currency_id":$("#currency_id").val()},function(data){
+		$("#coinorderlist").empty();
+		var length=parseInt(data.length)
+		for(var i=0;i<data.length;i++){
+			$("#coinorderlist").append("<tr><td class='list_con1'>"+data[i]['trade_time']+"</td><td class='list_con1 "+data[i]['type']+"'>"+data[i]['typename']+"</td><td style='padding-left:15px;'  class='list_con1 "+data[i]['type']+"'>"+data[i]['price'].toFixed(4)+"</td><td class='list_con1'>"+data[i]['num'].toFixed(4)+"</td><td class='list_con1'>"+data[i]['all']+"</td></tr>");
+		}
+	})	
+}
+setInterval("shuaxin()",5000);
+
+
+</script>
+<script>
+function zuidakemai(){
+	if($("#coinpricein").val()!="" && $("#coinpricein").val()!=0){
+		var m = {$user_currency_money.currency_trade.num};
+		var fee={$currency.currency_buy_fee}/100;
+		m=m*(1-fee);
+		var n = parseFloat($("#coinpricein").val());
+		
+		$(".maxcoin").text(Math.round(m/n*10000)/10000);
+	}else{
+		$(".maxcoin").text(0);
+	}
+}
+</script>
+<script>
+	function cexiao(_this){
+      $.post('{:U('Entrust/cancel')}',{status:-1,order_id:_this},function(data){
+        if(data['status'] == 1){
+          layer.msg(data['info']);
+//			setTimeout(window.location.reload(),1000);
+        }else{
+          layer.msg(data['info']);
+        }
+      })
+//		layer.confirm('确定撤销委托？', {
+//		btn: ['确定','取消'], //按钮
+//		title: '撤销委托'
+//	}, function(){
+//
+//	}, function(){
+//	  layer.msg('已取消');
+//	});
+
+	}
+	
+	n= $("#commentall").children("p").length;
+	$("#commentall").scrollTop(n*100);
+
+	function getsell(_this){
+		$("#coinpricein").val($(_this).text());
+		zuidakemai();
+	}
+	function sellnum(_this){
+		$("#numberin").val($(_this).text());
+	}
+	function getbuy(_this){
+		$("#coinpriceout").val($(_this).text());
+	}
+	function buynum(_this){
+		$("#numberout").val($(_this).text());
+	}
+</script>

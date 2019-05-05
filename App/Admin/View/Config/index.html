@@ -1,0 +1,143 @@
+
+<include file="App/Admin/View/Public/left.html" />
+<!--/sidebar-->
+<div class="main-wrap">
+	<div class="crumb-wrap">
+		<div class="crumb-list">
+			<i class="icon-font"></i><a href="{:U('Index/index')}">首页</a><span
+				class="crumb-step">&gt;</span><span class="crumb-name">系统设置</span>
+		</div>
+	</div>
+	<div class="result-wrap">
+		<form action="{:U('Config/updateCofig')}" method="post" id="myform"
+			name="myform" enctype="multipart/form-data">
+			<div class="config-items">
+				<div class="config-title">
+					<h1>
+						<i class="icon-font">&#xe00a;</i>网站信息设置
+					</h1>
+				</div>
+				<div class="result-content">
+					<table width="100%" class="insert-tab">
+						<tbody>
+							<tr>
+								<th><i class="require-red">*</i>网站LOGO上传：</th>
+								<td><input type="file" name="logo" class="common-text"></td>
+								<th width="15%"><i class="require-red">*</i>网站LOGO：</th>
+								<td><img style="width: 300px;height: 150px;border-radius: 15px;border: 1px solid;" src="{$config.logo}"><input type="hidden"
+									name="logo" value="{$config.logo}" class="common-text"></td>
+							</tr>
+							<tr>
+								<th><i class="require-red">*</i>网站标题：</th>
+								<td><input type="text" id="" value="{$config.title}"
+										   size="85" name="title" class="common-text"></td>
+								<th><i class="require-red">*</i>网站网址：</th>
+								<td><input type="text" id="" value="{$config.localhost}"
+									size="85" name="localhost" class="common-text"></td>
+							</tr>
+
+							<tr>
+								<th><i class="require-red">*</i>网站名称：</th>
+								<td><input type="text" id="" value="{$config.name}"
+									size="85" name="name" class="common-text"></td>
+								<th><i class="require-red">*</i>网站关键字：</th>
+								<td><input type="text" id="" value="{$config.keywords}"
+										   size="85" name="keywords" class="common-text"></td>
+							</tr>
+							<tr>
+								<th><i class="require-red">*</i>网站描述：</th>
+								<td><input type="text" id="" value="{$config.desc}"
+										   size="85" name="desc" class="common-text"></td>
+								<th><i class="require-red">*</i>地址：</th>
+								<td><input type="text" id="" value="{$config.address}"
+										   size="85" name="address" class="common-text"></td>
+							</tr>
+
+							<tr>
+								<th><i class="require-red">*</i>版权信息：</th>
+								<td><input type="text" id="" value="{$config.copyright}"
+									size="85" name="copyright" class="common-text"></td>
+								<th><i class="require-red">*</i>备案信息：</th>
+								<td><input type="text" id="" value="{$config.record}"
+										   size="85" name="record" class="common-text"></td>
+							</tr>
+							<tr>
+								<th><i class="require-red">*</i>每天抢单次数：</th>
+								<td><input type="text" id="" value="{$config.dayqdnum}"
+										   size="85" name="dayqdnum" class="common-text"></td>
+								<th><i class="require-red">*</i>每天付款次数：</th>
+								<td><input type="text" id="" value="{$config.dayfknum}"
+										   size="85" name="dayfknum" class="common-text"></td>
+							</tr>
+							<tr>
+								<th><i class="require-red">*</i>押金：</th>
+								<td><input type="text" id="" value="{$config.deposit}"
+										   size="85" name="deposit" class="common-text"></td>
+								<th><i class="require-red">*</i>系统匹配打款金额：</th>
+								<td><input type="text" id="" value="{$config.dk_money}"
+										   size="30" name="dk_money" class="common-text">
+
+									佣金率：<input type="text" id="" value="{$config.commision_rate}"
+										   size="30" name="commision_rate" class="common-text">
+								</td>
+
+							</tr>
+							<tr>
+								<th><i class="require-red">*</i>推广达到数量：</th>
+								<td><input type="text" id="" value="{$config.promote_num}"
+										   size="85" name="promote_num" class="common-text"></td>
+								<th><i class="require-red">*</i>平台合伙人：</th>
+								<td>直推：<input type="text" id="" value="{$config.direct_push_num}"
+										   size="15" name="direct_push_num" class="common-text">
+									团体：<input type="text" id="" value="{$config.team_push_num}"
+											  size="15" name="team_push_num" class="common-text">
+									额外百分比：<input type="text" id="" value="{$config.increase_rate}"
+											  size="15" name="increase_rate" class="common-text">
+
+								</td>
+
+							</tr>
+							<tr>
+								<th><i class="require-red">*</i>恢复星星个数：</th>
+								<td><input type="text" id="" value="{$config.refresh_stars}"
+										   size="85" name="refresh_stars" class="common-text"></td>
+								<th><i class="require-red">*</i>提现金额：</th>
+								<td><input type="text" id="" value="{$config.withdraw_amount}"
+										   size="85" name="withdraw_amount" class="common-text"></td>
+
+							</tr>
+							<tr>
+								<th><i class="require-red">*</i>支付宝收款二维码上传：</th>
+								<td><input type="file" name="zfb_qrcode" class="common-text"></td>
+								<th width="15%"><i class="require-red">*</i>支付宝收款二维码：</th>
+								<td><img style="width: 300px;height: 150px;border-radius: 15px;border: 1px solid;" src="{$config.zfb_qrcode}"><input type="hidden"
+								 name="zfb_qrcode" value="{$config.zfb_qrcode}" class="common-text"></td>
+							</tr>
+							<tr>
+								<th><i class="require-red">*</i>微信收款二维码上传：</th>
+								<td><input type="file" name="wx_qrcode" class="common-text"></td>
+								<th width="15%"><i class="require-red">*</i>微信收款二维码：</th>
+								<td><img style="width: 300px;height: 150px;border-radius: 15px;border: 1px solid;" src="{$config.wx_qrcode}"><input type="hidden"
+																																			   name="wx_qrcode" value="{$config.wx_qrcode}" class="common-text"></td>
+							</tr>
+
+							<tr>
+								<th></th>
+								<td ><input type="submit" value="提交"
+									class="btn btn-primary btn6 mr10"> <input type="button"
+									value="返回" onclick="history.go(-1)" class="btn btn6"></td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+		</form>
+	</div>
+</div>
+<!--/main-->
+</div>
+</body>
+</html>
+

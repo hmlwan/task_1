@@ -1,0 +1,125 @@
+[ 2019-03-17T10:59:35+08:00 ] 127.0.0.1 /Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `blue_config` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `blue_config`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `blue_article_category` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `blue_article_category` WHERE ( parent_id = 6 ) LIMIT 4   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `blue_article` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `blue_article` WHERE ( position_id = 7 ) LIMIT 4   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `blue_member` [ RunTime:0.0030s ]
+SQL: SELECT *,(rmb+forzen_rmb) as count FROM `blue_member` WHERE ( member_id='1' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `blue_article` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `blue_article` INNER JOIN blue_article_category ON blue_article.position_id = blue_article_category.id  WHERE blue_article_category.id = 1 AND ( blue_article.sign = 0 ) ORDER BY add_time desc LIMIT 0,6   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_article` INNER JOIN blue_article_category ON blue_article.position_id = blue_article_category.id  WHERE blue_article_category.id = 1 AND ( blue_article.sign = 1 ) ORDER BY add_time desc LIMIT 0,4   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_article` INNER JOIN blue_article_category ON blue_article.position_id = blue_article_category.id  WHERE blue_article_category.id = 2 AND ( blue_article.sign = 0 ) ORDER BY add_time desc LIMIT 0,6   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_article` INNER JOIN blue_article_category ON blue_article.position_id = blue_article_category.id  WHERE blue_article_category.id = 2 AND ( blue_article.sign = 1 ) ORDER BY add_time desc LIMIT 0,4   [ RunTime:0.0000s ]
+ERR: 1146:Table 'task.blue_flash' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `blue_flash`
+ERR: 1146:Table 'task.blue_flash' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `blue_flash`
+
+[ 2019-03-17T11:17:00+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003002s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003002s ]
+SQL: SHOW COLUMNS FROM `blue_config` [ RunTime:0.0370s ]
+SQL: SELECT * FROM `blue_config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `blue_article_category` [ RunTime:0.0210s ]
+SQL: SELECT * FROM `blue_article_category` WHERE ( parent_id = 6 ) LIMIT 4   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `blue_article` [ RunTime:0.0220s ]
+SQL: SELECT * FROM `blue_article` WHERE ( position_id = 7 ) LIMIT 4   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `blue_article` [ RunTime:0.0210s ]
+SQL: SELECT * FROM `blue_article` INNER JOIN blue_article_category ON blue_article.position_id = blue_article_category.id  WHERE blue_article_category.id = 1 AND ( blue_article.sign = 0 ) ORDER BY add_time desc LIMIT 0,6   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_article` INNER JOIN blue_article_category ON blue_article.position_id = blue_article_category.id  WHERE blue_article_category.id = 1 AND ( blue_article.sign = 1 ) ORDER BY add_time desc LIMIT 0,4   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_article` INNER JOIN blue_article_category ON blue_article.position_id = blue_article_category.id  WHERE blue_article_category.id = 2 AND ( blue_article.sign = 0 ) ORDER BY add_time desc LIMIT 0,6   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_article` INNER JOIN blue_article_category ON blue_article.position_id = blue_article_category.id  WHERE blue_article_category.id = 2 AND ( blue_article.sign = 1 ) ORDER BY add_time desc LIMIT 0,4   [ RunTime:0.0000s ]
+ERR: 1146:Table 'task.blue_flash' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `blue_flash`
+ERR: 1146:Table 'task.blue_flash' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `blue_flash`
+
+[ 2019-03-17T12:40:23+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `blue_config` [ RunTime:0.0140s ]
+SQL: SELECT * FROM `blue_config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `blue_article_category` [ RunTime:0.0140s ]
+SQL: SELECT * FROM `blue_article_category` WHERE ( parent_id = 6 ) LIMIT 4   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `blue_article` [ RunTime:0.0140s ]
+SQL: SELECT * FROM `blue_article` WHERE ( position_id = 7 ) LIMIT 4   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `blue_article` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `blue_article` INNER JOIN blue_article_category ON blue_article.position_id = blue_article_category.id  WHERE blue_article_category.id = 1 AND ( blue_article.sign = 0 ) ORDER BY add_time desc LIMIT 0,6   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_article` INNER JOIN blue_article_category ON blue_article.position_id = blue_article_category.id  WHERE blue_article_category.id = 1 AND ( blue_article.sign = 1 ) ORDER BY add_time desc LIMIT 0,4   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_article` INNER JOIN blue_article_category ON blue_article.position_id = blue_article_category.id  WHERE blue_article_category.id = 2 AND ( blue_article.sign = 0 ) ORDER BY add_time desc LIMIT 0,6   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_article` INNER JOIN blue_article_category ON blue_article.position_id = blue_article_category.id  WHERE blue_article_category.id = 2 AND ( blue_article.sign = 1 ) ORDER BY add_time desc LIMIT 0,4   [ RunTime:0.0010s ]
+ERR: 1146:Table 'task.blue_flash' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `blue_flash`
+ERR: 1146:Table 'task.blue_flash' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `blue_flash`
+
+[ 2019-03-17T13:59:06+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `blue_config` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `blue_config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `blue_article_category` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `blue_article_category` WHERE ( parent_id = 6 ) LIMIT 4   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `blue_article` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `blue_article` WHERE ( position_id = 7 ) LIMIT 4   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `blue_article` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `blue_article` INNER JOIN blue_article_category ON blue_article.position_id = blue_article_category.id  WHERE blue_article_category.id = 1 AND ( blue_article.sign = 0 ) ORDER BY add_time desc LIMIT 0,6   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_article` INNER JOIN blue_article_category ON blue_article.position_id = blue_article_category.id  WHERE blue_article_category.id = 1 AND ( blue_article.sign = 1 ) ORDER BY add_time desc LIMIT 0,4   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_article` INNER JOIN blue_article_category ON blue_article.position_id = blue_article_category.id  WHERE blue_article_category.id = 2 AND ( blue_article.sign = 0 ) ORDER BY add_time desc LIMIT 0,6   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_article` INNER JOIN blue_article_category ON blue_article.position_id = blue_article_category.id  WHERE blue_article_category.id = 2 AND ( blue_article.sign = 1 ) ORDER BY add_time desc LIMIT 0,4   [ RunTime:0.0010s ]
+ERR: 1146:Table 'task.blue_flash' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `blue_flash`
+ERR: 1146:Table 'task.blue_flash' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `blue_flash`
+
+[ 2019-03-17T16:20:53+08:00 ] 127.0.0.1 http://www.task_1.com/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `blue_config` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `blue_config`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `blue_article_category` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `blue_article_category` WHERE ( parent_id = 6 ) LIMIT 4   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `blue_article` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `blue_article` WHERE ( position_id = 7 ) LIMIT 4   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `blue_article` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `blue_article` INNER JOIN blue_article_category ON blue_article.position_id = blue_article_category.id  WHERE blue_article_category.id = 1 AND ( blue_article.sign = 0 ) ORDER BY add_time desc LIMIT 0,6   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `blue_article` INNER JOIN blue_article_category ON blue_article.position_id = blue_article_category.id  WHERE blue_article_category.id = 1 AND ( blue_article.sign = 1 ) ORDER BY add_time desc LIMIT 0,4   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_article` INNER JOIN blue_article_category ON blue_article.position_id = blue_article_category.id  WHERE blue_article_category.id = 2 AND ( blue_article.sign = 0 ) ORDER BY add_time desc LIMIT 0,6   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `blue_article` INNER JOIN blue_article_category ON blue_article.position_id = blue_article_category.id  WHERE blue_article_category.id = 2 AND ( blue_article.sign = 1 ) ORDER BY add_time desc LIMIT 0,4   [ RunTime:0.0010s ]
+ERR: 1146:Table 'task.blue_flash' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `blue_flash`
+ERR: 1146:Table 'task.blue_flash' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `blue_flash`
+
+[ 2019-03-17T16:21:07+08:00 ] 127.0.0.1 http://www.task_1.com/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+

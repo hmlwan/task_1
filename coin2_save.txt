@@ -1,0 +1,34 @@
+新增表 member_grade 会员等级
+
+member 表添加字段 grade_id 设置等级
+
+新增表 currency_vote 投票
+新增表 currency_vote_log 投票记录
+
+nav 菜单表 和 权限需要更新
+
+
+
+
+
+
+
+-----------0518-----------
+
+issue_log  添加字段 youhui_money
+
+currency_vote  添加字段 team_name team_url
+
+member_grade  添加字段 up_trade_fee_buy  up_trade_fee_sell  trade_fee_sell   将trade_fee 字段 改为 trade_fee_buy
+
+
+
+
+
+
+
+
+
+
+
+

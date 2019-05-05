@@ -1,0 +1,21 @@
+<include file="Public:header"/>
+<body>
+
+<div class="jbzl">
+    <header>
+        <div class="gwc_bt">
+            <div class="gwcbt_fh"><a href="javascript:history.back()" class="gwcdd_fh"></a></div>
+            <div class="gwcbt_mc">账户信息</div>
+        </div>
+        <div style="height: .74rem;clear: both;"></div>
+    </header>
+    <div class="jbzl_page right_icon zhxx">
+        <p>账户信息</p>
+        <div><label for="">密码</label><a href="{:U('Member/modifypwd')}" style="color: #333333"><span>******<em></em></span></a></div>
+        <div><label for="">支付宝二维码</label><a href="{:U('upload_qrcode',array('type'=>1))}"><span><img src="{$info.alipay_logo}" alt=""><em></em></span></a></div>
+        <div><label for="">微信二维码</label><a href="{:U('upload_qrcode',array('type'=>2))}"><span><img src="{$info.wechat_logo}" alt=""><em></em></span></a></div>
+    </div>
+</div>
+</body>
+<include file="Public:footer"/>
+

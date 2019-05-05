@@ -1,0 +1,87 @@
+<include file="App/Admin/View/Public/left.html"/>
+<style>
+    .glyphicon-minus:before {
+        content: "\2212";
+    }
+    .glyphicon {
+        position: relative;
+        top: 1px;
+        display: inline-block;
+        -webkit-font-smoothing: antialiased;
+        font-style: normal;
+        font-weight: normal;
+        line-height: 1;
+    }
+</style>
+<!--/sidebar-->
+<div class="main-wrap">
+    <div class="crumb-wrap">
+        <div class="crumb-list"><i class="icon-font"></i><a href="{:U('Index/index')}">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">任务列表</span></div>
+    </div>
+    <div class="result-wrap">
+        <form action="{:U('PubTask/save')}" method="post" id="myform" name="myform" enctype="multipart/form-data">
+            <input type="hidden" value="{$list.id}" name="id">
+            <div class="config-items">
+                <div class="config-title">
+                    <h1><i class="icon-font">&#xe00a;</i>任务修改</h1>
+                </div>
+                <div class="result-content">
+                    <table width="100%" class="insert-tab">
+                        <tbody>
+                        <tr>
+                            <th><i class="require-red">*</i>标题：</th>
+                            <td><input id="title" name="title" type="text"  class="common-text" value="{$list.title}"></td>
+                        </tr>
+
+                        <tr>
+                            <th><i class="require-red">*</i>排序：</th>
+                            <td>
+                                <input id="sort" name="sort" type="text" value="{$list.sort}"  class="common-text">
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="require-red">*</i>酬金：</th>
+                            <td>
+                                <input id="reward" name="reward" type="text" value="{$list.reward}"   class="common-text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="require-red">*</i>logo图片：</th>
+                            <td><input type="file" name="logo_img" value="{$list.logo_img}" class="common-text"></td>
+                        </tr>
+
+                        <tr>
+                            <th><i class="require-red">*</i>简介：</th>
+                            <td><input type="text" name="introduce" value="{$list.introduce}" class="common-text"></td>
+                        </tr>
+                        <tr>
+                            <th><i class="require-red"></i>状态：</th>
+                            <td>
+                                <select name="status" id="status"  class="common-text">
+                                    <option value="1" <if condition="$list['status'] eq 1">selected</if>>开启</option>
+                                    <option value="0" <if condition="$list['status'] eq 0">selected</if>>关闭</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td>
+                                <input type="button" onclick="subform()" value="提交" class="btn btn-primary btn6 mr10">
+                                <a href="{:U('PubTask/index')}"><input type="button" value="返回"  class="btn btn6"></a>
+                            </td>
+                        </tr>
+                        </tbody></table>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    function subform(){
+        $('#myform').submit();
+    }
+</script>
+</div>
+</body>
+</html>

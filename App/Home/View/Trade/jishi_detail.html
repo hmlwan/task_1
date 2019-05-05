@@ -1,0 +1,111 @@
+<include file="App/Home/View/Public/header.html"/>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/kline.css">
+<script src="__PUBLIC__/Home/js/jquery-1.js"></script>
+<script src="__PUBLIC__/Home/js/highstock.js"></script>
+ <script type="text/javascript" src="__PUBLIC__/Home/js/tab2.js"></script>
+ <style>
+td{
+border-bottom:1px solid #f1f1f1;
+}
+</style>
+<div id="main">
+	<div class="main_box">
+		<include file="App/Home/View/Public/left.html"/>
+		<div class="raise right clearfix">
+            <div class="ybc_list">
+             <h2>委托记录</h2>
+	        </div>
+	         <!--  筛选条件开始-->
+          <form method='post' action="{:U('Trade/detail')}">
+	          <h2 style="    float: right;">币种：
+	          
+			          <select name='currency_id'   style="height: 30px;">
+			          	<option value='0'>请选择币种</option>
+				          <volist name='bi_name' id='v'>
+				          	<option value='{$v.currency_id}' <eq name='select_cur' value='$v.currency_id'> selected</eq>>{$v.currency_name}</option>
+				          </volist>
+			          </select> 
+			          <input class='btn'  style="margin-top: -4px;" type='submit' value='搜索'/>
+		      
+		          <!-- <input type='submit' value='选择' onclick='displayBi()' /> -->
+	          </h2>
+          </form>
+          <!-- 筛选条件结束 -->
+          
+         <!-- 委托记录开始 --> 
+      <div class="">
+          <table width="100%" class="raise_list" style="border:1px solid #e1e1df;" align="center" border="0" cellpadding="0" cellspacing="0">
+            
+              <tr>
+            <th align="center"width="120">委托时间</th>
+            <th align="center"width="120">币种</th>
+            <th align="center"width="100">单价</th>
+            <th align="center"width="100">总数量</th>
+            <th align="center"width="100">成交数量</th>
+            <th align="center"width="100">总金额</th>
+            <th align="center"width="100">佣金比率</th>
+            <th align="center"width="100">佣金金额</th>
+            <th align="center"width="100">状态</th>
+            <th align="center"width="120">成交时间</th>
+            <th align="center"width="120">撤销</th>
+               
+              </tr>
+              
+              <notempty  name='list'>
+              	<foreach name='list' item='v'>
+                <tr>
+                	 <td align="center" width="120">{$v.add_time|date='Y-m-d H:i:s',###}</td>
+                	 <td align="center" width="120">{$v.currency_name}</td>
+                	 <td align="center" width="120">{$v.price}</td>
+                     <td align="center" width="120">{$v.num}</td>
+                     <td align="center" width="120">{$v['trade_num']}</td>
+                     <td align="center" width="120">{$v['num']*$v['price']}</td>
+                     <td align="center" width="120">{$v.gmfl}</td>
+                     <td align="center" width="120">{$v.deal}</td>
+                     <td align="center" width="120"><if condition="$v['status'] eq 0">挂单
+                     <elseif condition="$v['status'] eq 1"/>部分成交
+                     <elseif condition="$v['status'] eq 2"/>全部成交
+                     </if>
+                   </td>
+                     <td align="center" width="120" ><if condition="$v['trade_time'] eq 0">--<else/>{:date('Y-m-d H:i:s',$v['trade_time'])}</if></td>
+
+                       <td align="center" width="120">
+	                       <if condition="$v['status'] eq 2">--
+	                       <else/>
+	                       <a class="btn btn-outline btn-default deltico btn-sm"  onclick="del({$v.orders_id})"> <span class="bold">撤销</span> </a>
+	               		   </if>
+               		 </td>
+                </tr>
+                </foreach>
+              </notempty>
+             <!-- <empty name='list'>
+               		您暂时没有委托的订单。
+             </empty> -->
+              
+            
+          </table>
+           <div class="page" style=" min-width:200px !important; float:center;">
+	                    {$page}
+	        </div>
+        </div>
+      
+      <!--  委托记录结束-->
+     </div>
+  </div>
+    <div class="clear"></div>
+</div>
+   
+      
+<script>
+function del(id){
+	 $.post("{:U('Trade/delete')}",{id:id},function(d){
+		 alert(d.info);
+		 location.reload();
+	 })
+	 
+};
+$(".menu100").addClass("uc-current");
+</script> 
+<!--footer start-->
+<include file="App/Home/View/Public/footer.html"/>
+<!--footer end-->

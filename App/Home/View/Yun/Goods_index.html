@@ -1,0 +1,78 @@
+ <include file="App/Home/View/Public/header.html"/>
+
+<div id="main">
+  
+<img src="/Public/Home/images/1.jpg" width="988" height="90" align="middle" style='display: block;
+    margin: 0 auto;' />
+<!--  内容开始-->
+<div class="marketArea clear" style="min-height: 500px;
+    margin: 2px auto 0;
+    width: 987px;">
+	<div class="g-wrap g-body-hd f-clear">
+	<div class="list_Curtit" id="current">
+	<h1 class="fl">云购商品分类</h1>
+	<span id="spTotalCount">(共<em class="orange">{:count($list)}</em>件相关商品)</span>
+	</div>
+	<div class="list_class">
+	<dl>
+	<dt>分类</dt>
+	<dd id="ddBrandList">
+	<ul>
+	<li><a href="{:U('Yun/index','id='.$vo['id'])}" <empty name="cat_id">class="ClassCur"</empty>>全部</a></li>
+	 <volist name="category" id="vo">
+	   <li><a  href="{:U('Yun/index','cat_id='.$vo['id'])}" <eq name="cat_id" value="$vo.id">class="ClassCur"</eq>>{$vo.name}</a></li>
+	   </volist>
+	</ul>
+	</dd>
+	</dl>
+	</div>
+	<div class="list_Sort">
+	<dl>
+	<dt>排序</dt>
+	<dd>
+	
+	 <a href="#"  >剩余人次</a>
+	<a href="#"  >人气</a>
+	<a href="#" >最新</a>
+	<a href="#"  >价格</a>
+	
+	</dd>
+	<dt>筛选</dt>
+	<dd>
+	    <a href="{:U('Yun/index','id='.$vo['id'])}" <empty name="money_cat" >class="SelectCur"</empty>>全部</a>
+		<a  href="{:U('Yun/index','money_cat=1')}" <eq name="money_cat" value="1">class="SelectCur"</eq>>一元区</a>
+		<a  href="{:U('Yun/index','money_cat=10')}" <eq name="money_cat" value="10">class="SelectCur"</eq>>十元区</a>
+		<a  href="{:U('Yun/index','money_cat=100')}" <eq name="money_cat" value="100">class="SelectCur"</eq>>百元区</a>
+	</dd>
+	</dl>
+	</div>
+	</div>
+<div class="buy-w">
+<ul class="buy-ul">
+<volist name="list" id="vo" mod="3">
+	<li onmouseover="this.className='g2'" onmouseout="this.className='f2'" class="f2" <eq name="mod" value="2">style="margin-right:0"</eq>>
+	<em class="qg-em1"><a href="{:U('Yun/detail','id='.$vo['id'])}"><img src="{$vo.pic}" alt="{$vo.title}"></a></em>
+	<em class="qg-em2"><a href="{:U('Yun/detail','id='.$vo['id'])}" title="{$vo.title}">{$vo.title}</a></em>
+	<em class="qg-em8">云购价：<b><neq name='currency' value='RMB'>{:floatval($vo['money'])}{$vo.mark}<else/>{:floatval($vo['display_money'])}{$vo.mark}</neq></b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;每期限购：<b>{$vo.limit_num}次</b> </em>
+	<em class="qg-em4"><div class="progress_container"><div class="progress_container2" style="width:{$vo['percent']}%"></div></div></em>
+	<em class="qg-em5">
+	<span class="em5-l"><b style="color:Blue;">{$vo.count_all}</b></span>
+	<span class="em5-l"><b style="color:#666;">{$vo.total_num}</b></span>
+	<span class="em5-l"><b>{$vo['shengyu_num']}</b></span></em>
+	<em class="qg-em5"><span class="em5-l">已参加人数</span><span class="em5-l">总需人数</span><span class="em5-l">剩余人数</span></em>
+	<div class="qg-but">
+	<input type="button" class="qg-but1" value="立即云购" onclick="javascript:location.href='{:U('Yun/detail','id='.$vo['id'])}'">
+	<input type="button" class="qg-but2" value="历史开奖" onclick="javascript:location.href='{:U('Yun/history','id='.$vo['id'])}'">
+	</div>
+	<div class="sp_fd"><neq name='currency' value='RMB'>{:floatval($vo['money'])}<br>{$vo.mark}<else/>{:floatval($vo['display_money'])}<br>{$vo.mark}</neq></div>
+	</li>
+</volist>
+</ul>
+</div>	
+<div align='center'> {$page}</div>
+
+
+
+</div>
+<!--footer start--> 
+<include file="App/Home/View/Public/footer.html"/>
