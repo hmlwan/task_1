@@ -28,6 +28,7 @@
     <link type="text/css" rel="stylesheet" href="/Public/Mobile/css/task/style.css" />
     <script src="/Public/Mobile/js/task/jquery1.10.2.min.js"></script>
     <script src="/Public/Mobile/js/task/fontSize.js"></script>
+    <!--<script src="/Public/Mobile/js/layer_mobile/layer.js"></script>-->
     <script src="/Public/Mobile/js/layer/layer.js"></script>
     <script src="/Public/Mobile/js/task/common.js"></script>
 </head>
@@ -41,7 +42,22 @@
         </div>
         <div style="height: .94rem;clear: both;"></div>
     </header>
-
+    <!--zhezhao-->
+    <div class="is_zhezhao"></div>
+    <div class="qd_tips" style="display:none;">
+        <div>
+            <h2>匹配用户结果</h2>
+            <div class="qd_user">
+                <img class="mem_head" src="/Public/Mobile/images/task/gwc_spimg.jpg" alt="">
+                <p><span class="mem_username">雪中行者</span><br>
+                    <span class="mem_phone">151****5825</span>
+                </p>
+            </div>
+            <div class="qd_tips_btn">
+                <span class="qd_tips_confirm" data-op_type="">确定</span>
+            </div>
+        </div>
+    </div>
     <?php if(is_array($info)): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="wyqd">
             <div class="wyqd_item">
                 <div class="jltext">
@@ -72,15 +88,15 @@
                           查看详情
                     </span></a><em>|</em>
                     <!--<a href=""><span>已发放奖励</span></a><em>|</em>-->
-                    <?php if($vo['status'] == 1): ?><a href="javascript:;"><span>复购</span></a><em></em>
+                    <?php if($vo['status'] == 1): ?><a href="javascript:;" onclick="re_buy(<?php echo ($vo['id']); ?>,2)"><span>复购</span></a><em></em>
                     <?php else: ?>
-                        <a href="javascript:;" onclick="submit(<?php echo ($vo["id,1"]); ?>)"><span>确认收款</span></a><em></em><?php endif; ?>
+                        <a href="javascript:;" onclick="sub(<?php echo ($vo["id,1"]); ?>)"><span>确认收款</span></a><em></em><?php endif; ?>
                 </div>
             </div>
         </div><?php endforeach; endif; else: echo "" ;endif; ?>
 </div>
 <script>
-    function submit(id,status) {
+    function sub(id,status) {
         $.post("<?php echo U('Trade/confirm_sk');?>",
             {'id':id,status:status},function(d){
                 if(d.status == 1){
@@ -93,6 +109,44 @@
                 },1000);
             });
     }
+
+    function re_buy(id,type){
+        $.post("<?php echo U('Trade/re_buy');?>",{id:id,type:type},function(data){
+            console.log(data);
+            /*匹配成功*/
+            if(data['status'] == 1){
+                $(".qd_user").find('.mem_head').attr('src',data['data']['head']);
+                $(".qd_user").find('.mem_username').html(data['data']['username']);
+                $(".qd_user").find('.mem_phone').html(data['data']['phone']);
+                $(".qd_user").find('.qd_tips_confirm').attr("data-op_type",data['data']['op_type']);
+                $(".qd_tips").show();
+                $(".is_zhezhao").attr('class',"is_zhezhao zhezhao");
+
+            }else if(data['status'] == 2){  /*未匹配成功*/
+                layer.msg("复购成功，正在匹配中...");
+            }else if(data['status'] ==3){  /*先登录*/
+                layer.msg("请先去登录...");
+                window.location="<?php echo U('Login/index');?>";
+            }
+            else{
+                layer.msg(data['info']);
+            }
+        })
+    }
+    /*取消按钮*/
+    $(".qd_tips_confirm").find('.qd_tips_concel').click(function () {
+        $(".qd_tips").hide();
+        $(".is_zhezhao").attr('class',"is_zhezhao");
+        var op_type = $(this).data('op_type');
+        if(op_type == 1){
+            layer.msg("请及时上传付款凭证。。",{icon:1});
+            window.location="<?php echo U('Trade/qd_record');?>";
+        }else if(op_type == 2){
+            layer.msg("请及时确认收款。。",{icon:1});
+            window.location="<?php echo U('Trade/sk_record');?>";
+        }
+    });
+
 
 </script>
 

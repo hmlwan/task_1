@@ -33,7 +33,7 @@
     <script src="/Public/Mobile/js/task/common.js"></script>
 </head>
 
-<body>
+<body style="background-color: #eaf8f8;">
 <div>
     <header>
         <div class="gwc_bt">
@@ -42,9 +42,6 @@
         </div>
         <div style="height: .74rem;clear: both;"></div>
     </header>
-    <div class="main_page">
-        <img src="/Public/Mobile/images/task/login_bgk.png" alt="">
-    </div>
     <input type="hidden" name="member_id" value="<?php echo ($member_id); ?>">
     <input type="hidden" name="username" value="<?php echo ($username); ?>">
     <input type="hidden" name="head" value="<?php echo ($head); ?>">
@@ -65,21 +62,33 @@
             </div>
         </div>
     </div>
-    <div class="wyqd">
-        <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="wyqd_item index_page">
-                <div class="jltext">
-                    <a href="javascript:;">
-                        <img src="<?php echo ($vo["logo_img"]); ?>" alt="">
-                        <div class="jltext_top">
-                            <span class="jl_title"><?php echo ($vo["title"]); ?></span>
-                            <span class="jl_time"><?php echo ($vo["reward"]); ?></span>
-                        </div>
-                        <div class="jltext_top" style=" font-size:.24rem ;color: #dadada;">
-                            <span  class="jl_title"><?php echo (date("Y-m-d",$vo["create_time"])); ?></span>
-                            <span  class="jl_time qd" onclick="qiandan(<?php echo ($vo["id"]); ?>,1)">抢单</span>
-                            <span  class="jl_time fk" onclick="qiandan(<?php echo ($vo["id"]); ?>,2)">收款</span>
-                        </div>
-                    </a>
+    <div class="new_wyqd">
+        <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="new_item">
+                <div class="new_fb">
+                    <p class="qd_op" onclick="qiandan(<?php echo ($vo["id"]); ?>,1)">发布</p>
+                    <p class="ss_status">
+                        <span>搜索状态</span>
+                        <span class="op_res">
+                            <?php if($vo['qd_status'] == 1): ?><a href="<?php echo U('Trade/pay_fk',array('task_id'=>$vo['id']));?>">搜索成功</a>
+                            <?php elseif($vo['qd_status'] == 2): ?>
+                                搜索中
+                            <?php else: ?>
+                                ---<?php endif; ?>
+                        </span>
+                    </p>
+                </div>
+                <div class="new_sq">
+                    <p class="qd_op" onclick="qiandan(<?php echo ($vo["id"]); ?>,2)">收取</p>
+                    <p class="ss_status">
+                        <span>搜索状态</span>
+                        <span class="op_res">
+                            <?php if($vo['sk_status'] == 1): ?><a href="<?php echo U('Trade/pay_sk',array('task_id'=>$vo['id']));?>">搜索成功</a>
+                            <?php elseif($vo['sk_status'] == 2): ?>
+                                搜索中
+                            <?php else: ?>
+                                ---<?php endif; ?>
+                        </span>
+                    </p>
                 </div>
             </div><?php endforeach; endif; else: echo "" ;endif; ?>
     </div>
@@ -119,20 +128,16 @@
             console.log(data);
             /*匹配成功*/
             if(data['status'] == 1){
-                $(".qd_user").find('.mem_head').attr('src',data['data']['head']);
-                $(".qd_user").find('.mem_username').html(data['data']['username']);
-                $(".qd_user").find('.mem_phone').html(data['data']['phone']);
-                $(".qd_user").find('.qd_tips_confirm').attr("data-op_type",data['data']['op_type']);
-                $(".qd_tips").show();
-                $(".is_zhezhao").attr('class',"is_zhezhao zhezhao");
-
+                layer.msg("已匹配抢单者，请及时领取...",{icon:1});
+                window.location="<?php echo U('Login/index');?>";
             }else if(data['status'] == 2){  /*未匹配成功*/
-                layer.msg("正在匹配中，请等待...");
+                layer.msg("正在匹配中，请等待...",{icon:1});
             }else if(data['status'] ==3){  /*先登录*/
                 layer.msg("请先去登录...");
                 window.location="<?php echo U('Login/index');?>";
-            }
-            else{
+            }else if(data['status'] == 4){  /*跳转发布页面*/
+                window.location=data.info;
+            } else{
                 layer.msg(data['info']);
             }
         })
@@ -150,32 +155,6 @@
             window.location="<?php echo U('Trade/sk_record');?>";
         }
     });
-    var member_id = $("input[name='member_id']").val();
-    /*匹配付款/执行者*/
-    if(member_id > 0){
-        var phone = $("input[name='phone']").val();
-        var username = $("input[name='username']").val();
-        var head = $("input[name='head']").val();
-        var type = $("input[name='type']").val();
-
-        if(type == 1){ /*匹配到收款者*/
-            $(".qd_user").find('.mem_head').attr('src',head);
-            $(".qd_user").find('.mem_username').html(username);
-            $(".qd_user").find('.mem_phone').html(phone);
-            $(".qd_user").find('.qd_tips_confirm').attr("data-op_type",2);
-            $(".qd_tips").show();
-            $(".is_zhezhao").attr('class',"is_zhezhao zhezhao");
-            $(".qd_tips").find('h2').text("已匹配到收款者");
-        }else if(type == 2){  /*匹配到抢单者*/
-            $(".qd_user").find('.mem_head').attr('src',head);
-            $(".qd_user").find('.mem_username').html(username);
-            $(".qd_user").find('.mem_phone').html(phone);
-            $(".qd_user").find('.qd_tips_confirm').attr("data-op_type",2);
-            $(".qd_tips").show();
-            $(".is_zhezhao").attr('class',"is_zhezhao zhezhao");
-            $(".qd_tips").find('h2').text("已匹配到执行者");
-        }
-    }
 </script>
 
 

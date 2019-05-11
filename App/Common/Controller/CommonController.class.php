@@ -60,8 +60,8 @@ class CommonController extends Controller {
             $conf_list[$v['key']]=$v['value'];
         }
 
-        $this->config=$list;
-        $this->assign('config',$list);
+        $this->config=$conf_list;
+        $this->assign('config',$conf_list);
 
         $this->login_limit_time();
 

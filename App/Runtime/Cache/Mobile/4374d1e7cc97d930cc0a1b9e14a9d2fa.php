@@ -30,7 +30,7 @@
     <script src="/Public/Mobile/js/task/fontSize.js"></script>
     <!--<script src="/Public/Mobile/js/layer_mobile/layer.js"></script>-->
     <script src="/Public/Mobile/js/layer/layer.js"></script>
-    <script src="/Public/Mobile/js/task/common.js?randomId=<?php echo ($random_math); ?>"></script>
+    <script src="/Public/Mobile/js/task/common.js"></script>
 </head>
 
 <body>
@@ -59,7 +59,7 @@
                    (押金审核失败)<?php endif; ?>
            </p>
            <p>
-               <?php $__FOR_START_15024__=1;$__FOR_END_15024__=6;for($i=$__FOR_START_15024__;$i < $__FOR_END_15024__;$i+=1){ if($list['stars'] >= $i): ?><img src="/Public/Mobile/images/task/stared.png" alt="">
+               <?php $__FOR_START_16789__=1;$__FOR_END_16789__=6;for($i=$__FOR_START_16789__;$i < $__FOR_END_16789__;$i+=1){ if($list['stars'] >= $i): ?><img src="/Public/Mobile/images/task/stared.png" alt="">
                      <?php else: ?>
                         <img src="/Public/Mobile/images/task/star.png" alt=""><?php endif; } ?>
            </p>
@@ -118,7 +118,7 @@
                 <i class="footer_active"></i>
             </li>
         </ul>
-    </div>>
+    </div>
 </div>
 <script>
     var mem_status = <?php echo ($mem_status); ?>;

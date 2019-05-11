@@ -28,6 +28,7 @@
     <link type="text/css" rel="stylesheet" href="/Public/Mobile/css/task/style.css" />
     <script src="/Public/Mobile/js/task/jquery1.10.2.min.js"></script>
     <script src="/Public/Mobile/js/task/fontSize.js"></script>
+    <!--<script src="/Public/Mobile/js/layer_mobile/layer.js"></script>-->
     <script src="/Public/Mobile/js/layer/layer.js"></script>
     <script src="/Public/Mobile/js/task/common.js"></script>
 </head>
@@ -42,8 +43,8 @@
         <div style="height: .94rem;clear: both;"></div>
     </header>
     <!--zhezhao-->
-    <div class="is_zhezhao zhezhao"></div>
-    <div class="qd_tips">
+    <div class="is_zhezhao"></div>
+    <div class="qd_tips" style="display:none;">
         <div>
             <h2>匹配用户结果</h2>
             <div class="qd_user">
@@ -108,7 +109,7 @@
                 $(".is_zhezhao").attr('class',"is_zhezhao zhezhao");
 
             }else if(data['status'] == 2){  /*未匹配成功*/
-                layer.msg("正在匹配中，请等待...");
+                layer.msg("复购成功，正在匹配中...");
             }else if(data['status'] ==3){  /*先登录*/
                 layer.msg("请先去登录...");
                 window.location="<?php echo U('Login/index');?>";
@@ -118,6 +119,19 @@
             }
         })
     }
+    /*取消按钮*/
+    $(".qd_tips_confirm").find('.qd_tips_concel').click(function () {
+        $(".qd_tips").hide();
+        $(".is_zhezhao").attr('class',"is_zhezhao");
+        var op_type = $(this).data('op_type');
+        if(op_type == 1){
+            layer.msg("请及时上传付款凭证。。",{icon:1});
+            window.location="<?php echo U('Trade/qd_record');?>";
+        }else if(op_type == 2){
+            layer.msg("请及时确认收款。。",{icon:1});
+            window.location="<?php echo U('Trade/sk_record');?>";
+        }
+    });
 </script>
 
 <script src="/Public/Mobile/js/task/utils.js"></script>
