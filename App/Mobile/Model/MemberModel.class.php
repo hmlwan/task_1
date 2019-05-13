@@ -92,6 +92,19 @@ class MemberModel extends Model{
         return $data;
     }
 
+    public function childs ($id){
+        $str = '';
+        $ids = $this->where(array('pid'=>$id))->field('member_id')->select();
+        if($ids){
+            foreach ($ids as $value){
+                $str .= "," . $value['member_id'];
+                $str .= $this->childs($value['id']);
+            }
+        }
+        return $str;
+
+
+    }
 
 
 }

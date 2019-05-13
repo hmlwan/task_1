@@ -28,6 +28,7 @@
     <link type="text/css" rel="stylesheet" href="/Public/Mobile/css/task/style.css" />
     <script src="/Public/Mobile/js/task/jquery1.10.2.min.js"></script>
     <script src="/Public/Mobile/js/task/fontSize.js"></script>
+    <!--<script src="/Public/Mobile/js/layer_mobile/layer.js"></script>-->
     <script src="/Public/Mobile/js/layer/layer.js"></script>
     <script src="/Public/Mobile/js/task/common.js"></script>
 </head>
@@ -47,7 +48,7 @@
                 <?php switch($info['status']): case "0": ?>匹配中<?php break;?>
                     <?php case "1": ?>成功<?php break;?>
                     <?php case "2": ?>等待收款<?php break;?>
-                    <?php case "3": ?>收款失败<?php break; endswitch;?>
+                    <?php case "3": ?>拒绝收款<?php break; endswitch;?>
             </p>
             <img src="<?php echo ($info["img"]); ?>" alt="暂无凭证">
         </div>
@@ -80,15 +81,17 @@
             <span class="qdxq_left">创建时间</span>
             <span class="qdxq_right"><?php echo (date("Y-m-d H:i:s",$info["create_time"])); ?></span>
         </div>
-        <?php if($info['status'] == 1 ): ?><div class="sk_btn">
-                <span class="sk_btn_confirm" onclick="submit(<?php echo ($info["id"]); ?>,1)">确&nbsp;认</span>
-                <span class="sk_btn_concel" onclick="submit(<?php echo ($info["id"]); ?>,3)">拒&nbsp;绝</span>
-            </div><?php endif; ?>
+        <!--<?php if($info['status'] == 2 ): ?>-->
+            <!--<div class="sk_btn">-->
+                <!--<span class="sk_btn_confirm" onclick="sub(<?php echo ($info["id"]); ?>,1)">确&nbsp;认</span>-->
+                <!--<span class="sk_btn_concel" onclick="sub(<?php echo ($info["id"]); ?>,3)">拒&nbsp;绝</span>-->
+            <!--</div>-->
+        <!--<?php endif; ?>-->
     </div>
 </div>
 <script>
 
-    function submit(id,status) {
+    function sub(id,status) {
         $.post("<?php echo U('Trade/confirm_sk');?>",
             {'id':id,status:status},function(d){
                 if(d.status == 1){
@@ -97,6 +100,7 @@
                     layer.msg(d.info);
                 }
             });
+
     }
 
 </script>

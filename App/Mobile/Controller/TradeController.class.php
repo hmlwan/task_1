@@ -74,7 +74,7 @@ class TradeController extends HomeController
             $info['sk_name'] =  $sk_info['username'];
         }
         if($task_info){
-            $info['task_title'] =  $sk_info['title'];
+            $info['task_title'] =  $task_info['title'];
         }
 
         $this->assign('info',$info);
@@ -105,6 +105,7 @@ class TradeController extends HomeController
         $this->display();
     }
 
+    /*收款确认*/
     public function confirm_sk(){
 
         if(IS_POST){
@@ -150,6 +151,171 @@ class TradeController extends HomeController
             }
         }
     }
+    /*付款上传凭证*/
+    public function pay_fk(){
+        $qd_record = M('qd_record');
+        if(IS_POST){
+            $id = I('id','','');
+            $img = I('img','','');
+            if(!$img){
+                $data['status'] = 0;
+                $data['info'] = '请上传凭证。。。';
+                $this->ajaxReturn($data);
+            }
+            if($id){
+                $save_data = array(
+                    'img' => $img,
+                );
+                $r = $qd_record->where(array('id'=>$id))->save($save_data);
+
+                if($r){
+
+                    /*判断用户父级是否达到推广奖励*/
+                    $pid = M('member')->where(array('member_id'=>$_SESSION['USER_KEY_ID']))->getField('pid');
+                    if($pid > 0){
+                        $record_info = $qd_record->find($id);
+
+                        $pid_info = D('member')->get_info_by_id($pid);
+                        if($pid_info['is_receive_partner'] == 1){
+                            $promote_rate = $this->config['increase_rate'];
+                            $promote_money = $record_info['reward'] * $promote_rate;
+
+                            $res = M('member_info')->where(array('member_id'=>$pid))->setInc('promote_money',$promote_money);
+                            if($res){
+                                $add_data = array(
+                                    'member_id' => $pid,
+                                    'sub_member_id' => $_SESSION['USER_KEY_ID'],
+                                    'type' => 1,
+                                    'content' => '推广下线用户'.$_SESSION['USER_KEY_ID'].'奖励'.$promote_money.'元',
+                                    'money_type' => 1,
+                                    'money' => $promote_money,
+                                    'add_time' => time()
+                                );
+                                M('finance')->add($add_data);
+                            }
+                        }
+                    }
+
+                    $data['status'] = 1;
+                    $data['info'] = '上传成功，请等待收款者确认。。';
+                    $this->ajaxReturn($data);
+                }else{
+                    $data['status'] = 0;
+                    $data['info'] = '未知错误';
+                    $this->ajaxReturn($data);
+                }
+            }else{
+                $data['status'] = 0;
+                $data['info'] = '未知错误';
+                $this->ajaxReturn($data);
+            }
+        }else{
+            $task_id = I('task_id');
+            $status = I("status");
+            $qd_where = array(
+                'fk_id' =>   $this->member_id,
+                'task_id' => $task_id,
+                'status' => $status
+            );
+
+            $qd_record_info = $qd_record->where($qd_where)->find();
+            /*收款人信息*/
+            $sk_info = D("Member")->get_info_by_id($qd_record_info['sk_id']);
+
+            $this->assign('sk_info',$sk_info);
+            $this->assign('qd_record_info',$qd_record_info);
+            $this->display();
+        }
+
+    }
+    /*收款*/
+    public function  pay_sk(){
+        $qd_record = M('qd_record');
+
+        if(IS_POST){
+            $id = I('id','','');
+            $img = I('img','','');
+            $status = I('status','','');
+
+            if(!$img){
+                $data['status'] = 0;
+                $data['info'] = '抢单者还没有上传凭证,请等待。。。';
+                $this->ajaxReturn($data);
+            }
+            if($id){
+                $save_data = array(
+                    'status' => $status,
+                );
+                $r = $qd_record->where(array('id'=>$id))->save($save_data);
+                if($r){
+                    if($status == 1){ /*收款成功*/
+                        $record_info = $qd_record->find($id);
+
+                        $trade_data1 = array( /*付款者*/
+                            'member_id' => $record_info['fk_id'],
+                            'qd_record_id' => $record_info['id'],
+                            'type' => 1,
+                            'money' => $record_info['reward'],
+                            'add_time' => time()
+                        );
+                        M("member_trade_record")->add($trade_data1);
+
+                        /*收款者 获得佣金*/
+                        $commision = $record_info['reward'] * $this->config['commision_rate'];
+                        $trade_data2 = array(  /*收款者*/
+                            'member_id' => $record_info['sk_id'],
+                            'qd_record_id' => $record_info['id'],
+                            'type' => 2,
+                            'money' => $record_info['reward'],
+                            "commision" => $commision,
+                            'add_time' => time()
+                        );
+                        M('member_info')
+                            ->where(array('member_id'=>$record_info['sk_id']))
+                            ->setInc('commision',$commision);
+                        M("member_trade_record")->add($trade_data2);
+                        $data['status'] = 1;
+                        $data['info'] = '收取成功';
+                        $data['data'] = $commision;
+                        $this->ajaxReturn($data);
+                    }else{
+                        $data['status'] = 2;
+                        $data['info'] = '拒绝成功';
+                        $this->ajaxReturn($data);
+                    }
+
+                }else{
+                    $data['status'] = 0;
+                    $data['info'] = '未知错误';
+                    $this->ajaxReturn($data);
+                }
+
+            }else{
+                $data['status'] = 0;
+                $data['info'] = '未知错误';
+                $this->ajaxReturn($data);
+            }
+        }else{
+            $status = I("status");
+            $task_id = I("task_id");
+            $qd_where = array(
+                'sk_id' =>   $this->member_id,
+                'task_id' => $task_id,
+                'status' => $status
+            );
+
+            $qd_record_info = $qd_record->where($qd_where)->find();
+            /*付款人信息*/
+            $fk_info = D("Member")->get_info_by_id($qd_record_info['fk_id']);
+
+            $this->assign('fk_info',$fk_info);
+            $this->assign('qd_record_info',$qd_record_info);
+            $this->display();
+        }
+
+    }
+
+
     /*我的佣金*/
     public function my_commision(){
         $mem_trade_recode = M('member_trade_record')->alias("t")

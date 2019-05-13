@@ -1,0 +1,128 @@
+<include file="Public:header"/>
+<body >
+
+<div class="zfyj">
+    <header>
+        <div class="gwc_bt">
+            <div class="gwcbt_fh"><a href="{:U('Index/index')}" class="gwcdd_fh"></a></div>
+            <div class="gwcbt_mc">发布</div>
+        </div>
+        <div style="height: .74rem;clear: both;"></div>
+    </header>
+    <div class="zfyj_item" style="padding-bottom: .5rem">
+        <form action="">
+            <input type="hidden" name="pay_money" value="200">
+            <input type="hidden"  id="img" name="img" value="">
+            <input type="hidden"  id="pay_type" name="pay_type" value="1">
+
+            <input type="hidden"  id="task_id" name="task_id" value="{$task_id}">
+            <input type="hidden"  id="type" name="type" value="{$type}">
+
+            <div class="je_text">
+                <h2>金额</h2>
+                <div class="je_num">
+                    <span data-money="200" class="active">200元</span>
+                    <span data-money="500">500元</span>
+                    <span data-money="1000">1000元</span>
+                    <span data-money="1500">1500元</span>
+                </div>
+            </div>
+            <div class="je_text zffs">
+                <h2>支付方式</h2>
+                <p><img src="__IMG__/task/yhk_zfbimg1.png" alt="">
+                    <!--<span>支付宝支付</span>-->
+                    <em data-pay_type="1" class="gou_active"></em></p>
+                <p><img src="__IMG__/task/yhk_vximg1.png" alt="">
+                    <!--<span>微信支付</span>-->
+                    <em data-pay_type="2"  class="gou_active"></em></p>
+            </div>
+            <div class="confirm_btn" style="margin-top: .5rem" onclick="sub()">确认发布</div>
+        </form>
+    </div>
+</div>
+<script src="__JS__/task/lrz.min.js"></script>
+<script>
+    $(".zffs").find("p em").click(function () {
+        $(this).parent('p').siblings('p').find('em').attr('class','');
+        $(this).attr('class','gou_active');
+        var pay_type = $(this).data('pay_type');
+        $("input[name='pay_type']").val(pay_type);
+    });
+
+    $(function () {
+        var f = document.querySelector('.file_input');
+        imgs(f);
+    });
+    function imgs(id) {
+        id.onchange = function (e) {
+            var _self = $(e.target);
+            var files = e.target.files;
+
+            if(files[0]['size'] > 2*1024*1024){
+                layer_error('上传图片超过2m');
+                return false;
+            }
+            var url = _self.data('url');
+            console.log(url);
+            lrz(this.files[0], {width: 600, fieldName: "file"}).then(function (rst) {
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', url);
+                xhr.onload = function () {
+                    var b = xhr.responseText;
+                    var c = eval('(' + b + ')');
+                    console.log(c);
+                    if (xhr.status === 200 && c.error == 0) {
+                        layer.msg( '上传成功',{icon:1});
+                        var obj = eval('(' + xhr.responseText + ')');
+
+                        $("#upload_img").attr('src', c.url);
+                        $("#img").val(c.url);
+                    } else {
+                        layer.msg('上传图片格式不对');
+                    }
+                };
+                xhr.onerror = function () {
+                    layer.msg('有异常重新上传');
+                };
+                xhr.upload.onprogress = function (e) {
+                    // 上传进度
+                    var percentComplete = ((e.loaded / e.total) || 0) * 100;
+                }
+                // 添加参数
+                rst.formData.append('size', rst.fileLen);
+                rst.formData.append('base64', rst.base64);
+
+                // 触发上传
+                xhr.send(rst.formData);
+                return rst;
+            })
+                .catch(function (err) {
+                    layer.msg(err);
+                })
+                // 不管是成功失败，这里都会执行
+                .always(function () {
+
+                });
+        }
+    }
+    function sub() {
+
+        var pay_money = $("input[name='pay_money']").val();
+        var pay_type = $("input[name='pay_type']").val();
+        var task_id = $("input[name='task_id']").val();
+        var type = $("input[name='type']").val();
+
+        $.post("{:U('FullInfo/pay_pub')}",{pay_money:pay_money,pay_type:pay_type,task_id:task_id,type:type},function(data){
+            if(data.status > 0){
+                layer.msg(data.info,{icon:1});
+            }else{
+                layer.msg(data.info);
+            }
+            window.setTimeout(function(){
+                window.location="{:U('Index/index')}";
+            },2000);
+        },"json");
+    }
+</script>
+<include file="Public:footer"/>
+

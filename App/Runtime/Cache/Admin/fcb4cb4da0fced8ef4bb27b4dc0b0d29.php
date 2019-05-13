@@ -25,8 +25,8 @@
             <h1 class="topbar-logo none"><a href="index.html" class="navbar-brand">后台管理</a></h1>
             <ul class="navbar-list clearfix">
                 <li><a class="on" href="<?php echo U('Index/index');?>">首页</a></li>
-                <li><a href="<?php echo U('Index/index');?>" target="_blank">网站首页</a></li>
-                <li><a href="<?php echo U('Index/infoStatistics');?>" target="_blank">全站统计信息</a></li>
+                <!--<li><a href="<?php echo U('Mobile/Index/index');?>" target="_blank">网站首页</a></li>-->
+                <!--<li><a href="<?php echo U('Index/infoStatistics');?>" target="_blank">全站统计信息</a></li>-->
             </ul>
         </div>
         <div class="top-info-wrap">

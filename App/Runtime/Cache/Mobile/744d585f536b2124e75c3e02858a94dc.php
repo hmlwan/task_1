@@ -30,7 +30,7 @@
     <script src="/Public/Mobile/js/task/fontSize.js"></script>
     <!--<script src="/Public/Mobile/js/layer_mobile/layer.js"></script>-->
     <script src="/Public/Mobile/js/layer/layer.js"></script>
-    <script src="/Public/Mobile/js/task/common.js?randomId=<?php echo ($random_math); ?>"></script>
+    <script src="/Public/Mobile/js/task/common.js"></script>
 </head>
 
 <body >
@@ -51,12 +51,12 @@
             <input type="hidden"  id="id" name="id" value="<?php echo ($id); ?>">
             <div class="fk_qrcode">
                 <div class="zfb_qrcode">
-                    <span><?php if($config['zfb_qrcode']): ?>支付宝<?php endif; ?></span>
-                    <img src="<?php echo ($config["zfb_qrcode"]); ?>" alt="">
+                    <span><?php if($zfb_qrcode): ?>支付宝<?php endif; ?></span>
+                    <img src="<?php echo ($zfb_qrcode); ?>" alt="">
                 </div>
                 <div class="wx_qrcode">
-                    <span><?php if($config['wx_qrcode']): ?>微信<?php endif; ?></span>
-                    <img src="<?php echo ($config["wx_qrcode"]); ?>" alt="">
+                    <span><?php if($wx_qrcode): ?>微信<?php endif; ?></span>
+                    <img src="<?php echo ($wx_qrcode); ?>" alt="">
                 </div>
             </div>
             <div class="je_text">
@@ -70,8 +70,12 @@
             </div>
             <div class="je_text zffs">
                 <h2>支付方式</h2>
-                <p><img src="/Public/Mobile/images/task/yhk_zfbimg.png" alt=""><span>支付宝支付</span><em data-pay_type="1" class="gou_active"></em></p>
-                <p><img src="/Public/Mobile/images/task/yhk_vximg.png" alt=""><span>微信支付</span><em data-pay_type="2"></em></p>
+                <p><img src="/Public/Mobile/images/task/yhk_zfbimg1.png" alt="">
+                    <!--<span>支付宝支付</span>-->
+                    <em data-pay_type="1" class="gou_active"></em></p>
+                <p><img src="/Public/Mobile/images/task/yhk_vximg1.png" alt="">
+                    <!--<span>微信支付</span>-->
+                    <em data-pay_type="2"  class="gou_active"></em></p>
             </div>
             <div class="je_text scpz">
                 <h2>上传凭证</h2>
@@ -88,12 +92,12 @@
 </div>
 <script src="/Public/Mobile/js/task/lrz.min.js"></script>
 <script>
-    $(".je_text").find(".je_num span").click(function () {
-        $(this).siblings('span').attr('class','');
-        $(this).attr('class','active');
-        var money = $(this).data('money');
-        $("input[name='pay_money']").val(money);
-    });
+//    $(".je_text").find(".je_num span").click(function () {
+//        $(this).siblings('span').attr('class','');
+//        $(this).attr('class','active');
+//        var money = $(this).data('money');
+//        $("input[name='pay_money']").val(money);
+//    });
     $(".zffs").find("p em").click(function () {
         $(this).parent('p').siblings('p').find('em').attr('class','');
         $(this).attr('class','gou_active');

@@ -14,7 +14,7 @@ class TradeController extends AdminController {
     public function qd_record(){
         $sk_name = I('sk_name');
         $fk_name = I('fk_name');
-        $status = I('status');
+        $status = I('status','','');
         $where = array();
 
         if(!empty($fk_name)){
@@ -23,7 +23,7 @@ class TradeController extends AdminController {
         if(!empty($sk_name)){
             $where['m.username'] = array("like","%".$sk_name.'%');
         }
-        if($status>= 0){
+        if($status && $status>= 0){
             $where['a.status'] = $status;
         }
         $field = "a.*,c.username as fk_name,c.phone as fk_phone,m.username as sk_name,m.phone as sk_phone,p.title as task_title";
@@ -35,6 +35,8 @@ class TradeController extends AdminController {
             ->join("LEFT JOIN ".C("DB_PREFIX")."pub_task as p on p.id = a.task_id ")
             ->where($where)
             ->count();// 查询满足要求的总记录数
+
+
         $Page       = new Page($count,25);// 实例化分页类 传入总记录数和每页显示的记录数(25)
         //给分页传参数
         setPageParameter($Page, array('sk_name'=>$sk_name,'fk_name'=>$fk_name,'status'=>$status));
@@ -65,13 +67,15 @@ class TradeController extends AdminController {
         }
         $where = array();
         $field = "a.*,m.username,m.phone,q.task_id";
-        $count      = M('member_trade_record')
+        $count  = M('member_trade_record')
             ->alias('a')
             ->field($field)
             ->join("LEFT JOIN ".C("DB_PREFIX")."member as m on a.member_id = m.member_id ")
             ->join("LEFT JOIN ".C("DB_PREFIX")."qd_record as q on q.id = a.qd_record_id ")
             ->where($where)
             ->count();// 查询满足要求的总记录数
+
+
         $Page       = new Page($count,25);// 实例化分页类 传入总记录数和每页显示的记录数(25)
         //给分页传参数
         setPageParameter($Page, array('username'=>$username));
@@ -84,9 +88,10 @@ class TradeController extends AdminController {
             ->join("LEFT JOIN ".C("DB_PREFIX")."member as m on a.member_id = m.member_id ")
             ->join("LEFT JOIN ".C("DB_PREFIX")."qd_record as q on q.id = a.qd_record_id ")
             ->where($where)
-            ->order(" a.add_time desc")
+            ->order("a.add_time desc")
             ->limit($Page->firstRow.','.$Page->listRows)
             ->select();
+
         foreach ($list as &$value){
             if($value['task_id']== 0){
                 $value['task_title'] = '系统匹配';

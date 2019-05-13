@@ -25,8 +25,8 @@
             <h1 class="topbar-logo none"><a href="index.html" class="navbar-brand">后台管理</a></h1>
             <ul class="navbar-list clearfix">
                 <li><a class="on" href="<?php echo U('Index/index');?>">首页</a></li>
-                <li><a href="<?php echo U('Index/index');?>" target="_blank">网站首页</a></li>
-                <li><a href="<?php echo U('Index/infoStatistics');?>" target="_blank">全站统计信息</a></li>
+                <!--<li><a href="<?php echo U('Mobile/Index/index');?>" target="_blank">网站首页</a></li>-->
+                <!--<li><a href="<?php echo U('Index/infoStatistics');?>" target="_blank">全站统计信息</a></li>-->
             </ul>
         </div>
         <div class="top-info-wrap">
@@ -145,13 +145,6 @@ $(".sub-menu").eq(num[1]).children("li").eq(num[2]).addClass("on");
                             <th width="15%">用户名：</th>
                             <td><input name="username" id="nick" value="<?php echo ($list['username']); ?>" type="text"></td>
                         </tr>
-						<tr>
-                             <th>头像上传：</th>
-            				 <td><input type="file" name="head"  style="width:200px;" />
-									<img src="<?php echo ($list['head']); ?>" style="width:50px;height:auto" />
-									<input type="hidden" name="headold" value="<?php echo ($list['head']); ?>" />
-							</td>
-                        </tr>		
                         <tr>
                             <th> 登录密码：</th>
                             <td><input id="pwd" name="pwd" type="password">
@@ -169,10 +162,7 @@ $(".sub-menu").eq(num[1]).children("li").eq(num[2]).addClass("on");
                             <th> 手机号码：</th>
                             <td><input name="phone" id="mo" readonly value="<?php echo ($list['phone']); ?>" type="text"></td>
                         </tr>
-                        <tr>
-                            <th> 星星数：</th>
-                            <td><input name="stars" id="stars" value="<?php echo ($list['stars']); ?>" type="text"></td>
-                        </tr>
+
                         <tr>
                             <th> 注册Ip：</th>
                             <td><?php echo ($list['ip']); ?><span style="margin-left:20px;">时间： <?php echo (date('Y-m-d H:i:s',$list['reg_time'])); ?></span></td>

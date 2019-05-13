@@ -28,6 +28,7 @@
     <link type="text/css" rel="stylesheet" href="/Public/Mobile/css/task/style.css" />
     <script src="/Public/Mobile/js/task/jquery1.10.2.min.js"></script>
     <script src="/Public/Mobile/js/task/fontSize.js"></script>
+    <!--<script src="/Public/Mobile/js/layer_mobile/layer.js"></script>-->
     <script src="/Public/Mobile/js/layer/layer.js"></script>
     <script src="/Public/Mobile/js/task/common.js"></script>
 </head>
@@ -48,28 +49,19 @@
 <div style="height: .9rem;"></div>
 <div class="footer_main">
     <ul>
-        <li class="footer_sy">
-            <a href="<?php echo U('Index/index');?>">
-                首页
-            </a>
-
+        <a href="<?php echo U('Index/index');?>">
+            <li class="footer_sy">首页</li>
+        </a>
+        <a href="javascript:;">
+            <li class="footer_fl">任务<i class="footer_active"></i>
         </li>
-        <li class="footer_fl">
-            <a href="javascript:;">
-                任务
-            </a>
-            <i class="footer_active"></i>
-        </li>
-        <li class="footer_tg">
-            <a href="<?php echo U('Promote/index');?>">
-                推广
-            </a>
-        </li>
-        <li class="footer_hyzx">
-            <a href="<?php echo U('Member/index');?>">
-                个人中心
-            </a>
-        </li>
+        </a>
+        <a href="<?php echo U('Promote/index');?>">
+            <li class="footer_tg"> 推广</li>
+        </a>
+        <a href="<?php echo U('Member/index');?>">
+            <li class="footer_hyzx">个人中心</li>
+        </a>
     </ul>
 </div>
 </div>

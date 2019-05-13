@@ -192,8 +192,8 @@ $(".sub-menu").eq(num[1]).children("li").eq(num[2]).addClass("on");
 
 							</td>
                             <td>
-                                <a class="link-del" href="<?php echo U('Finance/index',array('member_id'=>$vo['member_id']));?>">查看财务日志</a>
-                                <br>
+                                <!--<a class="link-del" href="<?php echo U('Finance/index',array('member_id'=>$vo['member_id']));?>">查看财务日志</a>-->
+                                <!--<br>-->
                                 <a class="link-del" href="<?php echo U('Member/show_my_invit',array('member_id'=>$vo['member_id']));?>">查看邀请人员</a><br>
                                 <a class="link-update" href="<?php echo U('Member/saveMember',array('member_id'=>$vo['member_id']));?>">修改|</a>
                                 <a class="link-update" href="<?php echo U('Member/become_priority',array('member_id'=>$vo['member_id']));?>" onclick="return confirm('确认成为优先匹配者吗？')">成为优先匹配者|</a>

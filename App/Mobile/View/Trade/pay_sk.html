@@ -1,0 +1,78 @@
+<include file="Public:header"/>
+<body class="new_sk_bgk" >
+<div  class="d_line">
+    <header>
+        <div class="gwc_bt" style="background-color: #7497f7;border-bottom: #7497f7 .2rem solid">
+            <div class="gwcbt_fh"><a href="javascript:history.back()" class="gwcdd_fh"></a></div>
+            <div class="gwcbt_mc" style="color: #ffffff;">收款详情</div>
+        </div>
+        <div style="height: .96rem;clear: both; " ></div>
+    </header>
+    <div class="is_zhezhao"></div>
+    <div class="comision_item" style="display: none">
+        <h2>当前可进取领取</h2>
+        <p class="cont"><span>00.00</span> 佣金</p>
+        <p class="qr_btn">确认提交</p>
+    </div>
+    <div class="new_sk">
+
+        <input type="hidden" name="id"  value="{$qd_record_info.id}">
+        <input type="hidden" name="img" value="{$qd_record_info.img}">
+        <div class="pay_logo">
+            <if condition="$qd_record_info['pay_type'] eq 1">
+                <img src="__IMG__/task/yhk_zfbimg1.png" alt="">
+            <else />
+                <img src="__IMG__/task/yhk_vximg1.png" alt="">
+            </if>
+        </div>
+        <div class="pay_img" style="height: 3.2rem;width: 3.2rem;margin-top: .9rem;"><img src="{$qd_record_info.img}" alt=""></div>
+        <p class="upload_proof">
+            <span>凭证上传</span>
+            <span>
+               <?php echo date("Y-m-d H:i:s",time()) ?>
+            </span>
+        </p>
+        <p class="new_btn" style=" margin-top: 1.2rem;">
+            <span class="new_fb_concell" onclick="sub(3)">拒绝</span>
+            <span class="new_fb_confirm" onclick="sub(1)">确定</span>
+        </p>
+    </div>
+</div>
+<script>
+    function sub(status) {
+        var id = $("input[name='id']").val();
+        var img = $("input[name='img']").val();
+        if(!img){
+            layer.msg("抢单者还没有上传凭证，请等待。。");
+            return false;
+        }
+
+        $.post("{:U('Trade/pay_sk')}",
+            {'id':id,img:img,status:status},function(d){
+                if(d.status == 1){
+                    $(".comision_item").show();
+                    $(".comision_item").find(".cont span").text(d.data);
+                    $(".is_zhezhao").attr('class',"is_zhezhao zhezhao");
+
+                }else if(d.status == 2){
+                    layer.msg(d.info,{icon:1});
+                    window.setTimeout(function(){
+                        window.location="{:U('Index/index')}";
+                    },2000);
+                } else{
+                    layer.msg(d.info);
+                }
+            });
+    }
+    $(".comision_item").find(".qr_btn").click(function () {
+        layer.msg("领取成功",{icon:1});
+        $(".comision_item").hide();
+        $(".is_zhezhao").attr('class',"is_zhezhao");
+        window.setTimeout(function(){
+            window.location="{:U('Index/index')}";
+        },2000);
+    });
+
+
+</script>
+<include file="Public:footer"/>

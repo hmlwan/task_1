@@ -10,16 +10,16 @@ class CommonController extends Controller {
     protected $dividendConfig;
     public function _initialize(){
 
-        if(isMobile() && strtolower(MODULE_NAME) == 'admin'  && strtolower(CONTROLLER_NAME) == 'index' && strtolower(ACTION_NAME) == 'index')
-        {
-            header("Location: ".U('Mobile/index/index'));
-            exit();
-         }
-         if(!isMobile() && strtolower(MODULE_NAME) == 'mobile'  && strtolower(CONTROLLER_NAME) == 'index' && strtolower(ACTION_NAME) == 'index')
-        {
-            header("Location: ".U('admin/index/index'));
-            exit();
-         }
+//        if(isMobile() && strtolower(MODULE_NAME) == 'admin'  && strtolower(CONTROLLER_NAME) == 'index' && strtolower(ACTION_NAME) == 'index')
+//        {
+//            header("Location: ".U('Mobile/index/index'));
+//            exit();
+//         }
+//         if(!isMobile() && strtolower(MODULE_NAME) == 'mobile'  && strtolower(CONTROLLER_NAME) == 'index' && strtolower(ACTION_NAME) == 'index')
+//        {
+//            header("Location: ".U('admin/index/index'));
+//            exit();
+//         }
 
          if($_POST){
              foreach ($_POST as $v){
@@ -60,8 +60,8 @@ class CommonController extends Controller {
             $conf_list[$v['key']]=$v['value'];
         }
 
-        $this->config=$list;
-        $this->assign('config',$list);
+        $this->config=$conf_list;
+        $this->assign('config',$conf_list);
 
         $this->login_limit_time();
 

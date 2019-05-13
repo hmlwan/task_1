@@ -15,7 +15,7 @@
                     <case value="0">匹配中</case>
                     <case value="1">成功</case>
                     <case value="2">等待收款</case>
-                    <case value="3">收款失败</case>
+                    <case value="3">拒绝收款</case>
                 </switch>
             </p>
             <img src="{$info.img}" alt="暂无凭证">
@@ -51,12 +51,12 @@
             <span class="qdxq_left">创建时间</span>
             <span class="qdxq_right">{$info.create_time|date="Y-m-d H:i:s",###}</span>
         </div>
-        <if condition="$info['status'] eq 2 ">
-            <div class="sk_btn">
-                <span class="sk_btn_confirm" onclick="sub({$info.id},1)">确&nbsp;认</span>
-                <span class="sk_btn_concel" onclick="sub({$info.id},3)">拒&nbsp;绝</span>
-            </div>
-        </if>
+        <!--<if condition="$info['status'] eq 2 ">-->
+            <!--<div class="sk_btn">-->
+                <!--<span class="sk_btn_confirm" onclick="sub({$info.id},1)">确&nbsp;认</span>-->
+                <!--<span class="sk_btn_concel" onclick="sub({$info.id},3)">拒&nbsp;绝</span>-->
+            <!--</div>-->
+        <!--</if>-->
     </div>
 </div>
 <script>
@@ -70,6 +70,7 @@
                     layer.msg(d.info);
                 }
             });
+
     }
 
 </script>

@@ -25,8 +25,8 @@
             <h1 class="topbar-logo none"><a href="index.html" class="navbar-brand">后台管理</a></h1>
             <ul class="navbar-list clearfix">
                 <li><a class="on" href="<?php echo U('Index/index');?>">首页</a></li>
-                <li><a href="<?php echo U('Index/index');?>" target="_blank">网站首页</a></li>
-                <li><a href="<?php echo U('Index/infoStatistics');?>" target="_blank">全站统计信息</a></li>
+                <!--<li><a href="<?php echo U('Mobile/Index/index');?>" target="_blank">网站首页</a></li>-->
+                <!--<li><a href="<?php echo U('Index/infoStatistics');?>" target="_blank">全站统计信息</a></li>-->
             </ul>
         </div>
         <div class="top-info-wrap">
@@ -163,7 +163,7 @@ $(".sub-menu").eq(num[1]).children("li").eq(num[2]).addClass("on");
                     <th>佣金</th>
                     <th>时间</th>
                 </tr>
-                <?php if(is_array($info)): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+                <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
                         <td><?php echo ($vo['id']); ?></td>
                         <td><?php echo ($vo['username']); ?></td>
                         <td><?php echo ($vo['phone']); ?></td>

@@ -30,7 +30,7 @@
     <script src="/Public/Mobile/js/task/fontSize.js"></script>
     <!--<script src="/Public/Mobile/js/layer_mobile/layer.js"></script>-->
     <script src="/Public/Mobile/js/layer/layer.js"></script>
-    <script src="/Public/Mobile/js/task/common.js?randomId=<?php echo ($random_math); ?>"></script>
+    <script src="/Public/Mobile/js/task/common.js"></script>
 </head>
 
 <body>
@@ -59,7 +59,7 @@
                    (押金审核失败)<?php endif; ?>
            </p>
            <p>
-               <?php $__FOR_START_15024__=1;$__FOR_END_15024__=6;for($i=$__FOR_START_15024__;$i < $__FOR_END_15024__;$i+=1){ if($list['stars'] >= $i): ?><img src="/Public/Mobile/images/task/stared.png" alt="">
+               <?php $__FOR_START_19308__=1;$__FOR_END_19308__=6;for($i=$__FOR_START_19308__;$i < $__FOR_END_19308__;$i+=1){ if($list['stars'] >= $i): ?><img src="/Public/Mobile/images/task/stared.png" alt="">
                      <?php else: ?>
                         <img src="/Public/Mobile/images/task/star.png" alt=""><?php endif; } ?>
            </p>
@@ -94,31 +94,21 @@
 <div style="height: .9rem;"></div>
     <div class="footer_main">
         <ul>
-            <li class="footer_sy">
-                <a href="<?php echo U('Index/index');?>">
-                    首页
-                </a>
-
-            </li>
-            <li class="footer_fl">
-                <a href="<?php echo U('Task/index');?>">
-                    任务
-                </a>
-            </li>
-            <li class="footer_tg">
-                <a href="<?php echo U('Promote/index');?>">
-                    推广
-                </a>
-            </li>
-            <li class="footer_hyzx">
-                <a href="javascript:;">
-                    个人中心
-                </a>
-
-                <i class="footer_active"></i>
-            </li>
+            <a href="<?php echo U('Index/index');?>">
+                <li class="footer_sy">首页</li>
+            </a>
+            <a href="<?php echo U('Task/index');?>">
+                <li class="footer_fl">任务</li>
+            </a>
+            <a href="<?php echo U('Promote/index');?>">
+                <li class="footer_tg"> 推广</li>
+            </a>
+            <a href="javascript:;">
+                <li class="footer_hyzx">个人中心<i class="footer_active"></i>
+                </li>
+            </a>
         </ul>
-    </div>>
+    </div>
 </div>
 <script>
     var mem_status = <?php echo ($mem_status); ?>;

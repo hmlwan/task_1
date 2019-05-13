@@ -24,12 +24,13 @@
     <!--如果用户装了谷歌浏览器，用ie浏览时使用谷歌内核-->
     <!--<meta http-equiv=”X-UA-Compatible” content=”IE=edge,chrome=1″/>-->
     <!--css文件-->
-    <link type="text/css" rel="stylesheet" href="/Public/Mobile/css/task/reset.css" />
-    <link type="text/css" rel="stylesheet" href="/Public/Mobile/css/task/style.css" />
-    <script src="/Public/Mobile/js/task/jquery1.10.2.min.js"></script>
-    <script src="/Public/Mobile/js/task/fontSize.js"></script>
-    <script src="/Public/Mobile/js/layer/layer.js"></script>
-    <script src="/Public/Mobile/js/task/common.js"></script>
+    <link type="text/css" rel="stylesheet" href="/project/task_1/Public/Mobile/css/task/reset.css" />
+    <link type="text/css" rel="stylesheet" href="/project/task_1/Public/Mobile/css/task/style.css" />
+    <script src="/project/task_1/Public/Mobile/js/task/jquery1.10.2.min.js"></script>
+    <script src="/project/task_1/Public/Mobile/js/task/fontSize.js"></script>
+    <!--<script src="/project/task_1/Public/Mobile/js/layer_mobile/layer.js"></script>-->
+    <script src="/project/task_1/Public/Mobile/js/layer/layer.js"></script>
+    <script src="/project/task_1/Public/Mobile/js/task/common.js"></script>
 </head>
 
 <body>
@@ -44,14 +45,14 @@
     </header>
     <div class="jbzl_page">
         <p>个人资料</p>
-        <div><label for="">头像</label><span><img src="<?php if($info['head']): echo ($info["head"]); else: ?>/Public/Mobile/images/task/gwc_spimg.jpg<?php endif; ?>" alt=""></span></div>
+        <div><label for="">头像</label><span><img src="<?php if($info['head']): echo ($info["head"]); else: ?>/project/task_1/Public/Mobile/images/task/gwc_spimg.jpg<?php endif; ?>" alt=""></span></div>
         <div><label for="">用户名</label><span><?php echo ($info["username"]); ?></span></div>
         <div><label for="">手机号码</label><span><?php echo ($info["phone"]); ?></span></div>
     </div>
 </div>
 
 </body>
-<script src="/Public/Mobile/js/task/utils.js"></script>
+<script src="/project/task_1/Public/Mobile/js/task/utils.js"></script>
 
 </body>
 </htm

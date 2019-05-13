@@ -28,6 +28,7 @@
     <link type="text/css" rel="stylesheet" href="/Public/Mobile/css/task/style.css" />
     <script src="/Public/Mobile/js/task/jquery1.10.2.min.js"></script>
     <script src="/Public/Mobile/js/task/fontSize.js"></script>
+    <!--<script src="/Public/Mobile/js/layer_mobile/layer.js"></script>-->
     <script src="/Public/Mobile/js/layer/layer.js"></script>
     <script src="/Public/Mobile/js/task/common.js"></script>
 </head>
@@ -42,8 +43,8 @@
         <div style="height: .94rem;clear: both;"></div>
     </header>
     <!--zhezhao-->
-    <div class="is_zhezhao zhezhao"></div>
-    <div class="qd_tips">
+    <div class="is_zhezhao"></div>
+    <div class="qd_tips" style="display:none;">
         <div>
             <h2>匹配用户结果</h2>
             <div class="qd_user">
@@ -75,7 +76,11 @@
                         <div class="jltext_top" style=" font-size:.24rem ;color: #dadada;">
                             <span  class="jl_title"><?php echo (date("Y-m-d",$vo["create_time"])); ?></span>
                             <span  class="jl_time">
-                                <?php if($vo['status'] == 1 or $vo['status'] == 2): ?>已支付
+                                <?php if($vo['status'] == 1 ): ?>已确认收取
+                                <?php elseif($vo['status'] == 2): ?>
+                                    已支付
+                                <?php elseif($vo['status'] == 3): ?>
+                                    收取被拒
                                 <?php else: ?>
                                     未支付<?php endif; ?>
                             </span>
@@ -87,9 +92,14 @@
                           查看详情
                     </span></a><em>|</em>
                     <!--<a href=""><span>已发放奖励</span></a><em>|</em>-->
-                    <?php if($vo['status'] == 1 or $vo['status'] == 2): ?><a href="javascript:;" onclick="re_buy(<?php echo ($vo['id']); ?>,1)"><span>复购</span></a><em></em>
-                    <?php else: ?>
-                        <a href="<?php echo U('FullInfo/pay_deposit',array('id'=>$vo['id']));?>"><span>请去支付</span></a><em></em><?php endif; ?>
+
+                    <?php if($vo['task_id'] > 0): if( $vo['status'] == 1): ?><a href="javascript:;" onclick="re_buy(<?php echo ($vo['id']); ?>,1)"><span>复购</span></a><em></em>
+                            <?php else: ?>
+                            <a href="<?php echo U('Trade/pay_fk',array('task_id'=>$vo['task_id']));?>"><span>请去支付</span></a><em></em><?php endif; ?>
+                        <?php else: ?> <!--系统匹配-->
+                        <?php if($vo['status'] == 1): ?><a href="javascript:;"><span>收取成功</span></a><em></em>
+                            <?php else: ?>
+                            <a href="javascript:;"><span>等待系统确认</span></a><em></em><?php endif; endif; ?>
                 </div>
             </div>
         </div><?php endforeach; endif; else: echo "" ;endif; ?>
@@ -108,7 +118,7 @@
                 $(".is_zhezhao").attr('class',"is_zhezhao zhezhao");
 
             }else if(data['status'] == 2){  /*未匹配成功*/
-                layer.msg("正在匹配中，请等待...");
+                layer.msg("复购成功，正在匹配中...");
             }else if(data['status'] ==3){  /*先登录*/
                 layer.msg("请先去登录...");
                 window.location="<?php echo U('Login/index');?>";
@@ -118,6 +128,19 @@
             }
         })
     }
+    /*取消按钮*/
+    $(".qd_tips_confirm").find('.qd_tips_concel').click(function () {
+        $(".qd_tips").hide();
+        $(".is_zhezhao").attr('class',"is_zhezhao");
+        var op_type = $(this).data('op_type');
+        if(op_type == 1){
+            layer.msg("请及时上传付款凭证。。",{icon:1});
+            window.location="<?php echo U('Trade/qd_record');?>";
+        }else if(op_type == 2){
+            layer.msg("请及时确认收款。。",{icon:1});
+            window.location="<?php echo U('Trade/sk_record');?>";
+        }
+    });
 </script>
 
 <script src="/Public/Mobile/js/task/utils.js"></script>

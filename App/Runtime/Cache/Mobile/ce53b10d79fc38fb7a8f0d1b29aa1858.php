@@ -28,6 +28,7 @@
     <link type="text/css" rel="stylesheet" href="/Public/Mobile/css/task/style.css" />
     <script src="/Public/Mobile/js/task/jquery1.10.2.min.js"></script>
     <script src="/Public/Mobile/js/task/fontSize.js"></script>
+    <!--<script src="/Public/Mobile/js/layer_mobile/layer.js"></script>-->
     <script src="/Public/Mobile/js/layer/layer.js"></script>
     <script src="/Public/Mobile/js/task/common.js"></script>
 </head>
@@ -47,7 +48,7 @@
                 <?php switch($info['status']): case "0": ?>匹配中<?php break;?>
                     <?php case "1": ?>成功<?php break;?>
                     <?php case "2": ?>等待收款<?php break;?>
-                    <?php case "3": ?>付款失败<?php break; endswitch;?>
+                    <?php case "3": ?>收款被拒<?php break; endswitch;?>
             </p>
             <img src="<?php echo ($info["img"]); ?>" alt="暂无凭证">
         </div>

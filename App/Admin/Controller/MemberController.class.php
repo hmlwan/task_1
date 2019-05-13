@@ -182,6 +182,7 @@ class MemberController extends AdminController {
             }
             $info = $sk_info[0];
             $info['fk_id'] = $res['member_id'];
+            $info['img'] = $res['img'];
 
             $this->assign('info',$info);
             $this->display();

@@ -24,13 +24,13 @@
     <!--如果用户装了谷歌浏览器，用ie浏览时使用谷歌内核-->
     <!--<meta http-equiv=”X-UA-Compatible” content=”IE=edge,chrome=1″/>-->
     <!--css文件-->
-    <link type="text/css" rel="stylesheet" href="/Public/Mobile/css/task/reset.css" />
-    <link type="text/css" rel="stylesheet" href="/Public/Mobile/css/task/style.css" />
-    <script src="/Public/Mobile/js/task/jquery1.10.2.min.js"></script>
-    <script src="/Public/Mobile/js/task/fontSize.js"></script>
-    <!--<script src="/Public/Mobile/js/layer_mobile/layer.js"></script>-->
-    <script src="/Public/Mobile/js/layer/layer.js"></script>
-    <script src="/Public/Mobile/js/task/common.js?randomId=<?php echo ($random_math); ?>"></script>
+    <link type="text/css" rel="stylesheet" href="/project/task_1/Public/Mobile/css/task/reset.css" />
+    <link type="text/css" rel="stylesheet" href="/project/task_1/Public/Mobile/css/task/style.css" />
+    <script src="/project/task_1/Public/Mobile/js/task/jquery1.10.2.min.js"></script>
+    <script src="/project/task_1/Public/Mobile/js/task/fontSize.js"></script>
+    <!--<script src="/project/task_1/Public/Mobile/js/layer_mobile/layer.js"></script>-->
+    <script src="/project/task_1/Public/Mobile/js/layer/layer.js"></script>
+    <script src="/project/task_1/Public/Mobile/js/task/common.js"></script>
 </head>
 
 <body>
@@ -51,7 +51,7 @@
         </div>
     </div>
 </div>
-<script src="/Public/Mobile/js/task/utils.js"></script>
+<script src="/project/task_1/Public/Mobile/js/task/utils.js"></script>
 
 </body>
 </htm
