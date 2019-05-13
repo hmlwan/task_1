@@ -30,7 +30,7 @@
     <script src="/Public/Mobile/js/task/fontSize.js"></script>
     <!--<script src="/Public/Mobile/js/layer_mobile/layer.js"></script>-->
     <script src="/Public/Mobile/js/layer/layer.js"></script>
-    <script src="/Public/Mobile/js/task/common.js"></script>
+    <script src="/Public/Mobile/js/task/common.js?randomId=<?php echo ($random_math); ?>"></script>
 </head>
 
 <body>

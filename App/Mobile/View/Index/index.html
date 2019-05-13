@@ -1,5 +1,5 @@
 <include file="Public:header"/>
-<body style="background-color: #eaf8f8;">
+<body>
 <div>
     <header>
         <div class="gwc_bt">
@@ -8,6 +8,9 @@
         </div>
         <div style="height: .74rem;clear: both;"></div>
     </header>
+    <div class="main_page">
+        <img src="__IMG__/task/login_bgk.png" alt="">
+    </div>
     <input type="hidden" name="member_id" value="{$member_id}">
     <input type="hidden" name="username" value="{$username}">
     <input type="hidden" name="head" value="{$head}">
@@ -28,38 +31,22 @@
             </div>
         </div>
     </div>
-    <div class="new_wyqd">
+    <div class="wyqd">
         <volist name="list" id="vo">
-            <div class="new_item">
-                <div class="new_fb">
-                    <p class="qd_op" onclick="qiandan({$vo.id},1)">发布</p>
-                    <p class="ss_status">
-                        <span>搜索状态</span>
-                        <span class="op_res">
-                            <if condition="$vo['qd_status'] eq 1">
-                                <a href="{:U('Trade/pay_fk',array('task_id'=>$vo['id']))}">搜索成功</a>
-                            <elseif condition="$vo['qd_status'] eq 2" />
-                                搜索中
-                            <else />
-                                ---
-                            </if>
-                        </span>
-                    </p>
-                </div>
-                <div class="new_sq">
-                    <p class="qd_op" onclick="qiandan({$vo.id},2)">收取</p>
-                    <p class="ss_status">
-                        <span>搜索状态</span>
-                        <span class="op_res">
-                            <if condition="$vo['sk_status'] eq 1">
-                                <a href="{:U('Trade/pay_sk',array('task_id'=>$vo['id']))}">搜索成功</a>
-                            <elseif condition="$vo['sk_status'] eq 2" />
-                                搜索中
-                            <else />
-                                ---
-                            </if>
-                        </span>
-                    </p>
+            <div class="wyqd_item index_page">
+                <div class="jltext">
+                    <a href="javascript:;">
+                        <img src="{$vo.logo_img}" alt="">
+                        <div class="jltext_top">
+                            <span class="jl_title">{$vo.title}</span>
+                            <span class="jl_time">{$vo.reward}</span>
+                        </div>
+                        <div class="jltext_top" style=" font-size:.24rem ;color: #dadada;">
+                            <span  class="jl_title">{$vo.create_time|date="Y-m-d",###}</span>
+                            <span  class="jl_time qd" onclick="qiandan({$vo.id},1)">抢单</span>
+                            <span  class="jl_time fk" onclick="qiandan({$vo.id},2)">收款</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </volist>
@@ -100,16 +87,20 @@
             console.log(data);
             /*匹配成功*/
             if(data['status'] == 1){
-                layer.msg("已匹配抢单者，请及时领取...",{icon:1});
-                window.location="{:U('Login/index')}";
+                $(".qd_user").find('.mem_head').attr('src',data['data']['head']);
+                $(".qd_user").find('.mem_username').html(data['data']['username']);
+                $(".qd_user").find('.mem_phone').html(data['data']['phone']);
+                $(".qd_user").find('.qd_tips_confirm').attr("data-op_type",data['data']['op_type']);
+                $(".qd_tips").show();
+                $(".is_zhezhao").attr('class',"is_zhezhao zhezhao");
+
             }else if(data['status'] == 2){  /*未匹配成功*/
-                layer.msg("正在匹配中，请等待...",{icon:1});
+                layer.msg("正在匹配中，请等待...");
             }else if(data['status'] ==3){  /*先登录*/
                 layer.msg("请先去登录...");
                 window.location="{:U('Login/index')}";
-            }else if(data['status'] == 4){  /*跳转发布页面*/
-                window.location=data.info;
-            } else{
+            }
+            else{
                 layer.msg(data['info']);
             }
         })
@@ -127,6 +118,32 @@
             window.location="{:U('Trade/sk_record')}";
         }
     });
+    var member_id = $("input[name='member_id']").val();
+    /*匹配付款/执行者*/
+    if(member_id > 0){
+        var phone = $("input[name='phone']").val();
+        var username = $("input[name='username']").val();
+        var head = $("input[name='head']").val();
+        var type = $("input[name='type']").val();
+
+        if(type == 1){ /*匹配到收款者*/
+            $(".qd_user").find('.mem_head').attr('src',head);
+            $(".qd_user").find('.mem_username').html(username);
+            $(".qd_user").find('.mem_phone').html(phone);
+            $(".qd_user").find('.qd_tips_confirm').attr("data-op_type",2);
+            $(".qd_tips").show();
+            $(".is_zhezhao").attr('class',"is_zhezhao zhezhao");
+            $(".qd_tips").find('h2').text("已匹配到收款者");
+        }else if(type == 2){  /*匹配到抢单者*/
+            $(".qd_user").find('.mem_head').attr('src',head);
+            $(".qd_user").find('.mem_username').html(username);
+            $(".qd_user").find('.mem_phone').html(phone);
+            $(".qd_user").find('.qd_tips_confirm').attr("data-op_type",2);
+            $(".qd_tips").show();
+            $(".is_zhezhao").attr('class',"is_zhezhao zhezhao");
+            $(".qd_tips").find('h2').text("已匹配到执行者");
+        }
+    }
 </script>
 
 

@@ -28,7 +28,6 @@
     <link type="text/css" rel="stylesheet" href="/Public/Mobile/css/task/style.css" />
     <script src="/Public/Mobile/js/task/jquery1.10.2.min.js"></script>
     <script src="/Public/Mobile/js/task/fontSize.js"></script>
-    <!--<script src="/Public/Mobile/js/layer_mobile/layer.js"></script>-->
     <script src="/Public/Mobile/js/layer/layer.js"></script>
     <script src="/Public/Mobile/js/task/common.js"></script>
 </head>

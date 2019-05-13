@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2019-05-11 18:21:04
+Date: 2019-03-26 21:17:48
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -3652,14 +3652,13 @@ CREATE TABLE `blue_deposit_auth` (
   `op_time` int(10) DEFAULT NULL COMMENT '操作时间',
   `pay_type` tinyint(4) DEFAULT '1' COMMENT '支付类型 1：支付宝支付 2：微信支付',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='审核';
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='审核';
 
 -- ----------------------------
 -- Records of blue_deposit_auth
 -- ----------------------------
 INSERT INTO `blue_deposit_auth` VALUES ('1', '1', '/Uploads/Public/Uploads/2019-03-16/5c8cb67ab2d8e.jpg', '500.00', '1', '1552725248', '1', '1552725986', null);
 INSERT INTO `blue_deposit_auth` VALUES ('2', '2', '/Uploads/Public/Uploads/2019-03-17/5c8de7c9e5043.jpg', '500.00', '2', '1552803795', null, null, null);
-INSERT INTO `blue_deposit_auth` VALUES ('3', '3', '/Uploads/Public/Uploads/2019-04-08/5caad30a13bc8.jpg', '500.00', '1', '1554699020', null, null, '1');
 
 -- ----------------------------
 -- Table structure for `blue_finance`
@@ -3720,14 +3719,13 @@ CREATE TABLE `blue_member` (
   `status` tinyint(4) DEFAULT '0' COMMENT '0:未注册成功 1：注册成功',
   PRIMARY KEY (`member_id`),
   KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of blue_member
 -- ----------------------------
-INSERT INTO `blue_member` VALUES ('1', '15179811531', 'e10adc3949ba59abbe56e057f20f883e', '123456', null, null, '15179811531', '127.0.0.1', '1541485460', '127.0.0.1', '1557549041', '0.00000000', '0.00000000', '0', '1');
-INSERT INTO `blue_member` VALUES ('2', '雪中行者', 'e10adc3949ba59abbe56e057f20f883e', '1', null, null, '15179811532', '127.0.0.1', '1552803578', '127.0.0.1', '1557282604', '0.00000000', '0.00000000', '0', '1');
-INSERT INTO `blue_member` VALUES ('3', 'hmlwan', 'e10adc3949ba59abbe56e057f20f883e', '', null, null, '15179811533', '127.0.0.1', '1553675597', '127.0.0.1', '1557558976', '0.00000000', '0.00000000', '0', '1');
+INSERT INTO `blue_member` VALUES ('1', '15179811531', 'e10adc3949ba59abbe56e057f20f883e', '123456', null, null, '15179811531', '127.0.0.1', '1541485460', '127.0.0.1', '1553480343', '0.00000000', '0.00000000', '0', '1');
+INSERT INTO `blue_member` VALUES ('2', '雪中行者', 'e807f1fcf82d132f9bb018ca6738a19f', '1', null, null, '15179811532', '127.0.0.1', '1552803578', '127.0.0.1', '1553005917', '0.00000000', '0.00000000', '0', '1');
 
 -- ----------------------------
 -- Table structure for `blue_member_bank`
@@ -3763,13 +3761,11 @@ CREATE TABLE `blue_member_fg` (
   `type` tinyint(4) DEFAULT NULL COMMENT '类型 1：执行者 2：付款者',
   `fg_num` int(11) DEFAULT '0' COMMENT '复购次数',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of blue_member_fg
 -- ----------------------------
-INSERT INTO `blue_member_fg` VALUES ('1', '3', '5', '2', '0');
-INSERT INTO `blue_member_fg` VALUES ('2', '1', '5', '1', '0');
 
 -- ----------------------------
 -- Table structure for `blue_member_info`
@@ -3798,14 +3794,13 @@ CREATE TABLE `blue_member_info` (
   `is_exceed_push_num` tinyint(4) DEFAULT '0' COMMENT '是否超过推广人数 0:否 1：是',
   `promote_money` decimal(20,2) DEFAULT '0.00' COMMENT '推广获得金额',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='用户个人基本信息';
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='用户个人基本信息';
 
 -- ----------------------------
 -- Records of blue_member_info
 -- ----------------------------
-INSERT INTO `blue_member_info` VALUES ('1', '1', '0.00', '2', '200.00', '1', null, '0', '/Uploads/Public/Uploads/2019-03-16/5c8cbf75022a0.jpg', '/Uploads/Public/Uploads/2019-03-28/5c9c3053f2037.jpg', '/Uploads/Public/Uploads/2019-03-16/5c8cbf7e3819a.jpg', '3', '3', '0', '1', '0', null, '1557549042', null, null, null);
+INSERT INTO `blue_member_info` VALUES ('1', '1', '0.00', '3', '200.00', '1', null, '0', '/Uploads/Public/Uploads/2019-03-16/5c8cbf75022a0.jpg', '/Uploads/Public/Uploads/2019-03-16/5c8cbf8172876.jpg', '/Uploads/Public/Uploads/2019-03-16/5c8cbf7e3819a.jpg', '3', '3', '0', '1', '0', null, '1553480345', null, null, null);
 INSERT INTO `blue_member_info` VALUES ('2', '2', '20.00', '0', '0.00', '0', '0.00', '0', '/Uploads/Public/Uploads/2019-03-17/5c8de77359b22.jpg', '/Uploads/Public/Uploads/2019-03-17/5c8de7830d6b3.jpg', '/Uploads/Public/Uploads/2019-03-17/5c8de77aa31dc.jpg', '0', '0', '0', '1', '0', null, null, null, null, null);
-INSERT INTO `blue_member_info` VALUES ('3', '3', '0.00', '3', '200.00', '1', '0.00', '0', '/Uploads/Public/Uploads/2019-04-08/5caad2ebc1504.jpg', '/Uploads/Public/Uploads/2019-04-08/5caad2f33af95.jpg', '/Uploads/Public/Uploads/2019-04-08/5caad2f013588.jpg', '3', '3', '0', '0', '0', null, '1557559106', '0', '0', '0.00');
 
 -- ----------------------------
 -- Table structure for `blue_member_trade_record`
@@ -3909,13 +3904,12 @@ CREATE TABLE `blue_qd_record` (
   `sk_fg_num` tinyint(20) DEFAULT '0' COMMENT '收款复购倍数',
   `pay_type` tinyint(4) DEFAULT '1' COMMENT '1:支付宝 2：微信',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='抢单记录变';
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='抢单记录变';
 
 -- ----------------------------
 -- Records of blue_qd_record
 -- ----------------------------
 INSERT INTO `blue_qd_record` VALUES ('1', '1', '2', '0', '200.00', '0', '1', '1552803912', '/Uploads/Public/Uploads/2019-03-17/5c8de77359b22.jpg', null, null);
-INSERT INTO `blue_qd_record` VALUES ('5', '1', '3', '5', '500.00', '0', '2', '1557560351', '/Uploads/Public/Uploads/2019-05-11/5cd69c412854d.jpg', '0', '1');
 
 -- ----------------------------
 -- Table structure for `blue_transfer_record`

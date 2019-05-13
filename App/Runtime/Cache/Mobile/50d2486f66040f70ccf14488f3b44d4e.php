@@ -28,32 +28,67 @@
     <link type="text/css" rel="stylesheet" href="/Public/Mobile/css/task/style.css" />
     <script src="/Public/Mobile/js/task/jquery1.10.2.min.js"></script>
     <script src="/Public/Mobile/js/task/fontSize.js"></script>
-    <!--<script src="/Public/Mobile/js/layer_mobile/layer.js"></script>-->
     <script src="/Public/Mobile/js/layer/layer.js"></script>
     <script src="/Public/Mobile/js/task/common.js"></script>
 </head>
 
-<body class="new_fb_bgk" >
+<body>
 <div  class="d_line">
     <header>
-        <div class="gwc_bt" style="background-color: #7497f7;border-bottom: #7497f7 .2rem solid">
+        <div class="gwc_bt">
             <div class="gwcbt_fh"><a href="javascript:history.back()" class="gwcdd_fh"></a></div>
-            <div class="gwcbt_mc" style="color: #ffffff;">收款详情</div>
+            <div class="gwcbt_mc">收款详情</div>
         </div>
-        <div style="height: .96rem;clear: both; " ></div>
+        <div style="height: .96rem;clear: both;"></div>
     </header>
-    <div class="new_qdxq">
-        <div class="pay_logo"><img src="/Public/Mobile/images/task/yhk_vximg1.png" alt=""></div>
-        <div class="pay_img"><img src="/Public/Mobile/images/task/zfb.jpg" alt=""></div>
-        <p>
-            <span class="new_fb_concell">取消</span>
-            <span class="new_fb_confirm">确定</span>
-        </p>
+    <div class="qdxq">
+        <div class="qrcode">
+            <p>
+                <?php switch($info['status']): case "0": ?>匹配中<?php break;?>
+                    <?php case "1": ?>成功<?php break;?>
+                    <?php case "2": ?>等待收款<?php break;?>
+                    <?php case "3": ?>收款失败<?php break; endswitch;?>
+            </p>
+            <img src="<?php echo ($info["img"]); ?>" alt="暂无凭证">
+        </div>
+        <div class="qdxq_item">
+            <span class="qdxq_left">任务标题</span>
+            <span class="qdxq_right">
+                <?php if($info['task_id'] > 0): echo ($info["task_title"]); ?>
+                <?php else: ?>
+                    系统匹配<?php endif; ?>
+            </span>
+        </div>
+        <div class="qdxq_item">
+            <span class="qdxq_left">交易类型</span>
+            <span class="qdxq_right">收款</span>
+        </div>
+
+        <div class="qdxq_item">
+            <span class="qdxq_left">匹配者</span>
+            <span class="qdxq_right"><?php echo ($info["fk_name"]); ?></span>
+        </div>
+        <div class="qdxq_item">
+            <span class="qdxq_left">交易金额</span>
+            <span class="qdxq_right"><?php echo ($info["reward"]); ?></span>
+        </div>
+        <div class="qdxq_item">
+            <span class="qdxq_left">佣金</span>
+            <span class="qdxq_right"><?php echo ($info["commision"]); ?></span>
+        </div>
+        <div class="qdxq_item">
+            <span class="qdxq_left">创建时间</span>
+            <span class="qdxq_right"><?php echo (date("Y-m-d H:i:s",$info["create_time"])); ?></span>
+        </div>
+        <?php if($info['status'] == 1 ): ?><div class="sk_btn">
+                <span class="sk_btn_confirm" onclick="submit(<?php echo ($info["id"]); ?>,1)">确&nbsp;认</span>
+                <span class="sk_btn_concel" onclick="submit(<?php echo ($info["id"]); ?>,3)">拒&nbsp;绝</span>
+            </div><?php endif; ?>
     </div>
 </div>
 <script>
 
-    function sub(id,status) {
+    function submit(id,status) {
         $.post("<?php echo U('Trade/confirm_sk');?>",
             {'id':id,status:status},function(d){
                 if(d.status == 1){

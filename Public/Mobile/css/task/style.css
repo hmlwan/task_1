@@ -496,12 +496,12 @@ form input{
     float: left;
     width: 100%;
     padding-top: .4rem;
-    height: auto;
+    height: .5rem;
     line-height: .5rem;
 }
 .zffs img{
-    height: 1rem;
-    width: 2.5rem;
+    height: .5rem;
+    width: .5rem;
     float: left;
 }
 .zffs span{
@@ -962,8 +962,9 @@ form input{
 .rwzm{
     width: 100%;
     height:100%;
-    background: url(../../images/task/bg.jpg) no-repeat;
     background-size: 100%;
+    background: url(../../images/task/bg.jpg) no-repeat;
+    background-size:100% 100%;
     background-attachment:fixed;
 }
 .rwzm .task_tips{
@@ -981,136 +982,13 @@ form input{
     margin-left: .8rem;
 }
 
-/*首页新页面*/
-.new_wyqd{
-    width: 100%;
-    height: auto;
-}
-.new_item{
-    width: 96%;
-    margin: 0 auto;
-}
-.new_fb{
-    width: 100%;
-    height: 3rem;
-    background: url("../../images/task/task_1.png") no-repeat ;
-    background-size: 100%;
-    margin-top: .2rem;
-}
-.new_sq{
-    width: 100%;
-    height: 3rem;
-    background: url("../../images/task/task_2.png") no-repeat ;
-    background-size: 100%;
-    margin-top: .2rem;
-}
-.new_item div .qd_op{
-    color:#fff;
-    font-size: .285rem;
-    padding-top: .7rem; ;
-    padding-left: 1.4rem;
-}
-.new_item div .ss_status{
-    color:#fff;
-    font-size: .28rem;
-    padding-top: .5rem;
-    padding-left: .5rem;
-}
-.new_item div .ss_status .op_res{
-    padding-left: 1.2rem;
-    color:#ff0000;
-}
-/*收款子页面*/
 
-.new_sk ,.new_fk{
-    width: 100%;
-    height: auto;
-}
-.new_sk_bgk{
-    width: 100%;
-    background: url("../../images/task/new_sk.png") no-repeat;
-    background-size: 100%;
-}
-.new_sk div,.new_fk div{
-    margin: 0 auto;
-    text-align: center;
-}
-.new_sk .pay_logo img{
-    height: 1rem;
-    width: 3rem;
-    margin-top: .5rem;
-}
-.new_sk .pay_img img{
-    height: 3.2rem;
-    width: 3.2rem;
-    border-radius: 50%;
-    margin-top: .9rem;
-}
-.new_btn{
-    margin-top: 3.6rem;
-    color:#6267dd;
-    margin-left: 1.3rem;
-}
-.new_btn .new_fb_confirm{
-    margin-left: 2.8rem;
 
-}
-/*发布子页面*/
-.new_fk_bgk{
-    width: 100%;
-    background: url("../../images/task/new_fk.png") no-repeat;
-    background-size: 100%;
-}
-.new_fk .pay_logo p{
-    color:#fff;
-    margin-bottom:.3rem ;
-}
-.new_fk .pay_logo img{
-    width: 3.5rem;
-    height: 1.2rem;
-}
-.new_fk .pay_logo em{
-    margin-bottom: .3rem;
-    display: inline-block;
-}
-.new_fk .pay_logo .right_roll{
-    height: .5rem;
-    width: .5rem;
-    background: url("../../images/task/suc_right_arrow.png") no-repeat center ;
-    background-size: 50%;
 
-}
-.new_fk .pay_logo .left_roll{
-    height: .5rem;
-    width: .5rem;
-    background: url("../../images/task/suc_left_arrow.png") no-repeat center ;
-    background-size: 50%;
-}
-.new_fk .upload_bgk{
-    margin-top: 1rem;
-}
-.new_fk .upload_bgk .upload-input{
-    background: none;
 
-    margin-top: .25rem;
-}
-.new_fk .upload_bgk .upload-input img{
-    width: 1.4rem;
-    height: 1.4rem;
-    display: inline-block;
-    margin-left: -.1rem;
-}
-.new_fk .upload_bgk p{
-    color:#646de0;
-    font-size: .3rem;
-}
-.upload_proof{
-    text-align: center;
-    padding-top: 2rem;
-}
-.upload_proof span:first-child {
-    margin-right:.5rem ;
-}
+
+
+
 
 
 

@@ -10,6 +10,7 @@ namespace Mobile\Controller;
 use Home\Controller\HomeController;
 class FullInfoController extends  HomeController
 {
+
     /*个人信息*/
     public function full_info(){
         $model = M('member_info');
@@ -124,89 +125,8 @@ class FullInfoController extends  HomeController
             }
         }else{
             $id = I('get.id');
-            if($id){
-                $sk_id = M('qd_record')->where(array('id'=>$id))->getField('sk_id');
-                $member_info = M('member_info')->where(array('member_id'=>$sk_id))->find();
-                $zfb_qrcode = $member_info['alipay_logo'];
-                $wx_qrcode = $member_info['wechat_logo'];
-
-            }else{
-                $zfb_qrcode = $this->config['zfb_qrcode'];
-                $wx_qrcode = $this->config['wx_qrcode'];
-            }
             $this->assign('id',$id);
-            $this->assign('zfb_qrcode',$zfb_qrcode);
-            $this->assign('wx_qrcode',$wx_qrcode);
             $this->display();
         }
-    }
-
-    /*发布*/
-    public function pay_pub(){
-
-        if(IS_POST){
-            $member_id = $_SESSION['USER_KEY_ID'];
-            $pay_money = I('pay_money');
-            $pay_type = I('pay_type');
-            $task_id = I('task_id');
-            $type = I('type');
-            $qd_model = M('qd_record');
-
-            $qd_data = array(
-                'task_id' => $task_id,
-                'reward' => $pay_money,
-                'fg_num' => 0,
-                'status' => 0,
-                'fk_id'=> $member_id,
-                'pay_type' => $pay_type
-            );
-            /*找寻收款者*/
-            $sk_info = $qd_model
-                ->where(array('sk_id'=>array('neq',$member_id),'status'=>0))
-                ->order('rand()')
-                ->limit(1)
-                ->select();
-            if($sk_info){
-                $qd_data['sk_id'] = $sk_info[0]['sk_id'];
-                $qd_data['status'] = 2;
-                $qd_data['create_time'] = time();
-                $res = $qd_model->where(array("id"=>$sk_info[0]['id']))->save($qd_data);
-                $info = "已匹配收款者，请及时上传凭证...";
-            }else{
-                $qd_data['status'] = 0;
-                $qd_data['create_time'] = time();
-                $res = $qd_model->add($qd_data);
-                $info = "正在匹配中，请等待...";
-            }
-            if(false !== $res){
-                /*减一个星星*/
-                M("member_info")->where(array('member_id'=>$member_id))->setDec('stars',1);
-
-                if(!M("member_fg")->where(array('member_id'=>$member_id,'task_id'=>$task_id, 'type'=>1))->find()){
-                    M("member_fg")->add(array(
-                        'member_id'=>$member_id,
-                        'task_id'=>$task_id,
-                        'type'=>1,
-                        'fg_num'=>0));
-                }
-
-                $data['status'] = 1;
-                $data['info'] = $info;
-                $this->ajaxReturn($data);
-            }else{
-                $data['status'] = 0;
-                $data['info'] = "操作失败";
-                $this->ajaxReturn($data);
-            }
-        }else{
-            $task_id = I('task_id');
-            $type = I('type');
-
-            $this->assign('task_id',$task_id);
-            $this->assign('type',$type);
-            $this->display();
-
-        }
-
     }
 }

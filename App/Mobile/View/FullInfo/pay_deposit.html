@@ -17,12 +17,12 @@
             <input type="hidden"  id="id" name="id" value="{$id}">
             <div class="fk_qrcode">
                 <div class="zfb_qrcode">
-                    <span><if condition="$zfb_qrcode">支付宝</if></span>
-                    <img src="{$zfb_qrcode}" alt="">
+                    <span><if condition="$config['zfb_qrcode']">支付宝</if></span>
+                    <img src="{$config.zfb_qrcode}" alt="">
                 </div>
                 <div class="wx_qrcode">
-                    <span><if condition="$wx_qrcode">微信</if></span>
-                    <img src="{$wx_qrcode}" alt="">
+                    <span><if condition="$config['wx_qrcode']">微信</if></span>
+                    <img src="{$config.wx_qrcode}" alt="">
                 </div>
             </div>
             <div class="je_text">
@@ -36,12 +36,8 @@
             </div>
             <div class="je_text zffs">
                 <h2>支付方式</h2>
-                <p><img src="__IMG__/task/yhk_zfbimg1.png" alt="">
-                    <!--<span>支付宝支付</span>-->
-                    <em data-pay_type="1" class="gou_active"></em></p>
-                <p><img src="__IMG__/task/yhk_vximg1.png" alt="">
-                    <!--<span>微信支付</span>-->
-                    <em data-pay_type="2"></em></p>
+                <p><img src="__IMG__/task/yhk_zfbimg.png" alt=""><span>支付宝支付</span><em data-pay_type="1" class="gou_active"></em></p>
+                <p><img src="__IMG__/task/yhk_vximg.png" alt=""><span>微信支付</span><em data-pay_type="2"></em></p>
             </div>
             <div class="je_text scpz">
                 <h2>上传凭证</h2>
@@ -58,12 +54,12 @@
 </div>
 <script src="__JS__/task/lrz.min.js"></script>
 <script>
-//    $(".je_text").find(".je_num span").click(function () {
-//        $(this).siblings('span').attr('class','');
-//        $(this).attr('class','active');
-//        var money = $(this).data('money');
-//        $("input[name='pay_money']").val(money);
-//    });
+    $(".je_text").find(".je_num span").click(function () {
+        $(this).siblings('span').attr('class','');
+        $(this).attr('class','active');
+        var money = $(this).data('money');
+        $("input[name='pay_money']").val(money);
+    });
     $(".zffs").find("p em").click(function () {
         $(this).parent('p').siblings('p').find('em').attr('class','');
         $(this).attr('class','gou_active');
