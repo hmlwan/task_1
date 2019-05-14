@@ -29,16 +29,26 @@
     <splitter split-orientation="horizontal" split-proportion="0.6270872">
       <split-first>
         <leaf>
-          <file leaf-file-name="pay_sk.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="pay_sk.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/App/Mobile/View/Trade/pay_sk.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="550">
-                  <caret line="90" column="35" lean-forward="false" selection-start-line="90" selection-start-column="35" selection-end-line="90" selection-end-column="35" />
+                <state relative-caret-position="193">
+                  <caret line="74" column="42" lean-forward="true" selection-start-line="74" selection-start-column="42" selection-end-line="74" selection-end-column="42" />
                   <folding>
                     <element signature="n#style#0;n#div#0;n#header#0;n#div#0;n#body#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#!!top" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CommonController.class.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/App/Common/Controller/CommonController.class.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="420">
+                  <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -170,7 +180,6 @@
         <option value="$PROJECT_DIR$/App/Mobile/View/FullInfo/pay_deposit.html" />
         <option value="$PROJECT_DIR$/App/Mobile/View/FullInfo/pay_pub.html" />
         <option value="$PROJECT_DIR$/App/Mobile/Controller/FullInfoController.class.php" />
-        <option value="$PROJECT_DIR$/App/Common/Controller/CommonController.class.php" />
         <option value="$PROJECT_DIR$/App/Mobile/View/Task/index.html" />
         <option value="$PROJECT_DIR$/App/Mobile/View/Member/index.html" />
         <option value="$PROJECT_DIR$/App/Mobile/View/Trade/sk_detail.html" />
@@ -190,6 +199,7 @@
         <option value="$PROJECT_DIR$/App/Admin/View/Member/add_member_priority.html" />
         <option value="$PROJECT_DIR$/Public/Mobile/css/task/style.css" />
         <option value="$PROJECT_DIR$/App/Mobile/View/Trade/pay_sk.html" />
+        <option value="$PROJECT_DIR$/App/Common/Controller/CommonController.class.php" />
       </list>
     </option>
   </component>
@@ -349,6 +359,46 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Index" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="task_1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="task_1" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Common" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="task_1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="task_1" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Common" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -537,12 +587,12 @@
       <workItem from="1557230726762" duration="8288000" />
       <workItem from="1557548377391" duration="18363000" />
       <workItem from="1557589796990" duration="8296000" />
-      <workItem from="1557803765610" duration="5246000" />
+      <workItem from="1557803765610" duration="5469000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1063295000" />
+    <option name="totallyTimeSpent" value="1063518000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -822,13 +872,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/Common/Controller/CommonController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="29" column="12" lean-forward="false" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App/Mobile/View/Task/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="401">
@@ -1002,13 +1045,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Mobile/View/Trade/pay_sk.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="90" column="35" lean-forward="false" selection-start-line="90" selection-start-column="35" selection-end-line="90" selection-end-column="35" />
+        <state relative-caret-position="193">
+          <caret line="74" column="42" lean-forward="true" selection-start-line="74" selection-start-column="42" selection-end-line="74" selection-end-column="42" />
           <folding>
             <element signature="n#style#0;n#div#0;n#header#0;n#div#0;n#body#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Common/Controller/CommonController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
