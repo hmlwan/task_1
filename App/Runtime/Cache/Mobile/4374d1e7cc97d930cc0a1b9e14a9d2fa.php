@@ -59,7 +59,7 @@
                    (押金审核失败)<?php endif; ?>
            </p>
            <p>
-               <?php $__FOR_START_19308__=1;$__FOR_END_19308__=6;for($i=$__FOR_START_19308__;$i < $__FOR_END_19308__;$i+=1){ if($list['stars'] >= $i): ?><img src="/Public/Mobile/images/task/stared.png" alt="">
+               <?php $__FOR_START_22835__=1;$__FOR_END_22835__=6;for($i=$__FOR_START_22835__;$i < $__FOR_END_22835__;$i+=1){ if($list['stars'] >= $i): ?><img src="/Public/Mobile/images/task/stared.png" alt="">
                      <?php else: ?>
                         <img src="/Public/Mobile/images/task/star.png" alt=""><?php endif; } ?>
            </p>

@@ -48,6 +48,10 @@
         <p class="cont"><span>00.00</span> 佣金</p>
         <p class="qr_btn">确认提交</p>
     </div>
+    <div class="big_qd_img" style="display:none ">
+        <img src="<?php echo ($qd_record_info["img"]); ?>" alt="">
+    </div>
+    
     <div class="new_sk">
 
         <input type="hidden" name="id"  value="<?php echo ($qd_record_info["id"]); ?>">
@@ -57,7 +61,8 @@
             <?php else: ?>
                 <img src="/Public/Mobile/images/task/yhk_vximg1.png" alt=""><?php endif; ?>
         </div>
-        <div class="pay_img" style="height: 3.2rem;width: 3.2rem;margin-top: .9rem;"><img src="<?php echo ($qd_record_info["img"]); ?>" alt=""></div>
+        <div class="pay_img" style="height: 3.2rem;width: 3.2rem;margin-top: .9rem;">
+            <img src="<?php echo ($qd_record_info["img"]); ?>" alt=""></div>
         <p class="upload_proof">
             <span>凭证上传</span>
             <span>
@@ -100,8 +105,27 @@
         layer.msg("领取成功",{icon:1});
         $(".comision_item").hide();
         $(".is_zhezhao").attr('class',"is_zhezhao");
+        window.setTimeout(function(){
+            window.location="<?php echo U('Index/index');?>";
+        },2000);
     });
+    $(".pay_img").click(function () {
+        var img = $("input[name='img']").val();
+        console.log(img);
+        if(img){
+            $(".big_qd_img").show();
+            $(".is_zhezhao").attr('class',"is_zhezhao zhezhao");
 
+        }
+    });
+    $(".is_zhezhao").click(function () {
+        $(".big_qd_img").hide();
+        $(".comision_item").hide();
+        $(".is_zhezhao").attr('class',"is_zhezhao");
+    });
+    $(".big_qd_img").click(function () {
+        event.stopPropagation();
+    });
 
 </script>
 <script src="/Public/Mobile/js/task/utils.js"></script>

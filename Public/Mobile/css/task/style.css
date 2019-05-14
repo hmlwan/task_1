@@ -1125,6 +1125,18 @@ form input{
     text-align: center;
     font-size:.3rem ;
 }
+.new_sk_bgk .big_qd_img img {
+    width: 4rem;
+    height:4rem;
+    position: fixed;
+    z-index: 1002;
+    left: 1.2rem;
+    top: 2rem;
+    color: #ffffff;
+    text-align: center;
+}
+
+
 .comision_item h2{
 
     margin-top: .8rem;
