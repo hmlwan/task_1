@@ -32,7 +32,7 @@
           <file leaf-file-name="pay_sk.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/App/Mobile/View/Trade/pay_sk.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1554">
+                <state relative-caret-position="222">
                   <caret line="74" column="42" lean-forward="false" selection-start-line="74" selection-start-column="42" selection-end-line="74" selection-end-column="42" />
                   <folding>
                     <element signature="n#style#0;n#div#0;n#header#0;n#div#0;n#body#0;n#!!top" expanded="true" />
@@ -43,21 +43,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="CommonController.class.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/App/Common/Controller/CommonController.class.php">
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/App/Mobile/View/Promote/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="420">
-                  <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Public/Mobile/css/task/style.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="21987">
-                  <caret line="1047" column="0" lean-forward="false" selection-start-line="1047" selection-start-column="0" selection-end-line="1047" selection-end-column="0" />
+                <state relative-caret-position="462">
+                  <caret line="22" column="35" lean-forward="true" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
                   <folding />
                 </state>
               </provider>
@@ -70,8 +60,8 @@
           <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Public/Mobile/css/task/style.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="741">
-                  <caret line="1142" column="1" lean-forward="false" selection-start-line="1142" selection-start-column="1" selection-end-line="1142" selection-end-column="1" />
+                <state relative-caret-position="426">
+                  <caret line="823" column="12" lean-forward="false" selection-start-line="823" selection-start-column="12" selection-end-line="823" selection-end-column="12" />
                   <folding />
                 </state>
               </provider>
@@ -149,7 +139,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/App/Mobile/Controller/FinanceController.class.php" />
         <option value="$PROJECT_DIR$/App/Mobile/Controller/LoginController.class.php" />
         <option value="$PROJECT_DIR$/App/Home/Controller/HomeController.class.php" />
         <option value="$PROJECT_DIR$/App/Mobile/Controller/RegController.class.php" />
@@ -197,9 +186,10 @@
         <option value="$PROJECT_DIR$/App/Mobile/Model/MemberModel.class.php" />
         <option value="$PROJECT_DIR$/App/Admin/Controller/MemberController.class.php" />
         <option value="$PROJECT_DIR$/App/Admin/View/Member/add_member_priority.html" />
-        <option value="$PROJECT_DIR$/Public/Mobile/css/task/style.css" />
         <option value="$PROJECT_DIR$/App/Mobile/View/Trade/pay_sk.html" />
         <option value="$PROJECT_DIR$/App/Common/Controller/CommonController.class.php" />
+        <option value="$PROJECT_DIR$/App/Mobile/View/Promote/index.html" />
+        <option value="$PROJECT_DIR$/Public/Mobile/css/task/style.css" />
       </list>
     </option>
   </component>
@@ -358,7 +348,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Index" />
+              <option name="myItemId" value="Promote" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -588,12 +578,12 @@
       <workItem from="1557548377391" duration="18363000" />
       <workItem from="1557589796990" duration="8296000" />
       <workItem from="1557803765610" duration="6141000" />
-      <workItem from="1557888866736" duration="48000" />
+      <workItem from="1557888866736" duration="954000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1064238000" />
+    <option name="totallyTimeSpent" value="1065144000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -705,13 +695,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/App/Mobile/Controller/HomeController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App/Mobile/View/Public/footer.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1036,17 +1019,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Public/Mobile/css/task/style.css">
+    <entry file="file://$PROJECT_DIR$/App/Common/Controller/CommonController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21987">
-          <caret line="1047" column="0" lean-forward="false" selection-start-line="1047" selection-start-column="0" selection-end-line="1047" selection-end-column="0" />
+        <state relative-caret-position="462">
+          <caret line="24" column="38" lean-forward="true" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Mobile/View/Trade/pay_sk.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1554">
+        <state relative-caret-position="222">
           <caret line="74" column="42" lean-forward="false" selection-start-line="74" selection-start-column="42" selection-end-line="74" selection-end-column="42" />
           <folding>
             <element signature="n#style#0;n#div#0;n#header#0;n#div#0;n#body#0;n#!!top" expanded="true" />
@@ -1056,10 +1039,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/Common/Controller/CommonController.class.php">
+    <entry file="file://$PROJECT_DIR$/Public/Mobile/css/task/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="426">
+          <caret line="823" column="12" lean-forward="false" selection-start-line="823" selection-start-column="12" selection-end-line="823" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Mobile/View/Promote/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="22" column="35" lean-forward="true" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
           <folding />
         </state>
       </provider>
