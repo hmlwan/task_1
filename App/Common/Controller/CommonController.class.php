@@ -20,7 +20,6 @@ class CommonController extends Controller {
             header("Location: ".U('admin/index/index'));
             exit();
          }
-
          if($_POST){
              foreach ($_POST as $v){
                  // 正则表达式 判断是否有selert语句 如果有提示错误

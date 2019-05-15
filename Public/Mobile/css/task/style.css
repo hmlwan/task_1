@@ -820,13 +820,13 @@ form input{
     height: .7rem;
     width: 30%;
     line-height: .7rem;
-    position: absolute;
+
     bottom:10%;
     background-color: #6bb2f5;
     border-radius: 8px;
     font-size: .26rem;
     color: #ffffff;
-    left: 35%;
+ 
 }
 /*团队信息*/
 .tdxx{

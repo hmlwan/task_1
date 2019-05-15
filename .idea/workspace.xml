@@ -28,12 +28,12 @@
   <component name="FileEditorManager">
     <splitter split-orientation="horizontal" split-proportion="0.6270872">
       <split-first>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="pay_sk.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/App/Mobile/View/Trade/pay_sk.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="193">
-                  <caret line="74" column="42" lean-forward="true" selection-start-line="74" selection-start-column="42" selection-end-line="74" selection-end-column="42" />
+                <state relative-caret-position="1554">
+                  <caret line="74" column="42" lean-forward="false" selection-start-line="74" selection-start-column="42" selection-end-line="74" selection-end-column="42" />
                   <folding>
                     <element signature="n#style#0;n#div#0;n#header#0;n#div#0;n#body#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#!!top" expanded="true" />
@@ -47,7 +47,7 @@
             <entry file="file://$PROJECT_DIR$/App/Common/Controller/CommonController.class.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="420">
-                  <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+                  <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -56,7 +56,7 @@
           <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Public/Mobile/css/task/style.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="741">
+                <state relative-caret-position="21987">
                   <caret line="1047" column="0" lean-forward="false" selection-start-line="1047" selection-start-column="0" selection-end-line="1047" selection-end-column="0" />
                   <folding />
                 </state>
@@ -66,12 +66,12 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Public/Mobile/css/task/style.css">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="741">
-                  <caret line="1142" column="1" lean-forward="true" selection-start-line="1142" selection-start-column="1" selection-end-line="1142" selection-end-column="1" />
+                  <caret line="1142" column="1" lean-forward="false" selection-start-line="1142" selection-start-column="1" selection-end-line="1142" selection-end-column="1" />
                   <folding />
                 </state>
               </provider>
@@ -587,18 +587,19 @@
       <workItem from="1557230726762" duration="8288000" />
       <workItem from="1557548377391" duration="18363000" />
       <workItem from="1557589796990" duration="8296000" />
-      <workItem from="1557803765610" duration="5469000" />
+      <workItem from="1557803765610" duration="6141000" />
+      <workItem from="1557888866736" duration="48000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1063518000" />
+    <option name="totallyTimeSpent" value="1064238000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1380597" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13965885" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1037,7 +1038,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Public/Mobile/css/task/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="741">
+        <state relative-caret-position="21987">
           <caret line="1047" column="0" lean-forward="false" selection-start-line="1047" selection-start-column="0" selection-end-line="1047" selection-end-column="0" />
           <folding />
         </state>
@@ -1045,8 +1046,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Mobile/View/Trade/pay_sk.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="74" column="42" lean-forward="true" selection-start-line="74" selection-start-column="42" selection-end-line="74" selection-end-column="42" />
+        <state relative-caret-position="1554">
+          <caret line="74" column="42" lean-forward="false" selection-start-line="74" selection-start-column="42" selection-end-line="74" selection-end-column="42" />
           <folding>
             <element signature="n#style#0;n#div#0;n#header#0;n#div#0;n#body#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#!!top" expanded="true" />
@@ -1058,7 +1059,7 @@
     <entry file="file://$PROJECT_DIR$/App/Common/Controller/CommonController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
