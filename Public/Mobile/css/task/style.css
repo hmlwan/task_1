@@ -1070,6 +1070,10 @@ form input{
     width: 3.5rem;
     height: 1.2rem;
 }
+.new_fk .pay_logo img[src=""], .new_fk .pay_logo img:not([src]){
+	opacity:0
+}
+
 .new_fk .pay_logo em{
     margin-bottom: .3rem;
     display: inline-block;
