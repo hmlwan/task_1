@@ -51,7 +51,6 @@
             layer.msg("抢单者还没有上传凭证，请等待。。");
             return false;
         }
-
         $.post("{:U('Trade/pay_sk')}",
             {'id':id,img:img,status:status},function(d){
                 if(d.status == 1){
